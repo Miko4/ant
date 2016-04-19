@@ -64,7 +64,7 @@ OCAMLDEPFLAGS               = $(OCAMLDEPFLAGS_WITHOUT_CAMLP) $(PP_FLAGS)
 INSTALL_INTERFACES          = true
 
 CAMLIMAGES_DIR     = $(shell ocamlfind query camlimages)
-CAMLIMAGES_CLIBS   = -lgif -ljpeg -ltiff -lfreetype -lpng -lXpm
+CAMLIMAGES_CLIBS   = -ljpeg -lfreetype -lpng
 CAMLIMAGES_MLLIBS  = $(addprefix $(CAMLIMAGES_DIR)/, camlimages_core camlimages_freetype camlimages_gif camlimages_jpeg \
                                                      camlimages_tiff camlimages_png camlimages_xpm camlimages_ps)
 
