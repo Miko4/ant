@@ -1,0 +1,22 @@
+
+UTILS[] = GenHyphTable #Kerning
+
+.SCANNER: scan-ocaml-%: $(MLPP_TARGETS) $(ROOT)/Tools/Tools.$(CMA)
+
+OCamlDependsOnLibrary($(ROOT)/lib/Unicode)
+OCamlDependsOnLibrary($(ROOT)/lib/Runtime)
+
+OCAMLFLAGS += -I .
+
+section
+  OCAML_LIBS = $(ROOT)/Tools/Tools $(ROOT)/lib/Unicode $(ROOT)/lib/Runtime
+  OCAML_OTHER_LIBS = $(CAMLIMAGES_MLLIBS)
+
+  OCamlProgram(GenHyphTable, GenHyphTable)
+
+section
+  OCAML_LIBS = $(ROOT)/Tools/Tools $(ROOT)/lib/Unicode $(ROOT)/lib/Runtime
+
+  OCamlProgram(Kerning, Kerning $(ROOT)/Engine/Job)
+
+# vim:set ft=make:

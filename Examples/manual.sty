@@ -1,0 +1,418 @@
+% style file for the manual
+
+\include{defines.ant}
+\include{references.ant}
+
+% % expansion
+% 
+% \definecommand\defineexpanded[mx]{\definecommand{#1}{#2}}
+% 
+% % references (has been replaced by an AL implementation)
+% 
+% % Commands to generate unique identifiers for use as command names or references.
+% % Each call to |\GetUniqueId| must be preceded by a call to |\NewUniqeId|, and it
+% % must be expanded before the next call to |\NewUniqueId|. Thus, the usage pattern
+% % should be:
+% %
+% %  \NewUniqueId
+% %  \definecommand{\GetUniqueId}{...}
+% %
+% % or
+% %
+% %  \NewUniqueId
+% %  \measureposition{\GetUniqueId}\lookupreference{\GetUniqueId}
+% %
+% \newcounter{unique id}
+% \definecommand\NewUniqueId{\addtocounter{unique id}{1}}
+% \definecommand\GetUniqueId{UId\getcounter{I}{unique id}}
+% 
+% % Accessing components of a tuple.
+% 
+% \definecommand\SelFirstOfTwo[mm]{#1}
+% \definecommand\SelSecondOfTwo[mm]{#2}
+% \definecommand\SelFirstOfThree[mmm]{#1}
+% \definecommand\SelSecondOfThree[mmm]{#2}
+% \definecommand\SelThirdOfThree[mmm]{#3}
+% 
+% % The additional empty groups are needed in the case that the argument is no tuple
+% % of the required size.
+% \definecommand\SelectFirstOfTwo[x]{\SelFirstOfTwo #1{}{}}
+% \definecommand\SelectSecondOfTwo[x]{\SelSecodOfTwo #1{}{}}
+% \definecommand\SelectFirstOfThree[x]{\SelFirstOfThree #1{}{}{}}
+% \definecommand\SelectSecondOfThree[x]{\SelSecodOfThree #1{}{}{}}
+% \definecommand\SelectThirdOfThree[x]{\SelThirdOfThree #1{}{}{}}
+% 
+% % |\currentpage| returns the current page number as arabic number.
+% 
+% \definecommand\currentpage{%
+%   \NewUniqueId
+%   \measureposition{\GetUniqueId}%
+%   \SelectFirstOfThree{\lookupreference{\GetUniqueId}}}
+% 
+% \definecommand\saveposition[m]{%
+%   \NewUniqueId
+%   \measureposition{\GetUniqueId}%
+%   \defineexpanded{#1}{\lookupreference{\GetUniqueId}}}
+
+% table of contents
+
+\defineenvironment{tocentry}{\begingalley{toc}}{\endgalley}
+
+\definecommand\addspacetotoc[m]{%
+  \begin{tocentry}\vskip{#1}\end{tocentry}}
+
+\definecommand\addtotoc[mm]{%
+  \begin{tocentry}%
+    \setparameter{paragraph}{ par-indent = 0pt; par-fill-skip = 0pt }%
+    \normalfont\normalsize
+    #1\quad\dotfill\quad#2\par
+  \end{tocentry}}
+
+\definecommand\tableofcontents{%
+  \par
+  \begin{tocentry}%
+    \setparameter{paragraph}{par-indent = 0pt}%
+    \par
+    \vskip{12pt}%
+    {\large\sffamily\hskip{0pt}\red{}Contents\par}%
+    \vskip{12pt}%
+  \end{tocentry}}
+
+% sections
+
+\newcounter{section}
+\newcounter[section]{subsection}
+\definecommand\thesection{\getcounter{1}{section}}
+\definecommand\thesubsection{\thesection.\getcounter{1}{subsection}}
+\definecommand\section[m]{%
+  \addtocounter{section}{1}%
+  \vskip{12pt plus 72pt}\penalty{-100}\vskip{0pt plus -60pt}%
+  \setmark{Section}{\thesection. #1}%
+  \begingroup
+    \setparameter{paragraph}{par-indent = 0pt}%
+    {\large\sffamily\hskip{0pt}\red{}\thesection. #1\saveposition{\SectionPosition}\par}%
+    \begin{tocentry}\medskip\end{tocentry}%
+    \addtotoc{\thesection. #1}{\SectionPosition}%
+    \begin{tocentry}\smallskip\end{tocentry}%
+  \endgroup
+  \penalty{10000}\vskip{12pt}%
+  \setparameter{this-paragraph}{ par-indent = 0pt }}
+\definecommand\subsection[m]{%
+  \addtocounter{subsection}{1}%
+  \vskip{12pt plus 72pt}\penalty{-100}\vskip{0pt plus -60pt}%
+  \setmark{SubSection}{\thesubsection. #1}%
+  \begingroup
+    \setparameter{paragraph}{par-indent = 0pt}%
+    {\sffamily\hskip{0pt}\red{}\thesubsection. #1\saveposition{\SubSectionPosition}\par}%
+    \addtotoc{\thesubsection. #1}{\SubSectionPosition}%
+  \endgroup
+  \penalty{10000}\vskip{12pt}%
+  \setparameter{this-paragraph}{ par-indent = 0pt }}
+\definecommand\paragraph[m]{%
+  \par
+  \ensurevskip{\medskipamount}%
+  \noindent
+  {\sffamily\red{}#1.}\quad}
+
+% page layout
+
+\include{page-layout.ant}
+
+\definecommand\getglobal[m]{%
+  \ALcommand{
+    local m;
+    do
+      ps_get_global m #1;
+      if not (is_unbound m) then
+        ps_insert_string m
+      end
+    end
+  }}
+\definecommand\therhead{\small\sffamily\red ant \version\hfil\getglobal{NewMarkSection}}
+\definecommand\therfoot{\hfil\sffamily\red --- \getcounter{1}{page} ---\hfil}
+\definecommand\thelhead{\small\sffamily\red\getglobal{NewMarkSection}\hfil ant \version}
+\definecommand\thelfoot{\hfil\sffamily\red --- \getcounter{1}{page} ---\hfil}
+
+\definecommand\setuppagelayout{
+  \ALcommand{
+    local begin
+      (paper_width, paper_height) := get_page_size A_5;
+      column_height := 7/9paper_height;
+      column_width  := 9/12paper_width;
+      main_galley_params :=
+        { Name       := "main"
+        | TopSkip    := 1em
+        | BottomSkip := 1em
+        | MinSize    := 5em
+        | GridSize   := 12pt
+        };
+      toc_galley_params :=
+        { Name       := "toc"
+        | TopSkip    := 1em
+        | BottomSkip := 1em
+        | MinSize    := 5em
+        | GridSize   := 12pt
+        };
+    end
+    do
+      ps_new_galley "toc"  (3/4column_width);
+      ps_new_galley "main" column_width;
+
+      ps_new_page_layout "right" paper_width paper_height;
+
+      ps_new_area "float"
+        (1/12paper_width) (1/9paper_height)
+        column_width column_height 10pt 3pt
+        Float
+        { Alignment  := Top
+        | TopSkip    := 1em
+        | BottomSkip := 1em
+        | FloatSep   := 1em
+        };
+      ps_new_area "footnotes"
+        (1/6paper_width) (1/9paper_height)
+        column_width column_height 10pt 3pt
+        Footnote
+        { TopSkip    := 1em
+        | BottomSkip := 1em
+        | GridSize   := 10pt
+        };
+      ps_new_area "text block"
+        (1/12paper_width) (1/9paper_height)
+        column_width column_height 10pt 3pt
+        Galley main_galley_params;
+      ps_new_area "head"
+        (1/12paper_width) (2/27paper_height)
+        column_width 0pt 10pt 4pt
+        Direct
+        (format_string "\\hbox to %dpt{\\therhead}" column_width);
+      ps_new_area "foot"
+        (1/12paper_width) (17/18paper_height)
+        column_width 0pt 10pt 4pt
+        Direct
+        (format_string "\\hbox to %dpt{\\therfoot}" column_width);
+
+      ps_new_page_layout "left" paper_width paper_height;
+
+      ps_new_area "float"
+        (1/6paper_width) (1/9paper_height)
+        column_width column_height 10pt 3pt
+        Float
+        { Alignment  := Top
+        | TopSkip    := 1em
+        | BottomSkip := 1em
+        | FloatSep   := 1em
+        };
+      ps_new_area "footnotes"
+        (1/6paper_width) (1/9paper_height)
+        column_width column_height 10pt 3pt
+        Footnote
+        { TopSkip    := 1em
+        | BottomSkip := 1em
+        | GridSize   := 10pt
+        };
+      ps_new_area "text block"
+        (1/6paper_width) (1/9paper_height)
+        column_width column_height 10pt 3pt
+        Galley main_galley_params;
+      ps_new_area "head"
+        (1/6paper_width) (2/27paper_height)
+        column_width 0pt 10pt 4pt
+        Direct
+        (format_string "\\hbox to %dpt{\\thelhead}" column_width);
+      ps_new_area "foot"
+        (1/6paper_width) (17/18paper_height)
+        column_width 0pt 10pt 4pt
+        Direct
+        (format_string "\\hbox to %dpt{\\thelfoot}" column_width);
+
+      ps_new_page_layout "toc-right" paper_width paper_height;
+
+      ps_new_area "toc"
+        (1/12paper_width + 1/8column_width) (1/9paper_height)
+        (3/4*column_width) column_height 10pt 3pt
+        Galley toc_galley_params;
+      ps_new_area "foot"
+        (1/12paper_width + 1/8column_width) (17/18paper_height)
+        (3/4*column_width) 0pt 10pt 4pt
+        Direct
+        (format_string "\\hbox to (3/4*%dpt){\\therfoot}" column_width);
+
+      ps_new_page_layout "toc-left" paper_width paper_height;
+
+      ps_new_area "toc"
+        (1/6paper_width + 1/8column_width) (1/9paper_height)
+        (3/4*column_width) column_height 10pt 3pt
+        Galley toc_galley_params;
+      ps_new_area "foot"
+        (1/6paper_width + 1/8column_width) (17/18paper_height)
+        (3/4*column_width) 0pt 10pt 4pt
+        Direct
+        (format_string "\\hbox to (3/4*%dpt){\\thelfoot}" column_width);
+    end}%
+}
+
+% paragraphs
+
+\setparameter{paragraph}{par-indent = 1em}
+
+\definecommand\flushleft{\setparameter{paragraph}{
+  left-skip  = 0pt;
+  right-skip = 0pt plus 1fill}}
+\definecommand\flushright{\setparameter{paragraph}{
+  left-skip  = 0pt plus 1fill;
+  right-skip = 0pt}}
+\definecommand\centering{\setparameter{paragraph}{
+  left-skip  = 0pt plus 1fill;
+  right-skip = 0pt plus 1fill;
+  par-indent = 0pt}}
+
+% document
+
+\defineenvironment{document}{%
+  \setuppagelayout
+  \begingalley{main}%
+}{\endgalley
+  \ALcommand{
+    do
+      ps_shipout_pages 0 "toc-left" "toc-right";
+      ps_shipout_pages 0 "left"     "right"
+    end}%
+  \endinput}
+
+% simple lists
+
+\definecommand\redrule{%
+  \noindent
+  {\setparameter{line}{baseline-skip = 0pt}%
+   \red
+   \rule{0pt plus 1fill}{0.6pt}{0pt}%
+   \par}}
+\definecommand\begindisplay{%
+  \begingroup
+  \par
+  \ensurevskip{\medskipamount}%
+  \setparameter{paragraph}{par-indent = 0pt; left-skip = 1em}}
+\definecommand\enddisplay{%
+  \par
+  \endgroup
+  \vskip{\medskipamount}
+%  \ensurevskip{\bigskipamount}  wait until tables are fixed
+  \noindent}
+\defineenvironment{display}{\begindisplay }{\enddisplay }
+
+\definecommand\beginruleddisplay{%
+  \begingroup
+  \par
+  \ensurevskip{\smallskipamount}%
+  \redrule
+  \penalty{10000}%
+  \setparameter{paragraph}{par-indent = 0pt; left-skip = 1em}}
+\definecommand\endruleddisplay{%
+  \penalty{10000}%
+  \par
+  \penalty{10000}%
+  \endgroup
+  \penalty{10000}%
+  \vskip{\smallskipamount}
+  \redrule
+  \vskip{\smallskipamount}
+%  \ensurevskip{\bigskipamount}  wait until tables are fixed
+  \noindent}
+\defineenvironment{ruleddisplay}{\beginruleddisplay }{\endruleddisplay }
+
+\definecommand\begincode{%
+  \begingroup
+  \par
+  \ensurevskip{\medskipamount}%
+  \setparameter{paragraph}{ left-skip = 3em; right-skip = 0pt plus 1fil; par-indent = -2em}}
+\definecommand\endcode{%
+  \par
+  \endgroup
+  \vskip{\medskipamount}
+%  \ensurevskip{\bigskipamount}  wait until tables are fixed
+  \noindent}
+\defineenvironment{code}{\begincode }{\endcode }
+
+\defineenvironment{list}{%
+  \par
+  \begingroup
+  \setparameter{paragraph}{ left-skip = 2.7em; par-indent = 0pt; par-skip = 1ex }%
+  \savecommand\item
+  \definecommand\item[m]{\par\hskip{0pt}\llap{##1\ }}}{%
+  \par
+  \restorecommand\item
+  \vskip{1ex}%
+  \endgroup
+  \noindent}
+
+\defineenvironment{description}{%
+  \par
+  \begingroup
+  \setparameter{paragraph}{ left-skip = 1.7em; par-indent = -1.7em; par-skip = 1ex }%
+  \savecommand\item
+  \definecommand\item[m]{\par{##1}\hskip{0.8em}}%
+}{%
+  \par
+  \restorecommand\item
+  \vskip{1ex}%
+  \endgroup
+  \noindent}
+
+\defineenvironment{longdescription}[O{1.7em}]{%
+  \par
+  \ensurevskip{\smallskipamount}%
+  \redrule
+  \penalty{10000}%
+  \vskip{-2em}\hskip{0pt}\par%
+  \begingroup
+  \setparameter{paragraph}{ left-skip = #1; par-indent = 0em; par-skip = 0.5ex }%
+  \savecommand\item
+  \definecommand\item[m]{\par\ensurevskip{\smallskipamount}\hskip{-#1}{##1}\quad }%
+}{%
+  \par
+  \restorecommand\item
+  \endgroup
+  \redrule
+  \vskip{\smallskipamount}%
+  \noindent}
+
+\defineenvironment{itemise}[m]{%
+  \par
+  \begingroup
+  \setparameter{paragraph}{ left-skip = 2.7em; par-indent = 0pt; par-skip = 1ex }%
+  \savecommand\item
+  \definecommand\item[O{#1}]{\par\hskip{0pt}\llap{##1\ }}}{%
+  \par
+  \restorecommand\item
+  \vskip{1ex}%
+  \endgroup
+  \noindent}
+
+% simple tables
+
+\defineenvironment{table}{\begintable}{\hfil\endtable}
+\defineenvironment{displaytable}{\begin{display}\hskip{0pt}\begin{table}}{\end{table}\end{display}}
+\defineenvironment{ruleddisplaytable}{\begin{ruleddisplay}\hskip{0pt}\begin{table}}{\end{table}\end{ruleddisplay}}
+\definepattern{&}{\hfil\newtableentry }
+\definecommand\ntr{\hfill\newtablerow }
+
+% abbreviations
+
+\definecommand\ant{{\rmfamily\scshape a\kern{0.02em}n\kern{0.05em}t}}
+\definecommand\TeX{T\kern{-0.1667em}\raise{-0.5ex}{E}\kern{-0.125em}X}
+\definecommand\LaTeX{L\kern{-0.36em}%
+  \vbox{\vbox to 0pt{\vbox to 0pt{}\hbox{\setparameter{font}{size = 7}A}\vss}\vphantom{T}}%
+  \kern{-0.15em}\TeX}
+\definecommand\dvi{{\rmfamily\scshape d\hskip 0.02em{}v\hskip 0.03em{}i}}
+\definecommand\pdf{{\rmfamily\scshape p\hskip 0.02em{}d\hskip 0.01em{}f}}
+\definecommand\tfm{{\rmfamily\scshape t\hskip 0.02em{}f\hskip 0.02em{}m}}
+\definecommand\pk{{\rmfamily\scshape p\hskip 0.02em{}k}}
+\definecommand\AL{{\small AL}}
+
+\definecommand\cs[m]{\hskip{0pt}{\blue\texttt{\beginliteral #1\endliteral}}}
+\definecommand\csarg[m]{\hskip{0pt}{\blue\ensuremath{\langle}\ensuretext{\textit{#1}}\ensuremath{\rangle}}}
+\definecommand\csopt[m]{\hskip{0pt}{\blue[\ensuretext{\textit{#1}}]}}
+\definecommand\nterm[m]{\hskip{0pt}{\blue\ensuretext{\textit{#1}}}}
+
+% vim:set ft=tex:

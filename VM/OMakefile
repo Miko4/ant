@@ -1,0 +1,35 @@
+
+.SUBDIRS: Private
+
+MODULES[] =
+  Opaque
+  Types
+  Private/VMPrivate
+  Machine
+
+.SCANNER: scan-ocaml-%: $(MLPP_TARGETS)
+
+LocalOCamlGeneratedFiles($(ROOT)/Tools/Tools.$(CMA))
+OCamlDependsOnLibrary($(ROOT)/lib/Unicode)
+OCamlDependsOnLibrary($(ROOT)/lib/Runtime)
+
+OCAMLFLAGS += -I Private
+
+Machine.cmi: Machine.mli Private/VMPrivate.$(CMO)
+Machine.$(CMO) Machine.o: Machine.ml Private/VMPrivate.$(CMO)
+
+OCamlPackageModules(VM, $(MODULES))
+
+OCamlPackage(VM, $(MODULES))
+
+.PHONY: VM-install
+
+OCamlPackageCopy(VM-install, $(ROOT)/lib, VM)
+
+OCAML_LIBS = $(ROOT)/Tools/Tools $(ROOT)/lib/Unicode $(ROOT)/lib/Runtime
+
+OCamlDependsOnPackage($(ROOT)/lib/VM)
+
+OCamlProgram(Ali, $(ROOT)/lib/VM Ali)
+
+# vim:set ft=make:

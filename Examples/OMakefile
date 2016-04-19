@@ -1,0 +1,26 @@
+
+ANTC = $(ROOT)/ant
+
+.PHONY: manual debug-manual debug-minimal Examples-clean Examples-distclean
+
+manual: manual.pdf
+
+manual.pdf: manual.ant manual.sty $(ROOT)/ant
+manual.dvi: manual.ant manual.sty $(ROOT)/ant
+
+manual.ps: manual.dvi
+  dvips -o manual.ps manual.dvi
+
+debug-manual: manual.ant manual.sty $(ROOT)/ant
+  ocamldebug $(mapprefix -I, $(addprefix $(ROOT)/, $(DIRECTORIES))) $(ROOT)/ant $(ANTFLAGS) manual.ant
+
+debug-minimal: minimal.ant $(ROOT)/ant
+  ocamldebug $(mapprefix -I, $(addprefix $(ROOT)/, $(DIRECTORIES))) $(ROOT)/ant $(ANTFLAGS) minimal.ant
+
+Examples-clean:
+  rm -f *.{log,aux,refdb}
+
+Examples-distclean: Examples-clean
+  rm -f *.{dvi,xdvi,pdf,ps,svg}
+
+# vim:set ft=make:

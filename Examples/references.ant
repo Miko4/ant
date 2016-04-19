@@ -1,0 +1,246 @@
+% implementation of references
+
+% A function to generate unique anonymous reference ids.
+
+\beginALdeclarations
+
+ps_gen_unique_ref id :=
+  local ref_cnt;
+  do
+    ps_get_global ref_cnt UniqueRefCount;
+    ps_set_global UniqueRefCount (ref_cnt + 1);
+    id = to_symbol (format_string "unique reference %d" ref_cnt);
+  end;
+
+\endALdeclarations
+
+\ALcommand{
+  ps_set_global UniqueRefCount 0
+}
+
+% Making global variables persistent across runs of ant.
+
+\beginALdeclarations
+
+ps_declare_persistent_global sym :=
+  local table;
+  do
+    ps_get_global table PersistentGlobals;
+    ps_set_global PersistentGlobals (insert sym table)
+    where
+      insert sym []     := [sym];
+      insert sym [s:ss] := if s == sym then
+                             [s:ss]
+                           else
+                             [s : insert sym ss]
+                           end
+    end
+  end;
+
+ps_store_persistent_globals file_name ps :=
+  local table;
+  do
+    ps_get_global table PersistentGlobals;
+
+    iter table []
+    where
+      iter [] globals ps :=
+        if serialise file_name globals then
+          ps
+        else
+          ps_warning ("Couldn't store globals to file `" + file_name + "'.\n") ps
+        end;
+      iter [s:ss] globals ps :=
+        local g;
+        do
+          ps_get_global g s;
+          iter ss [(s,g) : globals];
+        end
+        ps;
+    end;
+  end
+  ps;
+
+ps_restore_persistent_globals file_name :=
+  local globals := unserialise file_name;
+  do
+    iter globals;
+  end
+  where
+    iter [(s,g) : pairs] ps := iter pairs (ps_set_global s g ps);
+    iter _               ps := ps;
+  end;
+
+ps_add_reference key val :=
+  local refs;
+  do
+    ps_get_global refs NewReferences;
+    ps_set_global NewReferences (insert key val refs)
+
+    where
+      insert key val []                := [(key, val)];
+      insert key val [kv = (k,_) : rs] := if k == key then
+                                            [(key, val) : rs]
+                                          else
+                                            [kv : insert key val rs]
+                                          end
+    end
+  end;
+
+ps_lookup_reference val key :=
+  local refs;
+  do
+    ps_get_global refs References;
+    val = find key refs
+
+    where
+      find key []           := _;
+      find key [(k,v) : rs] := if k == key then
+                                 v
+                               else
+                                 find key rs
+                               end
+    end
+  end;
+
+ps_store_references :=
+  local new_refs old_refs;
+  do
+    ps_get_global new_refs NewReferences;
+    ps_get_global old_refs References;
+    ps_set_global References new_refs;
+
+    ;; check whether references have changed and output a message
+    if is_unbound old_refs then
+      compare [] new_refs
+    else
+      do
+        compare old_refs new_refs;
+        compare new_refs old_refs
+      end
+    end
+  end
+  where
+    compare old []           ps := ps;
+    compare old [(k,v) : rs] ps :=
+      if changed k v old then
+        ps_warning "Some references have changed.\nYou might need to rerun ant to get a correct output.\n" ps
+      else
+        compare old rs ps
+      end;
+
+    changed key val []           := True;
+    changed key val [(k,v) : rs] :=
+      if k == key then
+        v <> val
+      else
+        changed key val rs
+      end;
+  end;
+
+ps_at_exit :=
+  local new_refs old_refs;
+  do
+    ps_store_references;
+    ps_store_persistent_globals (ps_job_name + ".gdb");
+  end;
+
+\endALdeclarations
+
+% Restore the global variables.
+
+\ALcommand{
+  do
+    ps_set_global PersistentGlobals [];
+    ps_declare_persistent_global References;
+    ps_restore_persistent_globals (ps_job_name + ".gdb");
+    ps_set_global NewReferences []
+  end
+}
+
+\definecommand\addreference{
+  \ALcommand{
+    local k v;
+    do
+      ps_arg_expanded k;
+      ps_arg_expanded v;
+      ps_add_reference k v
+    end
+  }}
+\definecommand\lookupreference{%
+  \ALcommand{
+    local k v;
+    do
+      ps_arg_expanded k;
+      ps_lookup_reference v k;
+      if is_unbound v then
+        ps_warning (format_string "undefined reference \"%s\"" k)
+      else
+        ps_insert_string v
+      end
+    end
+  }}
+
+% page numbers and current coordinates
+
+\beginALdeclarations
+
+ps_get_current_page page :=
+  local sym;
+  do
+    ps_gen_unique_ref sym;
+    ps_declare_persistent_global sym;
+    ps_page_command { pi _ := ps_set_global sym (pi PageNo) };
+    ps_get_global page sym;
+  end;
+
+ps_get_current_position page :=
+  local sym;
+  do
+    ps_gen_unique_ref sym;
+    ps_declare_persistent_global sym;
+    ps_page_command
+      { pi (x,y) := ps_set_global sym (pi PageNo, x, pi Height - y) };
+    ps_get_global page sym;
+  end;
+
+ps_get_current_line line :=
+  local sym;
+  do
+    ps_gen_unique_ref sym;
+    ps_declare_persistent_global sym;
+    ps_par_command { l := ps_set_global sym l };
+    ps_get_global line sym;
+  end;
+
+\endALdeclarations
+
+% |\currentpage| returns the current page number as arabic number.
+
+\definecommand\currentpage{%
+  \ALcommand{
+    local page;
+    do
+      ps_get_current_page page;
+      if is_unbound v then
+        ps_insert_string "??"
+      else
+        ps_insert_string (format_string "%d" page)
+      end
+    end
+  }}
+\definecommand\saveposition{%
+  \ALcommand{
+    local cmd page;
+    do
+      ps_read_arg cmd;
+      ps_get_current_page page;
+      if is_unbound page then
+        ps_define_macro cmd [] "??"
+      else
+        ps_define_macro cmd [] (format_string "%d" page)
+      end
+    end
+  }}
+
+% vim:set ft=tex:

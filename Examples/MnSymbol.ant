@@ -1,0 +1,1925 @@
+%\DeclareMathAlphabet\mathcal  {OMS}{MnSymbolS}{m}{n}
+%\SetMathAlphabet\mathcal{bold}{OMS}{MnSymbolS}{b}{n}
+%\RequirePackage{eufrak}
+%
+%\def\Decl@Mn@Op#1#2#3{\def#1{\DOTSB#3\slimits@}}
+%\def\Decl@Mn@Int#1#2#3{\def#1{\DOTSI#3\ilimits@}}
+%
+%\def\Decl@Mn@Delim#1#2#3#4{%
+%  \if\relax\noexpand#1%
+%    \let#1\undefined
+%  \fi
+%  \DeclareMathDelimiter{#1}{#2}{#3}{#4}{#3}{#4}}
+%\def\Decl@Mn@Open#1#2#3{\Decl@Mn@Delim{#1}{\mathopen}{#2}{#3}}
+%\def\Decl@Mn@Close#1#2#3{\Decl@Mn@Delim{#1}{\mathclose}{#2}{#3}}
+\ALcommand{
+  local begin
+    fama := "MnSymbolA";
+    famb := "MnSymbolB";
+    famc := "MnSymbolC";
+    famd := "MnSymbolD";
+    fame := "MnSymbolE";
+    famf := "MnSymbolF";
+    fams := "MnSymbolS";
+    med  := "medium";
+    bold := "bold";
+    nor  := "normal";
+    enc  := ("", "", "", "", "", "", "", "",
+             "", "", "", "", "", "", "", "",
+             "", "", "", "", "", "", "", "",
+             "", "", "", "", "", "", "", "",
+             "", "", "", "", "", "", "", "",
+             "", "", "", "", "", "", "", "",
+             "", "", "", "", "", "", "", "",
+             "", "", "", "", "", "", "", "",
+             "",  "A", "B", "C", "D", "E", "F", "G",
+             "H", "I", "J", "K", "L", "M", "N", "O",
+             "P", "Q", "R", "S", "T", "U", "V", "W",
+             "X", "Y", "Z", "",  "",  "",  "",  "");
+  end
+  do
+    ps_declare_font "MnSymbolA5.tfm"       fama med  nor    ( 0, 6) {};
+    ps_declare_font "MnSymbolA6.tfm"       fama med  nor    ( 6, 7) {};
+    ps_declare_font "MnSymbolA7.tfm"       fama med  nor    ( 7, 8) {};
+    ps_declare_font "MnSymbolA8.tfm"       fama med  nor    ( 8, 9) {};
+    ps_declare_font "MnSymbolA9.tfm"       fama med  nor    ( 9,10) {};
+    ps_declare_font "MnSymbolA10.tfm"      fama med  nor    (10,12) {};
+    ps_declare_font "MnSymbolA12.tfm"      fama med  nor    (12, 0) {};
+    ps_declare_font "MnSymbolA-Bold5.tfm"  fama bold nor    ( 0, 6) {};
+    ps_declare_font "MnSymbolA-Bold6.tfm"  fama bold nor    ( 6, 7) {};
+    ps_declare_font "MnSymbolA-Bold7.tfm"  fama bold nor    ( 7, 8) {};
+    ps_declare_font "MnSymbolA-Bold8.tfm"  fama bold nor    ( 8, 9) {};
+    ps_declare_font "MnSymbolA-Bold9.tfm"  fama bold nor    ( 9,10) {};
+    ps_declare_font "MnSymbolA-Bold10.tfm" fama bold nor    (10,12) {};
+    ps_declare_font "MnSymbolA-Bold12.tfm" fama bold nor    (12, 0) {};
+    ps_declare_font "MnSymbolB5.tfm"       famb med  nor    ( 0, 6) {};
+    ps_declare_font "MnSymbolB6.tfm"       famb med  nor    ( 6, 7) {};
+    ps_declare_font "MnSymbolB7.tfm"       famb med  nor    ( 7, 8) {};
+    ps_declare_font "MnSymbolB8.tfm"       famb med  nor    ( 8, 9) {};
+    ps_declare_font "MnSymbolB9.tfm"       famb med  nor    ( 9,10) {};
+    ps_declare_font "MnSymbolB10.tfm"      famb med  nor    (10,12) {};
+    ps_declare_font "MnSymbolB12.tfm"      famb med  nor    (12, 0) {};
+    ps_declare_font "MnSymbolB-Bold5.tfm"  famb bold nor    ( 0, 6) {};
+    ps_declare_font "MnSymbolB-Bold6.tfm"  famb bold nor    ( 6, 7) {};
+    ps_declare_font "MnSymbolB-Bold7.tfm"  famb bold nor    ( 7, 8) {};
+    ps_declare_font "MnSymbolB-Bold8.tfm"  famb bold nor    ( 8, 9) {};
+    ps_declare_font "MnSymbolB-Bold9.tfm"  famb bold nor    ( 9,10) {};
+    ps_declare_font "MnSymbolB-Bold10.tfm" famb bold nor    (10,12) {};
+    ps_declare_font "MnSymbolB-Bold12.tfm" famb bold nor    (12, 0) {};
+    ps_declare_font "MnSymbolC5.tfm"       famc med  nor    ( 0, 6) {};
+    ps_declare_font "MnSymbolC6.tfm"       famc med  nor    ( 6, 7) {};
+    ps_declare_font "MnSymbolC7.tfm"       famc med  nor    ( 7, 8) {};
+    ps_declare_font "MnSymbolC8.tfm"       famc med  nor    ( 8, 9) {};
+    ps_declare_font "MnSymbolC9.tfm"       famc med  nor    ( 9,10) {};
+    ps_declare_font "MnSymbolC10.tfm"      famc med  nor    (10,12) {};
+    ps_declare_font "MnSymbolC12.tfm"      famc med  nor    (12, 0) {};
+    ps_declare_font "MnSymbolC-Bold5.tfm"  famc bold nor    ( 0, 6) {};
+    ps_declare_font "MnSymbolC-Bold6.tfm"  famc bold nor    ( 6, 7) {};
+    ps_declare_font "MnSymbolC-Bold7.tfm"  famc bold nor    ( 7, 8) {};
+    ps_declare_font "MnSymbolC-Bold8.tfm"  famc bold nor    ( 8, 9) {};
+    ps_declare_font "MnSymbolC-Bold9.tfm"  famc bold nor    ( 9,10) {};
+    ps_declare_font "MnSymbolC-Bold10.tfm" famc bold nor    (10,12) {};
+    ps_declare_font "MnSymbolC-Bold12.tfm" famc bold nor    (12, 0) {};
+    ps_declare_font "MnSymbolD5.tfm"       famd med  nor    ( 0, 6) {};
+    ps_declare_font "MnSymbolD6.tfm"       famd med  nor    ( 6, 7) {};
+    ps_declare_font "MnSymbolD7.tfm"       famd med  nor    ( 7, 8) {};
+    ps_declare_font "MnSymbolD8.tfm"       famd med  nor    ( 8, 9) {};
+    ps_declare_font "MnSymbolD9.tfm"       famd med  nor    ( 9,10) {};
+    ps_declare_font "MnSymbolD10.tfm"      famd med  nor    (10,12) {};
+    ps_declare_font "MnSymbolD12.tfm"      famd med  nor    (12, 0) {};
+    ps_declare_font "MnSymbolD-Bold5.tfm"  famd bold nor    ( 0, 6) {};
+    ps_declare_font "MnSymbolD-Bold6.tfm"  famd bold nor    ( 6, 7) {};
+    ps_declare_font "MnSymbolD-Bold7.tfm"  famd bold nor    ( 7, 8) {};
+    ps_declare_font "MnSymbolD-Bold8.tfm"  famd bold nor    ( 8, 9) {};
+    ps_declare_font "MnSymbolD-Bold9.tfm"  famd bold nor    ( 9,10) {};
+    ps_declare_font "MnSymbolD-Bold10.tfm" famd bold nor    (10,12) {};
+    ps_declare_font "MnSymbolD-Bold12.tfm" famd bold nor    (12, 0) {};
+    ps_declare_font "MnSymbolE5.tfm"       fame med  nor    ( 0, 6) {};
+    ps_declare_font "MnSymbolE6.tfm"       fame med  nor    ( 6, 7) {};
+    ps_declare_font "MnSymbolE7.tfm"       fame med  nor    ( 7, 8) {};
+    ps_declare_font "MnSymbolE8.tfm"       fame med  nor    ( 8, 9) {};
+    ps_declare_font "MnSymbolE9.tfm"       fame med  nor    ( 9,10) {};
+    ps_declare_font "MnSymbolE10.tfm"      fame med  nor    (10,12) {};
+    ps_declare_font "MnSymbolE12.tfm"      fame med  nor    (12, 0) {};
+    ps_declare_font "MnSymbolE-Bold5.tfm"  fame bold nor    ( 0, 6) {};
+    ps_declare_font "MnSymbolE-Bold6.tfm"  fame bold nor    ( 6, 7) {};
+    ps_declare_font "MnSymbolE-Bold7.tfm"  fame bold nor    ( 7, 8) {};
+    ps_declare_font "MnSymbolE-Bold8.tfm"  fame bold nor    ( 8, 9) {};
+    ps_declare_font "MnSymbolE-Bold9.tfm"  fame bold nor    ( 9,10) {};
+    ps_declare_font "MnSymbolE-Bold10.tfm" fame bold nor    (10,12) {};
+    ps_declare_font "MnSymbolE-Bold12.tfm" fame bold nor    (12, 0) {};
+    ps_declare_font "MnSymbolF5.tfm"       famf med  nor    ( 0, 6) {};
+    ps_declare_font "MnSymbolF6.tfm"       famf med  nor    ( 6, 7) {};
+    ps_declare_font "MnSymbolF7.tfm"       famf med  nor    ( 7, 8) {};
+    ps_declare_font "MnSymbolF8.tfm"       famf med  nor    ( 8, 9) {};
+    ps_declare_font "MnSymbolF9.tfm"       famf med  nor    ( 9,10) {};
+    ps_declare_font "MnSymbolF10.tfm"      famf med  nor    (10,12) {};
+    ps_declare_font "MnSymbolF12.tfm"      famf med  nor    (12, 0) {};
+    ps_declare_font "MnSymbolF-Bold5.tfm"  famf bold nor    ( 0, 6) {};
+    ps_declare_font "MnSymbolF-Bold6.tfm"  famf bold nor    ( 6, 7) {};
+    ps_declare_font "MnSymbolF-Bold7.tfm"  famf bold nor    ( 7, 8) {};
+    ps_declare_font "MnSymbolF-Bold8.tfm"  famf bold nor    ( 8, 9) {};
+    ps_declare_font "MnSymbolF-Bold9.tfm"  famf bold nor    ( 9,10) {};
+    ps_declare_font "MnSymbolF-Bold10.tfm" famf bold nor    (10,12) {};
+    ps_declare_font "MnSymbolF-Bold12.tfm" famf bold nor    (12, 0) {};
+    ps_declare_font "MnSymbolS5.tfm"       fams med  nor    ( 0, 6) { Encoding := enc | SkewGlyph := 0 };
+    ps_declare_font "MnSymbolS6.tfm"       fams med  nor    ( 6, 7) { Encoding := enc | SkewGlyph := 0 };
+    ps_declare_font "MnSymbolS7.tfm"       fams med  nor    ( 7, 8) { Encoding := enc | SkewGlyph := 0 };
+    ps_declare_font "MnSymbolS8.tfm"       fams med  nor    ( 8, 9) { Encoding := enc | SkewGlyph := 0 };
+    ps_declare_font "MnSymbolS9.tfm"       fams med  nor    ( 9,10) { Encoding := enc | SkewGlyph := 0 };
+    ps_declare_font "MnSymbolS10.tfm"      fams med  nor    (10,12) { Encoding := enc | SkewGlyph := 0 };
+    ps_declare_font "MnSymbolS12.tfm"      fams med  nor    (12, 0) { Encoding := enc | SkewGlyph := 0 };
+    ps_declare_font "MnSymbolS-Bold5.tfm"  fams bold nor    ( 0, 6) { Encoding := enc | SkewGlyph := 0 };
+    ps_declare_font "MnSymbolS-Bold6.tfm"  fams bold nor    ( 6, 7) { Encoding := enc | SkewGlyph := 0 };
+    ps_declare_font "MnSymbolS-Bold7.tfm"  fams bold nor    ( 7, 8) { Encoding := enc | SkewGlyph := 0 };
+    ps_declare_font "MnSymbolS-Bold8.tfm"  fams bold nor    ( 8, 9) { Encoding := enc | SkewGlyph := 0 };
+    ps_declare_font "MnSymbolS-Bold9.tfm"  fams bold nor    ( 9,10) { Encoding := enc | SkewGlyph := 0 };
+    ps_declare_font "MnSymbolS-Bold10.tfm" fams bold nor    (10,12) { Encoding := enc | SkewGlyph := 0 };
+    ps_declare_font "MnSymbolS-Bold12.tfm" fams bold nor    (12, 0) { Encoding := enc | SkewGlyph := 0 };
+  end
+}
+
+\setmathfont{ math-family = 2; family = MnSymbolF; series = medium; shape = normal }
+\setmathfont{ math-family = 3; family = MnSymbolE; series = medium; shape = normal }
+\setmathfont{ math-family = 4; family = MnSymbolA; series = medium; shape = normal }
+\setmathfont{ math-family = 5; family = MnSymbolB; series = medium; shape = normal }
+\setmathfont{ math-family = 6; family = MnSymbolC; series = medium; shape = normal }
+\setmathfont{ math-family = 7; family = MnSymbolD; series = medium; shape = normal }
+
+\beginALdeclarations
+
+;; define a single math symbol
+
+;; declare_math_symbol name font glyph math_code :=
+;;   ps_define_command
+;;     name
+;;     { ps := local loc;
+;;             (ps_location loc >>
+;;              ps_add_node (MathChar, loc, (math_code, font, glyph, font, glyph)))
+;;             ps
+;;     }
+;;     None;
+
+declare_math_accent  name font glyph math_code := { ps := ps };
+
+;; define a list of math symbols
+
+;; declare_symbols font n []          ps := ps;
+;; declare_symbols font n [s, c : ss] ps :=
+;;   declare_symbols font (n+1) ss
+;;     (ps_define_math_symbol s c font n ps);
+
+decl_mn_sym font s c (n, ps) :=
+  (n+1, ps_define_math_symbol s c font n ps);
+
+decl_mn_symbols decl ps :=
+  local (_, ps) := decl (0, ps);
+  ps;
+
+\endALdeclarations
+
+\ALcommand{
+  do
+    decl_mn_symbols
+    do
+      decl_mn_sym 4 "\\rightarrow"                 Relation;
+      decl_mn_sym 4 "\\uparrow"                    Relation;
+      decl_mn_sym 4 "\\leftarrow"                  Relation;
+      decl_mn_sym 4 "\\downarrow"                  Relation;
+      decl_mn_sym 4 "\\nearrow"                    Relation;
+      decl_mn_sym 4 "\\nwarrow"                    Relation;
+      decl_mn_sym 4 "\\swarrow"                    Relation;
+      decl_mn_sym 4 "\\searrow"                    Relation;
+      decl_mn_sym 4 "\\Rightarrow"                 Relation;
+      decl_mn_sym 4 "\\Uparrow"                    Relation;
+      decl_mn_sym 4 "\\Leftarrow"                  Relation;
+      decl_mn_sym 4 "\\Downarrow"                  Relation;
+      decl_mn_sym 4 "\\Nearrow"                    Relation;
+      decl_mn_sym 4 "\\Nwarrow"                    Relation;
+      decl_mn_sym 4 "\\Swarrow"                    Relation;
+      decl_mn_sym 4 "\\Searrow"                    Relation;
+      decl_mn_sym 4 "\\leftrightarrow"             Relation;
+      decl_mn_sym 4 "\\updownarrow"                Relation;
+      decl_mn_sym 4 "\\neswarrow"                  Relation;
+      decl_mn_sym 4 "\\nwsearrow"                  Relation;
+      decl_mn_sym 4 "\\Leftrightarrow"             Relation;
+      decl_mn_sym 4 "\\Updownarrow"                Relation;
+      decl_mn_sym 4 "\\Neswarrow"                  Relation;
+      decl_mn_sym 4 "\\Nwsearrow"                  Relation;
+      decl_mn_sym 4 "\\twoheadrightarrow"          Relation;
+      decl_mn_sym 4 "\\twoheaduparrow"             Relation;
+      decl_mn_sym 4 "\\twoheadleftarrow"           Relation;
+      decl_mn_sym 4 "\\twoheaddownarrow"           Relation;
+      decl_mn_sym 4 "\\twoheadnearrow"             Relation;
+      decl_mn_sym 4 "\\twoheadnwarrow"             Relation;
+      decl_mn_sym 4 "\\twoheadswarrow"             Relation;
+      decl_mn_sym 4 "\\twoheadsearrow"             Relation;
+      decl_mn_sym 4 "\\rightarrowtail"             Relation;
+      decl_mn_sym 4 "\\uparrowtail"                Relation;
+      decl_mn_sym 4 "\\leftarrowtail"              Relation;
+      decl_mn_sym 4 "\\downarrowtail"              Relation;
+      decl_mn_sym 4 "\\nearrowtail"                Relation;
+      decl_mn_sym 4 "\\nwarrowtail"                Relation;
+      decl_mn_sym 4 "\\swarrowtail"                Relation;
+      decl_mn_sym 4 "\\searrowtail"                Relation;
+      decl_mn_sym 4 "\\rightmapsto"                Relation;
+      decl_mn_sym 4 "\\upmapsto"                   Relation;
+      decl_mn_sym 4 "\\leftmapsto"                 Relation;
+      decl_mn_sym 4 "\\downmapsto"                 Relation;
+      decl_mn_sym 4 "\\nemapsto"                   Relation;
+      decl_mn_sym 4 "\\nwmapsto"                   Relation;
+      decl_mn_sym 4 "\\swmapsto"                   Relation;
+      decl_mn_sym 4 "\\semapsto"                   Relation;
+      decl_mn_sym 4 "\\lhookrightarrow"            Relation;
+      decl_mn_sym 4 "\\lhookuparrow"               Relation;
+      decl_mn_sym 4 "\\lhookleftarrow"             Relation;
+      decl_mn_sym 4 "\\lhookdownarrow"             Relation;
+      decl_mn_sym 4 "\\lhooknearrow"               Relation;
+      decl_mn_sym 4 "\\lhooknwarrow"               Relation;
+      decl_mn_sym 4 "\\lhookswarrow"               Relation;
+      decl_mn_sym 4 "\\lhooksearrow"               Relation;
+      decl_mn_sym 4 "\\rhookrightarrow"            Relation;
+      decl_mn_sym 4 "\\rhookuparrow"               Relation;
+      decl_mn_sym 4 "\\rhookleftarrow"             Relation;
+      decl_mn_sym 4 "\\rhookdownarrow"             Relation;
+      decl_mn_sym 4 "\\rhooknearrow"               Relation;
+      decl_mn_sym 4 "\\rhooknwarrow"               Relation;
+      decl_mn_sym 4 "\\rhookswarrow"               Relation;
+      decl_mn_sym 4 "\\rhooksearrow"               Relation;
+      decl_mn_sym 4 "\\rightharpoonup"             Relation;
+      decl_mn_sym 4 "\\upharpoonup"                Relation;
+      decl_mn_sym 4 "\\leftharpoonup"              Relation;
+      decl_mn_sym 4 "\\downharpoonup"              Relation;
+      decl_mn_sym 4 "\\neharpoonup"                Relation;
+      decl_mn_sym 4 "\\nwharpoonup"                Relation;
+      decl_mn_sym 4 "\\swharpoonup"                Relation;
+      decl_mn_sym 4 "\\seharpoonup"                Relation;
+      decl_mn_sym 4 "\\rightharpoondown"           Relation;
+      decl_mn_sym 4 "\\upharpoondown"              Relation;
+      decl_mn_sym 4 "\\leftharpoondown"            Relation;
+      decl_mn_sym 4 "\\downharpoondown"            Relation;
+      decl_mn_sym 4 "\\neharpoondown"              Relation;
+      decl_mn_sym 4 "\\nwharpoondown"              Relation;
+      decl_mn_sym 4 "\\swharpoondown"              Relation;
+      decl_mn_sym 4 "\\seharpoondown"              Relation;
+      decl_mn_sym 4 "\\leftrightharpoonupdown"     Relation;
+      decl_mn_sym 4 "\\updownharpoonleftright"     Relation;
+      decl_mn_sym 4 "\\neswharpoonnwse"            Relation;
+      decl_mn_sym 4 "\\nwseharpoonnesw"            Relation;
+      decl_mn_sym 4 "\\leftrightharpoondownup"     Relation;
+      decl_mn_sym 4 "\\updownharpoonrightleft"     Relation;
+      decl_mn_sym 4 "\\neswharpoonsenw"            Relation;
+      decl_mn_sym 4 "\\nwseharpoonswne"            Relation;
+      decl_mn_sym 4 "\\rightleftharpoons"          Relation;
+      decl_mn_sym 4 "\\updownharpoons"             Relation;
+      decl_mn_sym 4 "\\neswharpoons"               Relation;
+      decl_mn_sym 4 "\\senwharpoons"               Relation;
+      decl_mn_sym 4 "\\leftrightharpoons"          Relation;
+      decl_mn_sym 4 "\\downupharpoons"             Relation;
+      decl_mn_sym 4 "\\swneharpoons"               Relation;
+      decl_mn_sym 4 "\\nwseharpoons"               Relation;
+      decl_mn_sym 4 "\\dashedrightarrow"           Relation;
+      decl_mn_sym 4 "\\dasheduparrow"              Relation;
+      decl_mn_sym 4 "\\dashedleftarrow"            Relation;
+      decl_mn_sym 4 "\\dasheddownarrow"            Relation;
+      decl_mn_sym 4 "\\dashednearrow"              Relation;
+      decl_mn_sym 4 "\\dashednwarrow"              Relation;
+      decl_mn_sym 4 "\\dashedswarrow"              Relation;
+      decl_mn_sym 4 "\\dashedsearrow"              Relation;
+      decl_mn_sym 4 "\\rightspoon"                 Relation;
+      decl_mn_sym 4 "\\upspoon"                    Relation;
+      decl_mn_sym 4 "\\leftspoon"                  Relation;
+      decl_mn_sym 4 "\\downspoon"                  Relation;
+      decl_mn_sym 4 "\\nespoon"                    Relation;
+      decl_mn_sym 4 "\\nwspoon"                    Relation;
+      decl_mn_sym 4 "\\swspoon"                    Relation;
+      decl_mn_sym 4 "\\sespoon"                    Relation;
+      decl_mn_sym 4 "\\rightfilledspoon"           Relation;
+      decl_mn_sym 4 "\\upfilledspoon"              Relation;
+      decl_mn_sym 4 "\\leftfilledspoon"            Relation;
+      decl_mn_sym 4 "\\downfilledspoon"            Relation;
+      decl_mn_sym 4 "\\nefilledspoon"              Relation;
+      decl_mn_sym 4 "\\nwfilledspoon"              Relation;
+      decl_mn_sym 4 "\\swfilledspoon"              Relation;
+      decl_mn_sym 4 "\\sefilledspoon"              Relation;
+      decl_mn_sym 4 "\\rightfootline"              Relation;
+      decl_mn_sym 4 "\\upfootline"                 Relation;
+      decl_mn_sym 4 "\\leftfootline"               Relation;
+      decl_mn_sym 4 "\\downfootline"               Relation;
+      decl_mn_sym 4 "\\nefootline"                 Relation;
+      decl_mn_sym 4 "\\nwfootline"                 Relation;
+      decl_mn_sym 4 "\\swfootline"                 Relation;
+      decl_mn_sym 4 "\\sefootline"                 Relation;
+      decl_mn_sym 4 "\\rightfree"                  Relation;
+      decl_mn_sym 4 "\\upfree"                     Relation;
+      decl_mn_sym 4 "\\leftfree"                   Relation;
+      decl_mn_sym 4 "\\downfree"                   Relation;
+      decl_mn_sym 4 "\\nefree"                     Relation;
+      decl_mn_sym 4 "\\nwfree"                     Relation;
+      decl_mn_sym 4 "\\swfree"                     Relation;
+      decl_mn_sym 4 "\\sefree"                     Relation;
+      decl_mn_sym 4 "\\rightpitchfork"             Relation;
+      decl_mn_sym 4 "\\uppitchfork"                Relation;
+      decl_mn_sym 4 "\\leftpitchfork"              Relation;
+      decl_mn_sym 4 "\\downpitchfork"              Relation;
+      decl_mn_sym 4 "\\nepitchfork"                Relation;
+      decl_mn_sym 4 "\\nwpitchfork"                Relation;
+      decl_mn_sym 4 "\\swpitchfork"                Relation;
+      decl_mn_sym 4 "\\sepitchfork"                Relation;
+      decl_mn_sym 4 "\\rightrightarrows"           Relation;
+      decl_mn_sym 4 "\\upuparrows"                 Relation;
+      decl_mn_sym 4 "\\leftleftarrows"             Relation;
+      decl_mn_sym 4 "\\downdownarrows"             Relation;
+      decl_mn_sym 4 "\\nenearrows"                 Relation;
+      decl_mn_sym 4 "\\nwnwarrows"                 Relation;
+      decl_mn_sym 4 "\\swswarrows"                 Relation;
+      decl_mn_sym 4 "\\sesearrows"                 Relation;
+      decl_mn_sym 4 "\\rightleftarrows"            Relation;
+      decl_mn_sym 4 "\\updownarrows"               Relation;
+      decl_mn_sym 4 "\\neswarrows"                 Relation;
+      decl_mn_sym 4 "\\nwsearrows"                 Relation;
+      decl_mn_sym 4 "\\leftrightarrows"            Relation;
+      decl_mn_sym 4 "\\downuparrows"               Relation;
+      decl_mn_sym 4 "\\swnearrows"                 Relation;
+      decl_mn_sym 4 "\\senwarrows"                 Relation;
+      decl_mn_sym 4 "\\rightlsquigarrow"           Relation;
+      decl_mn_sym 4 "\\uplsquigarrow"              Relation;
+      decl_mn_sym 4 "\\leftlsquigarrow"            Relation;
+      decl_mn_sym 4 "\\downlsquigarrow"            Relation;
+      decl_mn_sym 4 "\\nelsquigarrow"              Relation;
+      decl_mn_sym 4 "\\nwlsquigarrow"              Relation;
+      decl_mn_sym 4 "\\swlsquigarrow"              Relation;
+      decl_mn_sym 4 "\\selsquigarrow"              Relation;
+      decl_mn_sym 4 "\\rightrsquigarrow"           Relation;
+      decl_mn_sym 4 "\\uprsquigarrow"              Relation;
+      decl_mn_sym 4 "\\leftrsquigarrow"            Relation;
+      decl_mn_sym 4 "\\downrsquigarrow"            Relation;
+      decl_mn_sym 4 "\\nersquigarrow"              Relation;
+      decl_mn_sym 4 "\\nwrsquigarrow"              Relation;
+      decl_mn_sym 4 "\\swrsquigarrow"              Relation;
+      decl_mn_sym 4 "\\sersquigarrow"              Relation;
+      decl_mn_sym 4 "\\squigarrowleftright"        Relation;
+      decl_mn_sym 4 "\\squigarrowupdown"           Relation;
+      decl_mn_sym 4 "\\squigarrowrightleft"        Relation;
+      decl_mn_sym 4 "\\squigarrowdownup"           Relation;
+      decl_mn_sym 4 "\\squigarrownesw"             Relation;
+      decl_mn_sym 4 "\\squigarrownwse"             Relation;
+      decl_mn_sym 4 "\\squigarrowswne"             Relation;
+      decl_mn_sym 4 "\\squigarrowsenw"             Relation;
+      decl_mn_sym 4 "\\lcurvearrowright"           Relation;
+      decl_mn_sym 4 "\\lcurvearrowup"              Relation;
+      decl_mn_sym 4 "\\lcurvearrowleft"            Relation;
+      decl_mn_sym 4 "\\lcurvearrowdown"            Relation;
+      decl_mn_sym 4 "\\lcurvearrowne"              Relation;
+      decl_mn_sym 4 "\\lcurvearrownw"              Relation;
+      decl_mn_sym 4 "\\lcurvearrowsw"              Relation;
+      decl_mn_sym 4 "\\lcurvearrowse"              Relation;
+      decl_mn_sym 4 "\\rcurvearrowright"           Relation;
+      decl_mn_sym 4 "\\rcurvearrowup"              Relation;
+      decl_mn_sym 4 "\\rcurvearrowleft"            Relation;
+      decl_mn_sym 4 "\\rcurvearrowdown"            Relation;
+      decl_mn_sym 4 "\\rcurvearrowne"              Relation;
+      decl_mn_sym 4 "\\rcurvearrownw"              Relation;
+      decl_mn_sym 4 "\\rcurvearrowsw"              Relation;
+      decl_mn_sym 4 "\\rcurvearrowse"              Relation;
+      decl_mn_sym 4 "\\curvearrowleftright"        Relation;
+      decl_mn_sym 4 "\\curvearrowupdown"           Relation;
+      decl_mn_sym 4 "\\curvearrowrightleft"        Relation;
+      decl_mn_sym 4 "\\curvearrowdownup"           Relation;
+      decl_mn_sym 4 "\\curvearrownesw"             Relation;
+      decl_mn_sym 4 "\\curvearrownwse"             Relation;
+      decl_mn_sym 4 "\\curvearrowswne"             Relation;
+      decl_mn_sym 4 "\\curvearrowsenw"             Relation;
+      decl_mn_sym 4 "\\leftrightline"              Relation;
+      decl_mn_sym 4 "\\updownline"                 Relation;
+      decl_mn_sym 4 "\\neswline"                   Relation;
+      decl_mn_sym 4 "\\nwseline"                   Relation;
+      decl_mn_sym 4 "\\Leftrightline"              Relation;
+      decl_mn_sym 4 "\\Updownline"                 Relation;
+      decl_mn_sym 4 "\\Neswline"                   Relation;
+      decl_mn_sym 4 "\\Nwseline"                   Relation;
+      decl_mn_sym 4 "\\rightvdash"                 Relation;
+      decl_mn_sym 4 "\\upvdash"                    Relation;
+      decl_mn_sym 4 "\\leftvdash"                  Relation;
+      decl_mn_sym 4 "\\downvdash"                  Relation;
+      decl_mn_sym 4 "\\nevdash"                    Relation;
+      decl_mn_sym 4 "\\nwvdash"                    Relation;
+      decl_mn_sym 4 "\\swvdash"                    Relation;
+      decl_mn_sym 4 "\\sevdash"                    Relation;
+      decl_mn_sym 4 "\\rightmodels"                Relation;
+      decl_mn_sym 4 "\\upmodels"                   Relation;
+      decl_mn_sym 4 "\\leftmodels"                 Relation;
+      decl_mn_sym 4 "\\downmodels"                 Relation;
+      decl_mn_sym 4 "\\nemodels"                   Relation;
+      decl_mn_sym 4 "\\nwmodels"                   Relation;
+      decl_mn_sym 4 "\\swmodels"                   Relation;
+      decl_mn_sym 4 "\\semodels"                   Relation;
+      decl_mn_sym 4 "\\rightVdash"                 Relation;
+      decl_mn_sym 4 "\\upVdash"                    Relation;
+      decl_mn_sym 4 "\\leftVdash"                  Relation;
+      decl_mn_sym 4 "\\downVdash"                  Relation;
+      decl_mn_sym 4 "\\neVdash"                    Relation;
+      decl_mn_sym 4 "\\nwVdash"                    Relation;
+      decl_mn_sym 4 "\\swVdash"                    Relation;
+      decl_mn_sym 4 "\\seVdash"                    Relation;
+      decl_mn_sym 4 "\\rightModels"                Relation;
+      decl_mn_sym 4 "\\upModels"                   Relation;
+      decl_mn_sym 4 "\\leftModels"                 Relation;
+      decl_mn_sym 4 "\\downModels"                 Relation;
+      decl_mn_sym 4 "\\neModels"                   Relation;
+      decl_mn_sym 4 "\\nwModels"                   Relation;
+      decl_mn_sym 4 "\\swModels"                   Relation;
+      decl_mn_sym 4 "\\seModels"                   Relation;
+      decl_mn_sym 4 "\\rcirclearrowright"          Relation;
+      decl_mn_sym 4 "\\rcirclearrowup"             Relation;
+      decl_mn_sym 4 "\\rcirclearrowleft"           Relation;
+      decl_mn_sym 4 "\\rcirclearrowdown"           Relation;
+      decl_mn_sym 4 "\\lcirclearrowright"          Relation;
+      decl_mn_sym 4 "\\lcirclearrowup"             Relation;
+      decl_mn_sym 4 "\\lcirclearrowleft"           Relation;
+      decl_mn_sym 4 "\\lcirclearrowdown"           Relation;
+    end;
+    decl_mn_symbols
+    do
+      decl_mn_sym 4 "\\rightarrow"                 Relation;
+      decl_mn_sym 4 "\\uparrow"                    Relation;
+      decl_mn_sym 4 "\\leftarrow"                  Relation;
+      decl_mn_sym 4 "\\downarrow"                  Relation;
+      decl_mn_sym 4 "\\nearrow"                    Relation;
+      decl_mn_sym 4 "\\nwarrow"                    Relation;
+      decl_mn_sym 4 "\\swarrow"                    Relation;
+      decl_mn_sym 4 "\\searrow"                    Relation;
+      decl_mn_sym 4 "\\Rightarrow"                 Relation;
+      decl_mn_sym 4 "\\Uparrow"                    Relation;
+      decl_mn_sym 4 "\\Leftarrow"                  Relation;
+      decl_mn_sym 4 "\\Downarrow"                  Relation;
+      decl_mn_sym 4 "\\Nearrow"                    Relation;
+      decl_mn_sym 4 "\\Nwarrow"                    Relation;
+      decl_mn_sym 4 "\\Swarrow"                    Relation;
+      decl_mn_sym 4 "\\Searrow"                    Relation;
+      decl_mn_sym 4 "\\leftrightarrow"             Relation;
+      decl_mn_sym 4 "\\updownarrow"                Relation;
+      decl_mn_sym 4 "\\neswarrow"                  Relation;
+      decl_mn_sym 4 "\\nwsearrow"                  Relation;
+      decl_mn_sym 4 "\\Leftrightarrow"             Relation;
+      decl_mn_sym 4 "\\Updownarrow"                Relation;
+      decl_mn_sym 4 "\\Neswarrow"                  Relation;
+      decl_mn_sym 4 "\\Nwsearrow"                  Relation;
+      decl_mn_sym 4 "\\twoheadrightarrow"          Relation;
+      decl_mn_sym 4 "\\twoheaduparrow"             Relation;
+      decl_mn_sym 4 "\\twoheadleftarrow"           Relation;
+      decl_mn_sym 4 "\\twoheaddownarrow"           Relation;
+      decl_mn_sym 4 "\\twoheadnearrow"             Relation;
+      decl_mn_sym 4 "\\twoheadnwarrow"             Relation;
+      decl_mn_sym 4 "\\twoheadswarrow"             Relation;
+      decl_mn_sym 4 "\\twoheadsearrow"             Relation;
+      decl_mn_sym 4 "\\rightarrowtail"             Relation;
+      decl_mn_sym 4 "\\uparrowtail"                Relation;
+      decl_mn_sym 4 "\\leftarrowtail"              Relation;
+      decl_mn_sym 4 "\\downarrowtail"              Relation;
+      decl_mn_sym 4 "\\nearrowtail"                Relation;
+      decl_mn_sym 4 "\\nwarrowtail"                Relation;
+      decl_mn_sym 4 "\\swarrowtail"                Relation;
+      decl_mn_sym 4 "\\searrowtail"                Relation;
+      decl_mn_sym 4 "\\rightmapsto"                Relation;
+      decl_mn_sym 4 "\\upmapsto"                   Relation;
+      decl_mn_sym 4 "\\leftmapsto"                 Relation;
+      decl_mn_sym 4 "\\downmapsto"                 Relation;
+      decl_mn_sym 4 "\\nemapsto"                   Relation;
+      decl_mn_sym 4 "\\nwmapsto"                   Relation;
+      decl_mn_sym 4 "\\swmapsto"                   Relation;
+      decl_mn_sym 4 "\\semapsto"                   Relation;
+      decl_mn_sym 4 "\\lhookrightarrow"            Relation;
+      decl_mn_sym 4 "\\lhookuparrow"               Relation;
+      decl_mn_sym 4 "\\lhookleftarrow"             Relation;
+      decl_mn_sym 4 "\\lhookdownarrow"             Relation;
+      decl_mn_sym 4 "\\lhooknearrow"               Relation;
+      decl_mn_sym 4 "\\lhooknwarrow"               Relation;
+      decl_mn_sym 4 "\\lhookswarrow"               Relation;
+      decl_mn_sym 4 "\\lhooksearrow"               Relation;
+      decl_mn_sym 4 "\\rhookrightarrow"            Relation;
+      decl_mn_sym 4 "\\rhookuparrow"               Relation;
+      decl_mn_sym 4 "\\rhookleftarrow"             Relation;
+      decl_mn_sym 4 "\\rhookdownarrow"             Relation;
+      decl_mn_sym 4 "\\rhooknearrow"               Relation;
+      decl_mn_sym 4 "\\rhooknwarrow"               Relation;
+      decl_mn_sym 4 "\\rhookswarrow"               Relation;
+      decl_mn_sym 4 "\\rhooksearrow"               Relation;
+      decl_mn_sym 4 "\\rightharpoonup"             Relation;
+      decl_mn_sym 4 "\\upharpoonup"                Relation;
+      decl_mn_sym 4 "\\leftharpoonup"              Relation;
+      decl_mn_sym 4 "\\downharpoonup"              Relation;
+      decl_mn_sym 4 "\\neharpoonup"                Relation;
+      decl_mn_sym 4 "\\nwharpoonup"                Relation;
+      decl_mn_sym 4 "\\swharpoonup"                Relation;
+      decl_mn_sym 4 "\\seharpoonup"                Relation;
+      decl_mn_sym 4 "\\rightharpoondown"           Relation;
+      decl_mn_sym 4 "\\upharpoondown"              Relation;
+      decl_mn_sym 4 "\\leftharpoondown"            Relation;
+      decl_mn_sym 4 "\\downharpoondown"            Relation;
+      decl_mn_sym 4 "\\neharpoondown"              Relation;
+      decl_mn_sym 4 "\\nwharpoondown"              Relation;
+      decl_mn_sym 4 "\\swharpoondown"              Relation;
+      decl_mn_sym 4 "\\seharpoondown"              Relation;
+      decl_mn_sym 4 "\\leftrightharpoonupdown"     Relation;
+      decl_mn_sym 4 "\\updownharpoonleftright"     Relation;
+      decl_mn_sym 4 "\\neswharpoonnwse"            Relation;
+      decl_mn_sym 4 "\\nwseharpoonnesw"            Relation;
+      decl_mn_sym 4 "\\leftrightharpoondownup"     Relation;
+      decl_mn_sym 4 "\\updownharpoonrightleft"     Relation;
+      decl_mn_sym 4 "\\neswharpoonsenw"            Relation;
+      decl_mn_sym 4 "\\nwseharpoonswne"            Relation;
+      decl_mn_sym 4 "\\rightleftharpoons"          Relation;
+      decl_mn_sym 4 "\\updownharpoons"             Relation;
+      decl_mn_sym 4 "\\neswharpoons"               Relation;
+      decl_mn_sym 4 "\\senwharpoons"               Relation;
+      decl_mn_sym 4 "\\leftrightharpoons"          Relation;
+      decl_mn_sym 4 "\\downupharpoons"             Relation;
+      decl_mn_sym 4 "\\swneharpoons"               Relation;
+      decl_mn_sym 4 "\\nwseharpoons"               Relation;
+      decl_mn_sym 4 "\\dashedrightarrow"           Relation;
+      decl_mn_sym 4 "\\dasheduparrow"              Relation;
+      decl_mn_sym 4 "\\dashedleftarrow"            Relation;
+      decl_mn_sym 4 "\\dasheddownarrow"            Relation;
+      decl_mn_sym 4 "\\dashednearrow"              Relation;
+      decl_mn_sym 4 "\\dashednwarrow"              Relation;
+      decl_mn_sym 4 "\\dashedswarrow"              Relation;
+      decl_mn_sym 4 "\\dashedsearrow"              Relation;
+      decl_mn_sym 4 "\\rightspoon"                 Relation;
+      decl_mn_sym 4 "\\upspoon"                    Relation;
+      decl_mn_sym 4 "\\leftspoon"                  Relation;
+      decl_mn_sym 4 "\\downspoon"                  Relation;
+      decl_mn_sym 4 "\\nespoon"                    Relation;
+      decl_mn_sym 4 "\\nwspoon"                    Relation;
+      decl_mn_sym 4 "\\swspoon"                    Relation;
+      decl_mn_sym 4 "\\sespoon"                    Relation;
+      decl_mn_sym 4 "\\rightfilledspoon"           Relation;
+      decl_mn_sym 4 "\\upfilledspoon"              Relation;
+      decl_mn_sym 4 "\\leftfilledspoon"            Relation;
+      decl_mn_sym 4 "\\downfilledspoon"            Relation;
+      decl_mn_sym 4 "\\nefilledspoon"              Relation;
+      decl_mn_sym 4 "\\nwfilledspoon"              Relation;
+      decl_mn_sym 4 "\\swfilledspoon"              Relation;
+      decl_mn_sym 4 "\\sefilledspoon"              Relation;
+      decl_mn_sym 4 "\\rightfootline"              Relation;
+      decl_mn_sym 4 "\\upfootline"                 Relation;
+      decl_mn_sym 4 "\\leftfootline"               Relation;
+      decl_mn_sym 4 "\\downfootline"               Relation;
+      decl_mn_sym 4 "\\nefootline"                 Relation;
+      decl_mn_sym 4 "\\nwfootline"                 Relation;
+      decl_mn_sym 4 "\\swfootline"                 Relation;
+      decl_mn_sym 4 "\\sefootline"                 Relation;
+      decl_mn_sym 4 "\\rightfree"                  Relation;
+      decl_mn_sym 4 "\\upfree"                     Relation;
+      decl_mn_sym 4 "\\leftfree"                   Relation;
+      decl_mn_sym 4 "\\downfree"                   Relation;
+      decl_mn_sym 4 "\\nefree"                     Relation;
+      decl_mn_sym 4 "\\nwfree"                     Relation;
+      decl_mn_sym 4 "\\swfree"                     Relation;
+      decl_mn_sym 4 "\\sefree"                     Relation;
+      decl_mn_sym 4 "\\rightpitchfork"             Relation;
+      decl_mn_sym 4 "\\uppitchfork"                Relation;
+      decl_mn_sym 4 "\\leftpitchfork"              Relation;
+      decl_mn_sym 4 "\\downpitchfork"              Relation;
+      decl_mn_sym 4 "\\nepitchfork"                Relation;
+      decl_mn_sym 4 "\\nwpitchfork"                Relation;
+      decl_mn_sym 4 "\\swpitchfork"                Relation;
+      decl_mn_sym 4 "\\sepitchfork"                Relation;
+      decl_mn_sym 4 "\\rightrightarrows"           Relation;
+      decl_mn_sym 4 "\\upuparrows"                 Relation;
+      decl_mn_sym 4 "\\leftleftarrows"             Relation;
+      decl_mn_sym 4 "\\downdownarrows"             Relation;
+      decl_mn_sym 4 "\\nenearrows"                 Relation;
+      decl_mn_sym 4 "\\nwnwarrows"                 Relation;
+      decl_mn_sym 4 "\\swswarrows"                 Relation;
+      decl_mn_sym 4 "\\sesearrows"                 Relation;
+      decl_mn_sym 4 "\\rightleftarrows"            Relation;
+      decl_mn_sym 4 "\\updownarrows"               Relation;
+      decl_mn_sym 4 "\\neswarrows"                 Relation;
+      decl_mn_sym 4 "\\nwsearrows"                 Relation;
+      decl_mn_sym 4 "\\leftrightarrows"            Relation;
+      decl_mn_sym 4 "\\downuparrows"               Relation;
+      decl_mn_sym 4 "\\swnearrows"                 Relation;
+      decl_mn_sym 4 "\\senwarrows"                 Relation;
+      decl_mn_sym 4 "\\rightlsquigarrow"           Relation;
+      decl_mn_sym 4 "\\uplsquigarrow"              Relation;
+      decl_mn_sym 4 "\\leftlsquigarrow"            Relation;
+      decl_mn_sym 4 "\\downlsquigarrow"            Relation;
+      decl_mn_sym 4 "\\nelsquigarrow"              Relation;
+      decl_mn_sym 4 "\\nwlsquigarrow"              Relation;
+      decl_mn_sym 4 "\\swlsquigarrow"              Relation;
+      decl_mn_sym 4 "\\selsquigarrow"              Relation;
+      decl_mn_sym 4 "\\rightrsquigarrow"           Relation;
+      decl_mn_sym 4 "\\uprsquigarrow"              Relation;
+      decl_mn_sym 4 "\\leftrsquigarrow"            Relation;
+      decl_mn_sym 4 "\\downrsquigarrow"            Relation;
+      decl_mn_sym 4 "\\nersquigarrow"              Relation;
+      decl_mn_sym 4 "\\nwrsquigarrow"              Relation;
+      decl_mn_sym 4 "\\swrsquigarrow"              Relation;
+      decl_mn_sym 4 "\\sersquigarrow"              Relation;
+      decl_mn_sym 4 "\\squigarrowleftright"        Relation;
+      decl_mn_sym 4 "\\squigarrowupdown"           Relation;
+      decl_mn_sym 4 "\\squigarrowrightleft"        Relation;
+      decl_mn_sym 4 "\\squigarrowdownup"           Relation;
+      decl_mn_sym 4 "\\squigarrownesw"             Relation;
+      decl_mn_sym 4 "\\squigarrownwse"             Relation;
+      decl_mn_sym 4 "\\squigarrowswne"             Relation;
+      decl_mn_sym 4 "\\squigarrowsenw"             Relation;
+      decl_mn_sym 4 "\\lcurvearrowright"           Relation;
+      decl_mn_sym 4 "\\lcurvearrowup"              Relation;
+      decl_mn_sym 4 "\\lcurvearrowleft"            Relation;
+      decl_mn_sym 4 "\\lcurvearrowdown"            Relation;
+      decl_mn_sym 4 "\\lcurvearrowne"              Relation;
+      decl_mn_sym 4 "\\lcurvearrownw"              Relation;
+      decl_mn_sym 4 "\\lcurvearrowsw"              Relation;
+      decl_mn_sym 4 "\\lcurvearrowse"              Relation;
+      decl_mn_sym 4 "\\rcurvearrowright"           Relation;
+      decl_mn_sym 4 "\\rcurvearrowup"              Relation;
+      decl_mn_sym 4 "\\rcurvearrowleft"            Relation;
+      decl_mn_sym 4 "\\rcurvearrowdown"            Relation;
+      decl_mn_sym 4 "\\rcurvearrowne"              Relation;
+      decl_mn_sym 4 "\\rcurvearrownw"              Relation;
+      decl_mn_sym 4 "\\rcurvearrowsw"              Relation;
+      decl_mn_sym 4 "\\rcurvearrowse"              Relation;
+      decl_mn_sym 4 "\\curvearrowleftright"        Relation;
+      decl_mn_sym 4 "\\curvearrowupdown"           Relation;
+      decl_mn_sym 4 "\\curvearrowrightleft"        Relation;
+      decl_mn_sym 4 "\\curvearrowdownup"           Relation;
+      decl_mn_sym 4 "\\curvearrownesw"             Relation;
+      decl_mn_sym 4 "\\curvearrownwse"             Relation;
+      decl_mn_sym 4 "\\curvearrowswne"             Relation;
+      decl_mn_sym 4 "\\curvearrowsenw"             Relation;
+      decl_mn_sym 4 "\\leftrightline"              Relation;
+      decl_mn_sym 4 "\\updownline"                 Relation;
+      decl_mn_sym 4 "\\neswline"                   Relation;
+      decl_mn_sym 4 "\\nwseline"                   Relation;
+      decl_mn_sym 4 "\\Leftrightline"              Relation;
+      decl_mn_sym 4 "\\Updownline"                 Relation;
+      decl_mn_sym 4 "\\Neswline"                   Relation;
+      decl_mn_sym 4 "\\Nwseline"                   Relation;
+      decl_mn_sym 4 "\\rightvdash"                 Relation;
+      decl_mn_sym 4 "\\upvdash"                    Relation;
+      decl_mn_sym 4 "\\leftvdash"                  Relation;
+      decl_mn_sym 4 "\\downvdash"                  Relation;
+      decl_mn_sym 4 "\\nevdash"                    Relation;
+      decl_mn_sym 4 "\\nwvdash"                    Relation;
+      decl_mn_sym 4 "\\swvdash"                    Relation;
+      decl_mn_sym 4 "\\sevdash"                    Relation;
+      decl_mn_sym 4 "\\rightmodels"                Relation;
+      decl_mn_sym 4 "\\upmodels"                   Relation;
+      decl_mn_sym 4 "\\leftmodels"                 Relation;
+      decl_mn_sym 4 "\\downmodels"                 Relation;
+      decl_mn_sym 4 "\\nemodels"                   Relation;
+      decl_mn_sym 4 "\\nwmodels"                   Relation;
+      decl_mn_sym 4 "\\swmodels"                   Relation;
+      decl_mn_sym 4 "\\semodels"                   Relation;
+      decl_mn_sym 4 "\\rightVdash"                 Relation;
+      decl_mn_sym 4 "\\upVdash"                    Relation;
+      decl_mn_sym 4 "\\leftVdash"                  Relation;
+      decl_mn_sym 4 "\\downVdash"                  Relation;
+      decl_mn_sym 4 "\\neVdash"                    Relation;
+      decl_mn_sym 4 "\\nwVdash"                    Relation;
+      decl_mn_sym 4 "\\swVdash"                    Relation;
+      decl_mn_sym 4 "\\seVdash"                    Relation;
+      decl_mn_sym 4 "\\rightModels"                Relation;
+      decl_mn_sym 4 "\\upModels"                   Relation;
+      decl_mn_sym 4 "\\leftModels"                 Relation;
+      decl_mn_sym 4 "\\downModels"                 Relation;
+      decl_mn_sym 4 "\\neModels"                   Relation;
+      decl_mn_sym 4 "\\nwModels"                   Relation;
+      decl_mn_sym 4 "\\swModels"                   Relation;
+      decl_mn_sym 4 "\\seModels"                   Relation;
+      decl_mn_sym 4 "\\rcirclearrowright"          Relation;
+      decl_mn_sym 4 "\\rcirclearrowup"             Relation;
+      decl_mn_sym 4 "\\rcirclearrowleft"           Relation;
+      decl_mn_sym 4 "\\rcirclearrowdown"           Relation;
+      decl_mn_sym 4 "\\lcirclearrowright"          Relation;
+      decl_mn_sym 4 "\\lcirclearrowup"             Relation;
+      decl_mn_sym 4 "\\lcirclearrowleft"           Relation;
+      decl_mn_sym 4 "\\lcirclearrowdown"           Relation;
+    end;
+    decl_mn_symbols
+    do
+      decl_mn_sym 5 "\\nrightarrow"                Relation;
+      decl_mn_sym 5 "\\nuparrow"                   Relation;
+      decl_mn_sym 5 "\\nleftarrow"                 Relation;
+      decl_mn_sym 5 "\\ndownarrow"                 Relation;
+      decl_mn_sym 5 "\\nnearrow"                   Relation;
+      decl_mn_sym 5 "\\nnwarrow"                   Relation;
+      decl_mn_sym 5 "\\nswarrow"                   Relation;
+      decl_mn_sym 5 "\\nsearrow"                   Relation;
+      decl_mn_sym 5 "\\nRightarrow"                Relation;
+      decl_mn_sym 5 "\\nUparrow"                   Relation;
+      decl_mn_sym 5 "\\nLeftarrow"                 Relation;
+      decl_mn_sym 5 "\\nDownarrow"                 Relation;
+      decl_mn_sym 5 "\\nNearrow"                   Relation;
+      decl_mn_sym 5 "\\nNwarrow"                   Relation;
+      decl_mn_sym 5 "\\nSwarrow"                   Relation;
+      decl_mn_sym 5 "\\nSearrow"                   Relation;
+      decl_mn_sym 5 "\\nleftrightarrow"            Relation;
+      decl_mn_sym 5 "\\nupdownarrow"               Relation;
+      decl_mn_sym 5 "\\nneswarrow"                 Relation;
+      decl_mn_sym 5 "\\nnwsearrow"                 Relation;
+      decl_mn_sym 5 "\\nLeftrightarrow"            Relation;
+      decl_mn_sym 5 "\\nUpdownarrow"               Relation;
+      decl_mn_sym 5 "\\nNeswarrow"                 Relation;
+      decl_mn_sym 5 "\\nNwsearrow"                 Relation;
+      decl_mn_sym 5 "\\ntwoheadrightarrow"         Relation;
+      decl_mn_sym 5 "\\ntwoheaduparrow"            Relation;
+      decl_mn_sym 5 "\\ntwoheadleftarrow"          Relation;
+      decl_mn_sym 5 "\\ntwoheaddownarrow"          Relation;
+      decl_mn_sym 5 "\\ntwoheadnearrow"            Relation;
+      decl_mn_sym 5 "\\ntwoheadnwarrow"            Relation;
+      decl_mn_sym 5 "\\ntwoheadswarrow"            Relation;
+      decl_mn_sym 5 "\\ntwoheadsearrow"            Relation;
+      decl_mn_sym 5 "\\nrightarrowtail"            Relation;
+      decl_mn_sym 5 "\\nuparrowtail"               Relation;
+      decl_mn_sym 5 "\\nleftarrowtail"             Relation;
+      decl_mn_sym 5 "\\ndownarrowtail"             Relation;
+      decl_mn_sym 5 "\\nnearrowtail"               Relation;
+      decl_mn_sym 5 "\\nnwarrowtail"               Relation;
+      decl_mn_sym 5 "\\nswarrowtail"               Relation;
+      decl_mn_sym 5 "\\nsearrowtail"               Relation;
+      decl_mn_sym 5 "\\nrightmapsto"               Relation;
+      decl_mn_sym 5 "\\nupmapsto"                  Relation;
+      decl_mn_sym 5 "\\nleftmapsto"                Relation;
+      decl_mn_sym 5 "\\ndownmapsto"                Relation;
+      decl_mn_sym 5 "\\nnemapsto"                  Relation;
+      decl_mn_sym 5 "\\nnwmapsto"                  Relation;
+      decl_mn_sym 5 "\\nswmapsto"                  Relation;
+      decl_mn_sym 5 "\\nsemapsto"                  Relation;
+      decl_mn_sym 5 "\\nlhookrightarrow"           Relation;
+      decl_mn_sym 5 "\\nlhookuparrow"              Relation;
+      decl_mn_sym 5 "\\nlhookleftarrow"            Relation;
+      decl_mn_sym 5 "\\nlhookdownarrow"            Relation;
+      decl_mn_sym 5 "\\nlhooknearrow"              Relation;
+      decl_mn_sym 5 "\\nlhooknwarrow"              Relation;
+      decl_mn_sym 5 "\\nlhookswarrow"              Relation;
+      decl_mn_sym 5 "\\nlhooksearrow"              Relation;
+      decl_mn_sym 5 "\\nrhookrightarrow"           Relation;
+      decl_mn_sym 5 "\\nrhookuparrow"              Relation;
+      decl_mn_sym 5 "\\nrhookleftarrow"            Relation;
+      decl_mn_sym 5 "\\nrhookdownarrow"            Relation;
+      decl_mn_sym 5 "\\nrhooknearrow"              Relation;
+      decl_mn_sym 5 "\\nrhooknwarrow"              Relation;
+      decl_mn_sym 5 "\\nrhookswarrow"              Relation;
+      decl_mn_sym 5 "\\nrhooksearrow"              Relation;
+      decl_mn_sym 5 "\\nrightharpoonup"            Relation;
+      decl_mn_sym 5 "\\nupharpoonup"               Relation;
+      decl_mn_sym 5 "\\nleftharpoonup"             Relation;
+      decl_mn_sym 5 "\\ndownharpoonup"             Relation;
+      decl_mn_sym 5 "\\nneharpoonup"               Relation;
+      decl_mn_sym 5 "\\nnwharpoonup"               Relation;
+      decl_mn_sym 5 "\\nswharpoonup"               Relation;
+      decl_mn_sym 5 "\\nseharpoonup"               Relation;
+      decl_mn_sym 5 "\\nrightharpoondown"          Relation;
+      decl_mn_sym 5 "\\nupharpoondown"             Relation;
+      decl_mn_sym 5 "\\nleftharpoondown"           Relation;
+      decl_mn_sym 5 "\\ndownharpoondown"           Relation;
+      decl_mn_sym 5 "\\nneharpoondown"             Relation;
+      decl_mn_sym 5 "\\nnwharpoondown"             Relation;
+      decl_mn_sym 5 "\\nswharpoondown"             Relation;
+      decl_mn_sym 5 "\\nseharpoondown"             Relation;
+      decl_mn_sym 5 "\\nleftrightharpoonupdown"    Relation;
+      decl_mn_sym 5 "\\nupdownharpoonleftright"    Relation;
+      decl_mn_sym 5 "\\nneswharpoonnwse"           Relation;
+      decl_mn_sym 5 "\\nnwseharpoonnesw"           Relation;
+      decl_mn_sym 5 "\\nleftrightharpoondownup"    Relation;
+      decl_mn_sym 5 "\\nupdownharpoonrightleft"    Relation;
+      decl_mn_sym 5 "\\nneswharpoonsenw"           Relation;
+      decl_mn_sym 5 "\\nnwseharpoonswne"           Relation;
+      decl_mn_sym 5 "\\nrightleftharpoons"         Relation;
+      decl_mn_sym 5 "\\nupdownharpoons"            Relation;
+      decl_mn_sym 5 "\\nneswharpoons"              Relation;
+      decl_mn_sym 5 "\\nsenwharpoons"              Relation;
+      decl_mn_sym 5 "\\nleftrightharpoons"         Relation;
+      decl_mn_sym 5 "\\ndownupharpoons"            Relation;
+      decl_mn_sym 5 "\\nswneharpoons"              Relation;
+      decl_mn_sym 5 "\\nnwseharpoons"              Relation;
+      decl_mn_sym 5 "\\ndashedrightarrow"          Relation;
+      decl_mn_sym 5 "\\ndasheduparrow"             Relation;
+      decl_mn_sym 5 "\\ndashedleftarrow"           Relation;
+      decl_mn_sym 5 "\\ndasheddownarrow"           Relation;
+      decl_mn_sym 5 "\\ndashednearrow"             Relation;
+      decl_mn_sym 5 "\\ndashednwarrow"             Relation;
+      decl_mn_sym 5 "\\ndashedswarrow"             Relation;
+      decl_mn_sym 5 "\\ndashedsearrow"             Relation;
+      decl_mn_sym 5 "\\nrightspoon"                Relation;
+      decl_mn_sym 5 "\\nupspoon"                   Relation;
+      decl_mn_sym 5 "\\nleftspoon"                 Relation;
+      decl_mn_sym 5 "\\ndownspoon"                 Relation;
+      decl_mn_sym 5 "\\nnespoon"                   Relation;
+      decl_mn_sym 5 "\\nnwspoon"                   Relation;
+      decl_mn_sym 5 "\\nswspoon"                   Relation;
+      decl_mn_sym 5 "\\nsespoon"                   Relation;
+      decl_mn_sym 5 "\\nrightfilledspoon"          Relation;
+      decl_mn_sym 5 "\\nupfilledspoon"             Relation;
+      decl_mn_sym 5 "\\nleftfilledspoon"           Relation;
+      decl_mn_sym 5 "\\ndownfilledspoon"           Relation;
+      decl_mn_sym 5 "\\nnefilledspoon"             Relation;
+      decl_mn_sym 5 "\\nnwfilledspoon"             Relation;
+      decl_mn_sym 5 "\\nswfilledspoon"             Relation;
+      decl_mn_sym 5 "\\nsefilledspoon"             Relation;
+      decl_mn_sym 5 "\\nrightfootline"             Relation;
+      decl_mn_sym 5 "\\nupfootline"                Relation;
+      decl_mn_sym 5 "\\nleftfootline"              Relation;
+      decl_mn_sym 5 "\\ndownfootline"              Relation;
+      decl_mn_sym 5 "\\nnefootline"                Relation;
+      decl_mn_sym 5 "\\nnwfootline"                Relation;
+      decl_mn_sym 5 "\\nswfootline"                Relation;
+      decl_mn_sym 5 "\\nsefootline"                Relation;
+      decl_mn_sym 5 "\\nrightfree"                 Relation;
+      decl_mn_sym 5 "\\nupfree"                    Relation;
+      decl_mn_sym 5 "\\nleftfree"                  Relation;
+      decl_mn_sym 5 "\\ndownfree"                  Relation;
+      decl_mn_sym 5 "\\nnefree"                    Relation;
+      decl_mn_sym 5 "\\nnwfree"                    Relation;
+      decl_mn_sym 5 "\\nswfree"                    Relation;
+      decl_mn_sym 5 "\\nsefree"                    Relation;
+      decl_mn_sym 5 "\\nrightpitchfork"            Relation;
+      decl_mn_sym 5 "\\nuppitchfork"               Relation;
+      decl_mn_sym 5 "\\nleftpitchfork"             Relation;
+      decl_mn_sym 5 "\\ndownpitchfork"             Relation;
+      decl_mn_sym 5 "\\nnepitchfork"               Relation;
+      decl_mn_sym 5 "\\nnwpitchfork"               Relation;
+      decl_mn_sym 5 "\\nswpitchfork"               Relation;
+      decl_mn_sym 5 "\\nsepitchfork"               Relation;
+      decl_mn_sym 5 "\\nrightrightarrows"          Relation;
+      decl_mn_sym 5 "\\nupuparrows"                Relation;
+      decl_mn_sym 5 "\\nleftleftarrows"            Relation;
+      decl_mn_sym 5 "\\ndowndownarrows"            Relation;
+      decl_mn_sym 5 "\\nnenearrows"                Relation;
+      decl_mn_sym 5 "\\nnwnwarrows"                Relation;
+      decl_mn_sym 5 "\\nswswarrows"                Relation;
+      decl_mn_sym 5 "\\nsesearrows"                Relation;
+      decl_mn_sym 5 "\\nrightleftarrows"           Relation;
+      decl_mn_sym 5 "\\nupdownarrows"              Relation;
+      decl_mn_sym 5 "\\nneswarrows"                Relation;
+      decl_mn_sym 5 "\\nnwsearrows"                Relation;
+      decl_mn_sym 5 "\\nleftrightarrows"           Relation;
+      decl_mn_sym 5 "\\ndownuparrows"              Relation;
+      decl_mn_sym 5 "\\nswnearrows"                Relation;
+      decl_mn_sym 5 "\\nsenwarrows"                Relation;
+      decl_mn_sym 5 "\\nrightlsquigarrow"          Relation;
+      decl_mn_sym 5 "\\nuplsquigarrow"             Relation;
+      decl_mn_sym 5 "\\nleftlsquigarrow"           Relation;
+      decl_mn_sym 5 "\\ndownlsquigarrow"           Relation;
+      decl_mn_sym 5 "\\nnelsquigarrow"             Relation;
+      decl_mn_sym 5 "\\nnwlsquigarrow"             Relation;
+      decl_mn_sym 5 "\\nswlsquigarrow"             Relation;
+      decl_mn_sym 5 "\\nselsquigarrow"             Relation;
+      decl_mn_sym 5 "\\nrightrsquigarrow"          Relation;
+      decl_mn_sym 5 "\\nuprsquigarrow"             Relation;
+      decl_mn_sym 5 "\\nleftrsquigarrow"           Relation;
+      decl_mn_sym 5 "\\ndownrsquigarrow"           Relation;
+      decl_mn_sym 5 "\\nnersquigarrow"             Relation;
+      decl_mn_sym 5 "\\nnwrsquigarrow"             Relation;
+      decl_mn_sym 5 "\\nswrsquigarrow"             Relation;
+      decl_mn_sym 5 "\\nsersquigarrow"             Relation;
+      decl_mn_sym 5 "\\nsquigarrowleftright"       Relation;
+      decl_mn_sym 5 "\\nsquigarrowupdown"          Relation;
+      decl_mn_sym 5 "\\nsquigarrowrightleft"       Relation;
+      decl_mn_sym 5 "\\nsquigarrowdownup"          Relation;
+      decl_mn_sym 5 "\\nsquigarrownesw"            Relation;
+      decl_mn_sym 5 "\\nsquigarrownwse"            Relation;
+      decl_mn_sym 5 "\\nsquigarrowswne"            Relation;
+      decl_mn_sym 5 "\\nsquigarrowsenw"            Relation;
+      decl_mn_sym 5 "\\nlcurvearrowright"          Relation;
+      decl_mn_sym 5 "\\nlcurvearrowup"             Relation;
+      decl_mn_sym 5 "\\nlcurvearrowleft"           Relation;
+      decl_mn_sym 5 "\\nlcurvearrowdown"           Relation;
+      decl_mn_sym 5 "\\nlcurvearrowne"             Relation;
+      decl_mn_sym 5 "\\nlcurvearrownw"             Relation;
+      decl_mn_sym 5 "\\nlcurvearrowsw"             Relation;
+      decl_mn_sym 5 "\\nlcurvearrowse"             Relation;
+      decl_mn_sym 5 "\\nrcurvearrowright"          Relation;
+      decl_mn_sym 5 "\\nrcurvearrowup"             Relation;
+      decl_mn_sym 5 "\\nrcurvearrowleft"           Relation;
+      decl_mn_sym 5 "\\nrcurvearrowdown"           Relation;
+      decl_mn_sym 5 "\\nrcurvearrowne"             Relation;
+      decl_mn_sym 5 "\\nrcurvearrownw"             Relation;
+      decl_mn_sym 5 "\\nrcurvearrowsw"             Relation;
+      decl_mn_sym 5 "\\nrcurvearrowse"             Relation;
+      decl_mn_sym 5 "\\ncurvearrowleftright"       Relation;
+      decl_mn_sym 5 "\\ncurvearrowupdown"          Relation;
+      decl_mn_sym 5 "\\ncurvearrowrightleft"       Relation;
+      decl_mn_sym 5 "\\ncurvearrowdownup"          Relation;
+      decl_mn_sym 5 "\\ncurvearrownesw"            Relation;
+      decl_mn_sym 5 "\\ncurvearrownwse"            Relation;
+      decl_mn_sym 5 "\\ncurvearrowswne"            Relation;
+      decl_mn_sym 5 "\\ncurvearrowsenw"            Relation;
+      decl_mn_sym 5 "\\nleftrightline"             Relation;
+      decl_mn_sym 5 "\\nupdownline"                Relation;
+      decl_mn_sym 5 "\\nneswline"                  Relation;
+      decl_mn_sym 5 "\\nnwseline"                  Relation;
+      decl_mn_sym 5 "\\nLeftrightline"             Relation;
+      decl_mn_sym 5 "\\nUpdownline"                Relation;
+      decl_mn_sym 5 "\\nNeswline"                  Relation;
+      decl_mn_sym 5 "\\nNwseline"                  Relation;
+      decl_mn_sym 5 "\\nrightvdash"                Relation;
+      decl_mn_sym 5 "\\nupvdash"                   Relation;
+      decl_mn_sym 5 "\\nleftvdash"                 Relation;
+      decl_mn_sym 5 "\\ndownvdash"                 Relation;
+      decl_mn_sym 5 "\\nnevdash"                   Relation;
+      decl_mn_sym 5 "\\nnwvdash"                   Relation;
+      decl_mn_sym 5 "\\nswvdash"                   Relation;
+      decl_mn_sym 5 "\\nsevdash"                   Relation;
+      decl_mn_sym 5 "\\nrightmodels"               Relation;
+      decl_mn_sym 5 "\\nupmodels"                  Relation;
+      decl_mn_sym 5 "\\nleftmodels"                Relation;
+      decl_mn_sym 5 "\\ndownmodels"                Relation;
+      decl_mn_sym 5 "\\nnemodels"                  Relation;
+      decl_mn_sym 5 "\\nnwmodels"                  Relation;
+      decl_mn_sym 5 "\\nswmodels"                  Relation;
+      decl_mn_sym 5 "\\nsemodels"                  Relation;
+      decl_mn_sym 5 "\\nrightVdash"                Relation;
+      decl_mn_sym 5 "\\nupVdash"                   Relation;
+      decl_mn_sym 5 "\\nleftVdash"                 Relation;
+      decl_mn_sym 5 "\\ndownVdash"                 Relation;
+      decl_mn_sym 5 "\\nneVdash"                   Relation;
+      decl_mn_sym 5 "\\nnwVdash"                   Relation;
+      decl_mn_sym 5 "\\nswVdash"                   Relation;
+      decl_mn_sym 5 "\\nseVdash"                   Relation;
+      decl_mn_sym 5 "\\nrightModels"               Relation;
+      decl_mn_sym 5 "\\nupModels"                  Relation;
+      decl_mn_sym 5 "\\nleftModels"                Relation;
+      decl_mn_sym 5 "\\ndownModels"                Relation;
+      decl_mn_sym 5 "\\nneModels"                  Relation;
+      decl_mn_sym 5 "\\nnwModels"                  Relation;
+      decl_mn_sym 5 "\\nswModels"                  Relation;
+      decl_mn_sym 5 "\\nseModels"                  Relation;
+      decl_mn_sym 5 "\\nrcirclearrowright"         Relation;
+      decl_mn_sym 5 "\\nrcirclearrowup"            Relation;
+      decl_mn_sym 5 "\\nrcirclearrowleft"          Relation;
+      decl_mn_sym 5 "\\nrcirclearrowdown"          Relation;
+      decl_mn_sym 5 "\\nlcirclearrowright"         Relation;
+      decl_mn_sym 5 "\\nlcirclearrowup"            Relation;
+      decl_mn_sym 5 "\\nlcirclearrowleft"          Relation;
+      decl_mn_sym 5 "\\nlcirclearrowdown"          Relation;
+    end;
+    decl_mn_symbols
+    do
+      decl_mn_sym 6 "\\cdot"                       BinOp;
+      decl_mn_sym 6 "\\hdotdot"                    BinOp;
+      decl_mn_sym 6 "\\vdotdot"                    BinOp;
+      decl_mn_sym 6 "\\udotdot"                    BinOp;
+      decl_mn_sym 6 "\\ddotdot"                    BinOp;
+      decl_mn_sym 6 "\\hdots"                      Ordinary;
+      decl_mn_sym 6 "\\vdots"                      Ordinary;
+      decl_mn_sym 6 "\\udots"                      Ordinary;
+      decl_mn_sym 6 "\\ddots"                      Ordinary;
+      decl_mn_sym 6 "\\righttherefore"             BinOp;
+      decl_mn_sym 6 "\\uptherefore"                BinOp;
+      decl_mn_sym 6 "\\lefttherefore"              BinOp;
+      decl_mn_sym 6 "\\downtherefore"              BinOp;
+      decl_mn_sym 6 "\\diamonddots"                BinOp;
+      decl_mn_sym 6 "\\squaredots"                 BinOp;
+      decl_mn_sym 6 "\\fivedots"                   BinOp;
+      decl_mn_sym 6 "\\minus"                      BinOp;
+      decl_mn_sym 6 "\\medvert"                    BinOp;
+      decl_mn_sym 6 "\\medslash"                   BinOp;
+      decl_mn_sym 6 "\\medbackslash"               BinOp;
+      decl_mn_sym 6 "\\plus"                       BinOp;
+      decl_mn_sym 6 "\\times"                      BinOp;
+      decl_mn_sym 6 "\\pm"                         BinOp;
+      decl_mn_sym 6 "\\mp"                         BinOp;
+      decl_mn_sym 6 "\\dotminus"                   BinOp;
+      decl_mn_sym 6 "\\dotmedvert"                 BinOp;
+      decl_mn_sym 6 "\\minusdot"                   BinOp;
+      decl_mn_sym 6 "\\medvertdot"                 BinOp;
+      decl_mn_sym 6 "\\div"                        BinOp;
+      decl_mn_sym 6 "\\slashdiv"                   BinOp;
+      decl_mn_sym 6 "\\vertdiv"                    BinOp;
+      decl_mn_sym 6 "\\backslashdiv"               BinOp;
+      decl_mn_sym 6 "\\neg"                        Ordinary;
+      decl_mn_sym 6 "\\backneg"                    Ordinary;
+      decl_mn_sym 6 "\\dtimes"                     BinOp;
+      decl_mn_sym 6 "\\rtimes"                     BinOp;
+      decl_mn_sym 6 "\\utimes"                     BinOp;
+      decl_mn_sym 6 "\\ltimes"                     BinOp;
+      decl_mn_sym 6 "\\bowtie"                     BinOp;
+      decl_mn_sym 6 "\\vertbowtie"                 BinOp;
+      decl_mn_sym 6 "\\rightY"                     BinOp;
+      decl_mn_sym 6 "\\upY"                        BinOp;
+      decl_mn_sym 6 "\\leftY"                      BinOp;
+      decl_mn_sym 6 "\\downY"                      BinOp;
+      decl_mn_sym 6 "\\wedge"                      BinOp;
+      decl_mn_sym 6 "\\vee"                        BinOp;
+      decl_mn_sym 6 "\\wedgedot"                   BinOp;
+      decl_mn_sym 6 "\\veedot"                     BinOp;
+      decl_mn_sym 6 "\\doublewedge"                BinOp;
+      decl_mn_sym 6 "\\doublevee"                  BinOp;
+      decl_mn_sym 6 "\\curlywedge"                 BinOp;
+      decl_mn_sym 6 "\\curlyvee"                   BinOp;
+      decl_mn_sym 6 "\\curlywedgedot"              BinOp;
+      decl_mn_sym 6 "\\curlyveedot"                BinOp;
+      decl_mn_sym 6 "\\doublecurlywedge"           BinOp;
+      decl_mn_sym 6 "\\doublecurlyvee"             BinOp;
+      decl_mn_sym 6 "\\cup"                        BinOp;
+      decl_mn_sym 6 "\\cap"                        BinOp;
+      decl_mn_sym 6 "\\doublecup"                  BinOp;
+      decl_mn_sym 6 "\\doublecap"                  BinOp;
+      decl_mn_sym 6 "\\cupdot"                     BinOp;
+      decl_mn_sym 6 "\\capdot"                     BinOp;
+      decl_mn_sym 6 "\\cupplus"                    BinOp;
+      decl_mn_sym 6 "\\capplus"                    BinOp;
+      decl_mn_sym 6 "\\sqcup"                      BinOp;
+      decl_mn_sym 6 "\\sqcap"                      BinOp;
+      decl_mn_sym 6 "\\doublesqcup"                BinOp;
+      decl_mn_sym 6 "\\doublesqcap"                BinOp;
+      decl_mn_sym 6 "\\sqcupdot"                   BinOp;
+      decl_mn_sym 6 "\\sqcapdot"                   BinOp;
+      decl_mn_sym 6 "\\sqcupplus"                  BinOp;
+      decl_mn_sym 6 "\\sqcapplus"                  BinOp;
+      decl_mn_sym 6 "\\smalltriangleright"         BinOp;
+      decl_mn_sym 6 "\\smalltriangleup"            BinOp;
+      decl_mn_sym 6 "\\smalltriangleleft"          BinOp;
+      decl_mn_sym 6 "\\smalltriangledown"          BinOp;
+      decl_mn_sym 6 "\\filledtriangleright"        BinOp;
+      decl_mn_sym 6 "\\filledtriangleup"           BinOp;
+      decl_mn_sym 6 "\\filledtriangleleft"         BinOp;
+      decl_mn_sym 6 "\\filledtriangledown"         BinOp;
+      decl_mn_sym 6 "\\medtriangleright"           BinOp;
+      decl_mn_sym 6 "\\medtriangleup"              BinOp;
+      decl_mn_sym 6 "\\medtriangleleft"            BinOp;
+      decl_mn_sym 6 "\\medtriangledown"            BinOp;
+      decl_mn_sym 6 "\\largetriangleright"         Ordinary;
+      decl_mn_sym 6 "\\largetriangleup"            Ordinary;
+      decl_mn_sym 6 "\\largetriangleleft"          Ordinary;
+      decl_mn_sym 6 "\\largetriangledown"          Ordinary;
+      decl_mn_sym 6 "\\circ"                       BinOp;
+      decl_mn_sym 6 "\\bullet"                     BinOp;
+      decl_mn_sym 6 "\\medcircle"                  BinOp;
+      decl_mn_sym 6 "\\largecircle"                Ordinary;
+      decl_mn_sym 6 "\\ominus"                     BinOp;
+      decl_mn_sym 6 "\\overt"                      BinOp;
+      decl_mn_sym 6 "\\oslash"                     BinOp;
+      decl_mn_sym 6 "\\obackslash"                 BinOp;
+      decl_mn_sym 6 "\\oplus"                      BinOp;
+      decl_mn_sym 6 "\\otimes"                     BinOp;
+      decl_mn_sym 6 "\\odot"                       BinOp;
+      decl_mn_sym 6 "\\ocirc"                      BinOp;
+      decl_mn_sym 6 "\\otriangle"                  BinOp;
+      decl_mn_sym 6 "\\oast"                       BinOp;
+      decl_mn_sym 6 "\\ostar"                      BinOp;
+      decl_mn_sym 6 "\\diameter"                   Ordinary;
+      decl_mn_sym 6 "\\smallsquare"                BinOp;
+      decl_mn_sym 6 "\\filledsquare"               BinOp;
+      decl_mn_sym 6 "\\medsquare"                  BinOp;
+      decl_mn_sym 6 "\\largesquare"                Ordinary;
+      decl_mn_sym 6 "\\smalldiamond"               BinOp;
+      decl_mn_sym 6 "\\filleddiamond"              BinOp;
+      decl_mn_sym 6 "\\meddiamond"                 BinOp;
+      decl_mn_sym 6 "\\largediamond"               Ordinary;
+      decl_mn_sym 6 "\\boxminus"                   BinOp;
+      decl_mn_sym 6 "\\boxvert"                    BinOp;
+      decl_mn_sym 6 "\\boxslash"                   BinOp;
+      decl_mn_sym 6 "\\boxbackslash"               BinOp;
+      decl_mn_sym 6 "\\boxplus"                    BinOp;
+      decl_mn_sym 6 "\\boxtimes"                   BinOp;
+      decl_mn_sym 6 "\\boxdot"                     BinOp;
+      decl_mn_sym 6 "\\boxbox"                     BinOp;
+      decl_mn_sym 6 "\\diamondminus"               BinOp;
+      decl_mn_sym 6 "\\diamondvert"                BinOp;
+      decl_mn_sym 6 "\\diamondslash"               BinOp;
+      decl_mn_sym 6 "\\diamondbackslash"           BinOp;
+      decl_mn_sym 6 "\\diamondplus"                BinOp;
+      decl_mn_sym 6 "\\diamondtimes"               BinOp;
+      decl_mn_sym 6 "\\diamonddot"                 BinOp;
+      decl_mn_sym 6 "\\diamonddiamond"             BinOp;
+      decl_mn_sym 6 "\\smallstar"                  BinOp;
+      decl_mn_sym 6 "\\filledstar"                 BinOp;
+      decl_mn_sym 6 "\\medstar"                    BinOp;
+      decl_mn_sym 6 "\\largestar"                  Ordinary;
+      decl_mn_sym 6 "\\pentagram"                  BinOp;
+      decl_mn_sym 6 "\\largepentagram"             Ordinary;
+      decl_mn_sym 6 "\\thinstar"                   BinOp;
+      decl_mn_sym 6 "\\ast"                        BinOp;
+      decl_mn_sym 6 "\\hbipropto"                  BinOp;
+      decl_mn_sym 6 "\\neswbipropto"               BinOp;
+      decl_mn_sym 6 "\\vbipropto"                  BinOp;
+      decl_mn_sym 6 "\\nwsebipropto"               BinOp;
+      decl_mn_sym 6 "\\leftpropto"                 Relation;
+      decl_mn_sym 6 "\\downpropto"                 Relation;
+      decl_mn_sym 6 "\\rightpropto"                Relation;
+      decl_mn_sym 6 "\\uppropto"                   Relation;
+      decl_mn_sym 6 "\\hcrossing"                  Relation;
+      decl_mn_sym 6 "\\neswcrossing"               Relation;
+      decl_mn_sym 6 "\\vcrossing"                  Relation;
+      decl_mn_sym 6 "\\nwsecrossing"               Relation;
+      decl_mn_sym 6 "\\between"                    Relation;
+      decl_mn_sym 6 "\\separated"                  Relation;
+      decl_mn_sym 6 "\\bot"                        Ordinary;
+      decl_mn_sym 6 "\\top"                        Ordinary;
+      decl_mn_sym 6 "\\wreath"                     BinOp;
+      decl_mn_sym 6 "\\angle"                      Ordinary;
+      decl_mn_sym 6 "\\measuredangle"              Ordinary;
+      decl_mn_sym 6 "\\sphericalangle"             Ordinary;
+      decl_mn_sym 6 "\\prime"                      Ordinary;
+      decl_mn_sym 6 "\\backprime"                  Ordinary;
+      decl_mn_sym 6 "\\smallprod"                  BinOp;
+      decl_mn_sym 6 "\\amalg"                      BinOp;
+      decl_mn_sym 6 "\\checkmark"                  Ordinary;
+      decl_mn_sym 6 "\\lightning"                  Ordinary;
+      decl_mn_sym 6 "\\diamondsuit"                Ordinary;
+      decl_mn_sym 6 "\\heartsuit"                  Ordinary;
+      decl_mn_sym 6 "\\spadesuit"                  Ordinary;
+      decl_mn_sym 6 "\\clubsuit"                   Ordinary;
+      decl_mn_sym 6 "\\forall"                     Ordinary;
+      decl_mn_sym 6 "\\exists"                     Ordinary;
+      decl_mn_sym 6 "\\nexists"                    Ordinary;
+      decl_mn_sym 6 "\\nabla"                      Ordinary;
+      decl_mn_sym 6 "\\infty"                      Ordinary;
+      decl_mn_sym 6 "\\smallint"                   Operator;
+      decl_mn_sym 6 "\\flat"                       Operator;
+      decl_mn_sym 6 "\\natural"                    Operator;
+      decl_mn_sym 6 "\\sharp"                      Operator;
+      decl_mn_sym 6 "\\aleph"                      Ordinary;
+      decl_mn_sym 6 "\\beth"                       Ordinary;
+      decl_mn_sym 6 "\\gimel"                      Ordinary;
+      decl_mn_sym 6 "\\daleth"                     Ordinary;
+      decl_mn_sym 6 "\\wp"                         Ordinary;
+      decl_mn_sym 6 "\\powerset"                   Ordinary;
+    end;
+    decl_mn_symbols
+    do
+      decl_mn_sym 7 "\\equal"                      Relation;
+      decl_mn_sym 7 "\\equiv"                      Relation;
+      decl_mn_sym 7 "\\sim"                        Relation;
+      decl_mn_sym 7 "\\backsim"                    Relation;
+      decl_mn_sym 7 "\\approx"                     Relation;
+      decl_mn_sym 7 "\\backapprox"                 Relation;
+      decl_mn_sym 7 "\\triplesim"                  Relation;
+      decl_mn_sym 7 "\\backtriplesim"              Relation;
+      decl_mn_sym 7 "\\simeq"                      Relation;
+      decl_mn_sym 7 "\\backsimeq"                  Relation;
+      decl_mn_sym 7 "\\eqsim"                      Relation;
+      decl_mn_sym 7 "\\backeqsim"                  Relation;
+      decl_mn_sym 7 "\\cong"                       Relation;
+      decl_mn_sym 7 "\\backcong"                   Relation;
+      decl_mn_sym 7 "\\approxeq"                   Relation;
+      decl_mn_sym 7 "\\backapproxeq"               Relation;
+      decl_mn_sym 7 "\\bumpeq"                     Relation;
+      decl_mn_sym 7 "\\eqbump"                     Relation;
+      decl_mn_sym 7 "\\Bumpeq"                     Relation;
+      decl_mn_sym 7 "\\doteq"                      Relation;
+      decl_mn_sym 7 "\\eqdot"                      Relation;
+      decl_mn_sym 7 "\\Doteq"                      Relation;
+      decl_mn_sym 7 "\\fallingdotseq"              Relation;
+      decl_mn_sym 7 "\\risingdotseq"               Relation;
+      decl_mn_sym 7 "\\smile"                      Relation;
+      decl_mn_sym 7 "\\frown"                      Relation;
+      decl_mn_sym 7 "\\doublesmile"                Relation;
+      decl_mn_sym 7 "\\doublefrown"                Relation;
+      decl_mn_sym 7 "\\triplesmile"                Relation;
+      decl_mn_sym 7 "\\triplefrown"                Relation;
+      decl_mn_sym 7 "\\smilefrown"                 Relation;
+      decl_mn_sym 7 "\\frownsmile"                 Relation;
+      decl_mn_sym 7 "\\smileeq"                    Relation;
+      decl_mn_sym 7 "\\frowneq"                    Relation;
+      decl_mn_sym 7 "\\eqsmile"                    Relation;
+      decl_mn_sym 7 "\\eqfrown"                    Relation;
+      decl_mn_sym 7 "\\doublesmileeq"              Relation;
+      decl_mn_sym 7 "\\doublefrowneq"              Relation;
+      decl_mn_sym 7 "\\smileeqfrown"               Relation;
+      decl_mn_sym 7 "\\frowneqsmile"               Relation;
+      decl_mn_sym 7 "\\smilefrowneq"               Relation;
+      decl_mn_sym 7 "\\frownsmileeq"               Relation;
+      decl_mn_sym 7 "\\sqsmile"                    Relation;
+      decl_mn_sym 7 "\\sqfrown"                    Relation;
+      decl_mn_sym 7 "\\sqdoublesmile"              Relation;
+      decl_mn_sym 7 "\\sqdoublefrown"              Relation;
+      decl_mn_sym 7 "\\sqtriplesmile"              Relation;
+      decl_mn_sym 7 "\\sqtriplefrown"              Relation;
+      decl_mn_sym 7 "\\sqsmilefrown"               Relation;
+      decl_mn_sym 7 "\\sqfrownsmile"               Relation;
+      decl_mn_sym 7 "\\sqsmileeq"                  Relation;
+      decl_mn_sym 7 "\\sqfrowneq"                  Relation;
+      decl_mn_sym 7 "\\sqeqsmile"                  Relation;
+      decl_mn_sym 7 "\\sqeqfrown"                  Relation;
+      decl_mn_sym 7 "\\sqdoublesmileeq"            Relation;
+      decl_mn_sym 7 "\\sqdoublefrowneq"            Relation;
+      decl_mn_sym 7 "\\sqsmileeqfrown"             Relation;
+      decl_mn_sym 7 "\\sqfrowneqsmile"             Relation;
+      decl_mn_sym 7 "\\eqcirc"                     Relation;
+      decl_mn_sym 7 "\\circeq"                     Relation;
+      decl_mn_sym 7 "\\triangleeq"                 Relation;
+      decl_mn_sym 7 "\\hateq"                      Relation;
+      decl_mn_sym 7 "\\in"                         Relation;
+      decl_mn_sym 7 "\\owns"                       Relation;
+      decl_mn_sym 7 "\\less"                       Relation;
+      decl_mn_sym 7 "\\gtr"                        Relation;
+      decl_mn_sym 7 "\\leq"                        Relation;
+      decl_mn_sym 7 "\\geq"                        Relation;
+      decl_mn_sym 7 "\\leqslant"                   Relation;
+      decl_mn_sym 7 "\\geqslant"                   Relation;
+      decl_mn_sym 7 "\\leqq"                       Relation;
+      decl_mn_sym 7 "\\geqq"                       Relation;
+      decl_mn_sym 7 "\\lessgtr"                    Relation;
+      decl_mn_sym 7 "\\gtrless"                    Relation;
+      decl_mn_sym 7 "\\lesseqgtr"                  Relation;
+      decl_mn_sym 7 "\\gtreqless"                  Relation;
+      decl_mn_sym 7 "\\lesseqqgtr"                 Relation;
+      decl_mn_sym 7 "\\gtreqqless"                 Relation;
+      decl_mn_sym 7 "\\lesseqgtrslant"             Relation;
+      decl_mn_sym 7 "\\gtreqlessslant"             Relation;
+      decl_mn_sym 7 "\\ll"                         Relation;
+      decl_mn_sym 7 "\\gg"                         Relation;
+      decl_mn_sym 7 "\\lll"                        Relation;
+      decl_mn_sym 7 "\\ggg"                        Relation;
+      decl_mn_sym 7 "\\lessclosed"                 Relation;
+      decl_mn_sym 7 "\\gtrclosed"                  Relation;
+      decl_mn_sym 7 "\\leqclosed"                  Relation;
+      decl_mn_sym 7 "\\geqclosed"                  Relation;
+      decl_mn_sym 7 "\\sqsubset"                   Relation;
+      decl_mn_sym 7 "\\sqsupset"                   Relation;
+      decl_mn_sym 7 "\\sqsubseteq"                 Relation;
+      decl_mn_sym 7 "\\sqsupseteq"                 Relation;
+      decl_mn_sym 7 "\\sqsubseteqq"                Relation;
+      decl_mn_sym 7 "\\sqsupseteqq"                Relation;
+      decl_mn_sym 7 "\\Sqsubset"                   Relation;
+      decl_mn_sym 7 "\\Sqsupset"                   Relation;
+      decl_mn_sym 7 "\\subset"                     Relation;
+      decl_mn_sym 7 "\\supset"                     Relation;
+      decl_mn_sym 7 "\\subseteq"                   Relation;
+      decl_mn_sym 7 "\\supseteq"                   Relation;
+      decl_mn_sym 7 "\\subseteqq"                  Relation;
+      decl_mn_sym 7 "\\supseteqq"                  Relation;
+      decl_mn_sym 7 "\\Subset"                     Relation;
+      decl_mn_sym 7 "\\Supset"                     Relation;
+      decl_mn_sym 7 "\\prec"                       Relation;
+      decl_mn_sym 7 "\\succ"                       Relation;
+      decl_mn_sym 7 "\\preceq"                     Relation;
+      decl_mn_sym 7 "\\succeq"                     Relation;
+      decl_mn_sym 7 "\\preccurlyeq"                Relation;
+      decl_mn_sym 7 "\\succcurlyeq"                Relation;
+      decl_mn_sym 7 "\\precsim"                    Relation;
+      decl_mn_sym 7 "\\succsim"                    Relation;
+      decl_mn_sym 7 "\\precapprox"                 Relation;
+      decl_mn_sym 7 "\\succapprox"                 Relation;
+      decl_mn_sym 7 "\\lessdot"                    Relation;
+      decl_mn_sym 7 "\\gtrdot"                     Relation;
+      decl_mn_sym 7 "\\leqdot"                     Relation;
+      decl_mn_sym 7 "\\geqdot"                     Relation;
+      decl_mn_sym 7 "\\leqslantdot"                Relation;
+      decl_mn_sym 7 "\\geqslantdot"                Relation;
+      decl_mn_sym 7 "\\nequal"                     Relation;
+      decl_mn_sym 7 "\\nequiv"                     Relation;
+      decl_mn_sym 7 "\\nsim"                       Relation;
+      decl_mn_sym 7 "\\nbacksim"                   Relation;
+      decl_mn_sym 7 "\\napprox"                    Relation;
+      decl_mn_sym 7 "\\nbackapprox"                Relation;
+      decl_mn_sym 7 "\\ntriplesim"                 Relation;
+      decl_mn_sym 7 "\\nbacktriplesim"             Relation;
+      decl_mn_sym 7 "\\nsimeq"                     Relation;
+      decl_mn_sym 7 "\\nbacksimeq"                 Relation;
+      decl_mn_sym 7 "\\neqsim"                     Relation;
+      decl_mn_sym 7 "\\nbackeqsim"                 Relation;
+      decl_mn_sym 7 "\\ncong"                      Relation;
+      decl_mn_sym 7 "\\nbackcong"                  Relation;
+      decl_mn_sym 7 "\\napproxeq"                  Relation;
+      decl_mn_sym 7 "\\nbackapproxeq"              Relation;
+      decl_mn_sym 7 "\\nbumpeq"                    Relation;
+      decl_mn_sym 7 "\\neqbump"                    Relation;
+      decl_mn_sym 7 "\\nBumpeq"                    Relation;
+      decl_mn_sym 7 "\\ndoteq"                     Relation;
+      decl_mn_sym 7 "\\neqdot"                     Relation;
+      decl_mn_sym 7 "\\nDoteq"                     Relation;
+      decl_mn_sym 7 "\\nfallingdotseq"             Relation;
+      decl_mn_sym 7 "\\nrisingdotseq"              Relation;
+      decl_mn_sym 7 "\\nsmile"                     Relation;
+      decl_mn_sym 7 "\\nfrown"                     Relation;
+      decl_mn_sym 7 "\\ndoublesmile"               Relation;
+      decl_mn_sym 7 "\\ndoublefrown"               Relation;
+      decl_mn_sym 7 "\\ntriplesmile"               Relation;
+      decl_mn_sym 7 "\\ntriplefrown"               Relation;
+      decl_mn_sym 7 "\\nsmilefrown"                Relation;
+      decl_mn_sym 7 "\\nfrownsmile"                Relation;
+      decl_mn_sym 7 "\\nsmileeq"                   Relation;
+      decl_mn_sym 7 "\\nfrowneq"                   Relation;
+      decl_mn_sym 7 "\\neqsmile"                   Relation;
+      decl_mn_sym 7 "\\neqfrown"                   Relation;
+      decl_mn_sym 7 "\\ndoublesmileeq"             Relation;
+      decl_mn_sym 7 "\\ndoublefrowneq"             Relation;
+      decl_mn_sym 7 "\\nsmileeqfrown"              Relation;
+      decl_mn_sym 7 "\\nfrowneqsmile"              Relation;
+      decl_mn_sym 7 "\\nsmilefrowneq"              Relation;
+      decl_mn_sym 7 "\\nfrownsmileeq"              Relation;
+      decl_mn_sym 7 "\\nsqsmile"                   Relation;
+      decl_mn_sym 7 "\\nsqfrown"                   Relation;
+      decl_mn_sym 7 "\\nsqdoublesmile"             Relation;
+      decl_mn_sym 7 "\\nsqdoublefrown"             Relation;
+      decl_mn_sym 7 "\\nsqtriplesmile"             Relation;
+      decl_mn_sym 7 "\\nsqtriplefrown"             Relation;
+      decl_mn_sym 7 "\\nsqsmilefrown"              Relation;
+      decl_mn_sym 7 "\\nsqfrownsmile"              Relation;
+      decl_mn_sym 7 "\\nsqsmileeq"                 Relation;
+      decl_mn_sym 7 "\\nsqfrowneq"                 Relation;
+      decl_mn_sym 7 "\\nsqeqsmile"                 Relation;
+      decl_mn_sym 7 "\\nsqeqfrown"                 Relation;
+      decl_mn_sym 7 "\\nsqdoublesmileeq"           Relation;
+      decl_mn_sym 7 "\\nsqdoublefrowneq"           Relation;
+      decl_mn_sym 7 "\\nsqsmileeqfrown"            Relation;
+      decl_mn_sym 7 "\\nsqfrowneqsmile"            Relation;
+      decl_mn_sym 7 "\\neqcirc"                    Relation;
+      decl_mn_sym 7 "\\ncirceq"                    Relation;
+      decl_mn_sym 7 "\\ntriangleeq"                Relation;
+      decl_mn_sym 7 "\\nhateq"                     Relation;
+      decl_mn_sym 7 "\\nin"                        Relation;
+      decl_mn_sym 7 "\\nowns"                      Relation;
+      decl_mn_sym 7 "\\nless"                      Relation;
+      decl_mn_sym 7 "\\ngtr"                       Relation;
+      decl_mn_sym 7 "\\nleq"                       Relation;
+      decl_mn_sym 7 "\\ngeq"                       Relation;
+      decl_mn_sym 7 "\\nleqslant"                  Relation;
+      decl_mn_sym 7 "\\ngeqslant"                  Relation;
+      decl_mn_sym 7 "\\nleqq"                      Relation;
+      decl_mn_sym 7 "\\ngeqq"                      Relation;
+      decl_mn_sym 7 "\\nlessgtr"                   Relation;
+      decl_mn_sym 7 "\\ngtrless"                   Relation;
+      decl_mn_sym 7 "\\nlesseqgtr"                 Relation;
+      decl_mn_sym 7 "\\ngtreqless"                 Relation;
+      decl_mn_sym 7 "\\nlesseqqgtr"                Relation;
+      decl_mn_sym 7 "\\ngtreqqless"                Relation;
+      decl_mn_sym 7 "\\nlesseqgtrslant"            Relation;
+      decl_mn_sym 7 "\\ngtreqlessslant"            Relation;
+      decl_mn_sym 7 "\\nll"                        Relation;
+      decl_mn_sym 7 "\\ngg"                        Relation;
+      decl_mn_sym 7 "\\nlll"                       Relation;
+      decl_mn_sym 7 "\\nggg"                       Relation;
+      decl_mn_sym 7 "\\nlessclosed"                Relation;
+      decl_mn_sym 7 "\\ngtrclosed"                 Relation;
+      decl_mn_sym 7 "\\nleqclosed"                 Relation;
+      decl_mn_sym 7 "\\ngeqclosed"                 Relation;
+      decl_mn_sym 7 "\\nsqsubset"                  Relation;
+      decl_mn_sym 7 "\\nsqsupset"                  Relation;
+      decl_mn_sym 7 "\\nsqsubseteq"                Relation;
+      decl_mn_sym 7 "\\nsqsupseteq"                Relation;
+      decl_mn_sym 7 "\\nsqsubseteqq"               Relation;
+      decl_mn_sym 7 "\\nsqsupseteqq"               Relation;
+      decl_mn_sym 7 "\\nSqsubset"                  Relation;
+      decl_mn_sym 7 "\\nSqsupset"                  Relation;
+      decl_mn_sym 7 "\\nsubset"                    Relation;
+      decl_mn_sym 7 "\\nsupset"                    Relation;
+      decl_mn_sym 7 "\\nsubseteq"                  Relation;
+      decl_mn_sym 7 "\\nsupseteq "                 Relation;
+      decl_mn_sym 7 "\\nsubseteqq"                 Relation;
+      decl_mn_sym 7 "\\nsupseteqq"                 Relation;
+      decl_mn_sym 7 "\\nSubset"                    Relation;
+      decl_mn_sym 7 "\\nSupset"                    Relation;
+      decl_mn_sym 7 "\\nprec"                      Relation;
+      decl_mn_sym 7 "\\nsucc"                      Relation;
+      decl_mn_sym 7 "\\npreceq"                    Relation;
+      decl_mn_sym 7 "\\nsucceq"                    Relation;
+      decl_mn_sym 7 "\\npreccurlyeq"               Relation;
+      decl_mn_sym 7 "\\nsucccurlyeq"               Relation;
+      decl_mn_sym 7 "\\nprecsim"                   Relation;
+      decl_mn_sym 7 "\\nsuccsim"                   Relation;
+      decl_mn_sym 7 "\\nprecapprox"                Relation;
+      decl_mn_sym 7 "\\nsuccapprox"                Relation;
+      decl_mn_sym 7 "\\nlessdot"                   Relation;
+      decl_mn_sym 7 "\\ngtrdot"                    Relation;
+      decl_mn_sym 7 "\\nleqdot"                    Relation;
+      decl_mn_sym 7 "\\ngeqdot"                    Relation;
+      decl_mn_sym 7 "\\nleqslantdot"               Relation;
+      decl_mn_sym 7 "\\ngeqslantdot"               Relation;
+      decl_mn_sym 7 "\\lneqq"                      Relation;
+      decl_mn_sym 7 "\\gneqq"                      Relation;
+      decl_mn_sym 7 "\\lessneqqgtr"                Relation;
+      decl_mn_sym 7 "\\gtrneqqless"                Relation;
+      decl_mn_sym 7 "\\sqsubsetneq"                Relation;
+      decl_mn_sym 7 "\\sqsupsetneq"                Relation;
+      decl_mn_sym 7 "\\sqsubsetneqq"               Relation;
+      decl_mn_sym 7 "\\sqsupsetneqq"               Relation;
+      decl_mn_sym 7 "\\subsetneq"                  Relation;
+      decl_mn_sym 7 "\\supsetneq"                  Relation;
+      decl_mn_sym 7 "\\subsetneqq"                 Relation;
+      decl_mn_sym 7 "\\supsetneqq"                 Relation;
+      decl_mn_sym 7 "\\precnsim"                   Relation;
+      decl_mn_sym 7 "\\succnsim"                   Relation;
+      decl_mn_sym 7 "\\precnapprox"                Relation;
+      decl_mn_sym 7 "\\succnapprox"                Relation;
+    end;
+    decl_mn_symbols
+    do
+      decl_mn_sym 2 "\\tbigplus"                   Operator;
+      decl_mn_sym 2 "\\dbigplus"                   Operator;
+      decl_mn_sym 2 "\\tbigtimes"                  Operator;
+      decl_mn_sym 2 "\\dbigtimes"                  Operator;
+      decl_mn_sym 2 "\\tbigwedge"                  Operator;
+      decl_mn_sym 2 "\\dbigwedge"                  Operator;
+      decl_mn_sym 2 "\\tbigvee"                    Operator;
+      decl_mn_sym 2 "\\dbigvee"                    Operator;
+      decl_mn_sym 2 "\\tbigwedgedot"               Operator;
+      decl_mn_sym 2 "\\dbigwedgedot"               Operator;
+      decl_mn_sym 2 "\\tbigveedot"                 Operator;
+      decl_mn_sym 2 "\\dbigveedot"                 Operator;
+      decl_mn_sym 2 "\\tbigdoublewedge"            Operator;
+      decl_mn_sym 2 "\\dbigdoublewedge"            Operator;
+      decl_mn_sym 2 "\\tbigdoublevee"              Operator;
+      decl_mn_sym 2 "\\dbigdoublevee"              Operator;
+      decl_mn_sym 2 "\\tbigcurlywedge"             Operator;
+      decl_mn_sym 2 "\\dbigcurlywedge"             Operator;
+      decl_mn_sym 2 "\\tbigcurlyvee"               Operator;
+      decl_mn_sym 2 "\\dbigcurlyvee"               Operator;
+      decl_mn_sym 2 "\\tbigcurlywedgedot"          Operator;
+      decl_mn_sym 2 "\\dbigcurlywedgedot"          Operator;
+      decl_mn_sym 2 "\\tbigcurlyveedot"            Operator;
+      decl_mn_sym 2 "\\dbigcurlyveedot"            Operator;
+      decl_mn_sym 2 "\\tbigdoublecurlywedge"       Operator;
+      decl_mn_sym 2 "\\dbigdoublecurlywedge"       Operator;
+      decl_mn_sym 2 "\\tbigdoublecurlyvee"         Operator;
+      decl_mn_sym 2 "\\dbigdoublecurlyvee"         Operator;
+      decl_mn_sym 2 "\\tbigcap"                    Operator;
+      decl_mn_sym 2 "\\dbigcap"                    Operator;
+      decl_mn_sym 2 "\\tbigcup"                    Operator;
+      decl_mn_sym 2 "\\dbigcup"                    Operator;
+      decl_mn_sym 2 "\\tbigcapdot"                 Operator;
+      decl_mn_sym 2 "\\dbigcapdot"                 Operator;
+      decl_mn_sym 2 "\\tbigcupdot"                 Operator;
+      decl_mn_sym 2 "\\dbigcupdot"                 Operator;
+      decl_mn_sym 2 "\\tbigcapplus"                Operator;
+      decl_mn_sym 2 "\\dbigcapplus"                Operator;
+      decl_mn_sym 2 "\\tbigcupplus"                Operator;
+      decl_mn_sym 2 "\\dbigcupplus"                Operator;
+      decl_mn_sym 2 "\\tbigsqcap"                  Operator;
+      decl_mn_sym 2 "\\dbigsqcap"                  Operator;
+      decl_mn_sym 2 "\\tbigsqcup"                  Operator;
+      decl_mn_sym 2 "\\dbigsqcup"                  Operator;
+      decl_mn_sym 2 "\\tbigsqcapdot"               Operator;
+      decl_mn_sym 2 "\\dbigsqcapdot"               Operator;
+      decl_mn_sym 2 "\\tbigsqcupdot"               Operator;
+      decl_mn_sym 2 "\\dbigsqcupdot"               Operator;
+      decl_mn_sym 2 "\\tbigsqcapplus"              Operator;
+      decl_mn_sym 2 "\\dbigsqcapplus"              Operator;
+      decl_mn_sym 2 "\\tbigsqcupplus"              Operator;
+      decl_mn_sym 2 "\\dbigsqcupplus"              Operator;
+      decl_mn_sym 2 "\\tbigcircle"                 Operator;
+      decl_mn_sym 2 "\\dbigcircle"                 Operator;
+      decl_mn_sym 2 "\\tbigominus"                 Operator;
+      decl_mn_sym 2 "\\dbigominus"                 Operator;
+      decl_mn_sym 2 "\\tbigovert"                  Operator;
+      decl_mn_sym 2 "\\dbigovert"                  Operator;
+      decl_mn_sym 2 "\\tbigoslash"                 Operator;
+      decl_mn_sym 2 "\\dbigoslash"                 Operator;
+      decl_mn_sym 2 "\\tbigobackslash"             Operator;
+      decl_mn_sym 2 "\\dbigobackslash"             Operator;
+      decl_mn_sym 2 "\\tbigoplus"                  Operator;
+      decl_mn_sym 2 "\\dbigoplus"                  Operator;
+      decl_mn_sym 2 "\\tbigotimes"                 Operator;
+      decl_mn_sym 2 "\\dbigotimes"                 Operator;
+      decl_mn_sym 2 "\\tbigodot"                   Operator;
+      decl_mn_sym 2 "\\dbigodot"                   Operator;
+      decl_mn_sym 2 "\\tbigocirc"                  Operator;
+      decl_mn_sym 2 "\\dbigocirc"                  Operator;
+      decl_mn_sym 2 "\\tbigotriangle"              Operator;
+      decl_mn_sym 2 "\\dbigotriangle"              Operator;
+      decl_mn_sym 2 "\\tbigoast"                   Operator;
+      decl_mn_sym 2 "\\dbigoast"                   Operator;
+      decl_mn_sym 2 "\\tbigostar"                  Operator;
+      decl_mn_sym 2 "\\dbigostar"                  Operator;
+      decl_mn_sym 2 "\\tprod"                      Operator;
+      decl_mn_sym 2 "\\dprod"                      Operator;
+      decl_mn_sym 2 "\\tcoprod"                    Operator;
+      decl_mn_sym 2 "\\dcoprod"                    Operator;
+      decl_mn_sym 2 "\\tsum"                       Operator;
+      decl_mn_sym 2 "\\dsum"                       Operator;
+      decl_mn_sym 2 "\\tint"                       Operator;
+      decl_mn_sym 2 "\\dint"                       Operator;
+      decl_mn_sym 2 "\\tiint"                      Operator;
+      decl_mn_sym 2 "\\diint"                      Operator;
+      decl_mn_sym 2 "\\tiiint"                     Operator;
+      decl_mn_sym 2 "\\diiint"                     Operator;
+      decl_mn_sym 2 "\\tiiiint"                    Operator;
+      decl_mn_sym 2 "\\diiiint"                    Operator;
+      decl_mn_sym 2 "\\tidotsint"                  Operator;
+      decl_mn_sym 2 "\\didotsint"                  Operator;
+      decl_mn_sym 2 "\\tlandupint"                 Operator;
+      decl_mn_sym 2 "\\dlandupint"                 Operator;
+      decl_mn_sym 2 "\\tlanddownint"               Operator;
+      decl_mn_sym 2 "\\dlanddownint"               Operator;
+      decl_mn_sym 2 "\\tstrokedint"                Operator;
+      decl_mn_sym 2 "\\dstrokedint"                Operator;
+      decl_mn_sym 2 "\\toint"                      Operator;
+      decl_mn_sym 2 "\\doint"                      Operator;
+      decl_mn_sym 2 "\\toiint"                     Operator;
+      decl_mn_sym 2 "\\doiint"                     Operator;
+      decl_mn_sym 2 "\\trcirclerightint"           Operator;
+      decl_mn_sym 2 "\\drcirclerightint"           Operator;
+      decl_mn_sym 2 "\\tlcirclerightint"           Operator;
+      decl_mn_sym 2 "\\dlcirclerightint"           Operator;
+      decl_mn_sym 2 "\\trcircleleftint"            Operator;
+      decl_mn_sym 2 "\\drcircleleftint"            Operator;
+      decl_mn_sym 2 "\\tlcircleleftint "           Operator;
+      decl_mn_sym 2 "\\dlcircleleftint"            Operator;
+      decl_mn_sym 2 "\\tsumint"                    Operator;
+      decl_mn_sym 2 "\\dsumint"                    Operator;
+      decl_mn_sym 2 "\\partialvartint"             Operator;
+      decl_mn_sym 2 "\\partialvardint"             Operator;
+      decl_mn_sym 2 "\\partialvartlandupint"       Operator;
+      decl_mn_sym 2 "\\partialvardlandupint"       Operator;
+      decl_mn_sym 2 "\\partialvartlanddownint"     Operator;
+      decl_mn_sym 2 "\\partialvardlanddownint"     Operator;
+      decl_mn_sym 2 "\\partialvartstrokedint"      Operator;
+      decl_mn_sym 2 "\\partialvardstrokedint"      Operator;
+      decl_mn_sym 2 "\\partialvartoint"            Operator;
+      decl_mn_sym 2 "\\partialvardoint"            Operator;
+      decl_mn_sym 2 "\\partialvartoiint"           Operator;
+      decl_mn_sym 2 "\\partialvardoiint"           Operator;
+      decl_mn_sym 2 "\\partialvartrcirclerightint" Operator;
+      decl_mn_sym 2 "\\partialvardrcirclerightint" Operator;
+      decl_mn_sym 2 "\\partialvartlcirclerightint" Operator;
+      decl_mn_sym 2 "\\partialvardlcirclerightint" Operator;
+      decl_mn_sym 2 "\\partialvartrcircleleftint"  Operator;
+      decl_mn_sym 2 "\\partialvardrcircleleftint"  Operator;
+      decl_mn_sym 2 "\\partialvartlcircleleftint"  Operator;
+      decl_mn_sym 2 "\\partialvardlcircleleftint"  Operator;
+      decl_mn_sym 2 "\\partialvartsumint"          Operator;
+      decl_mn_sym 2 "\\partialvardsumint"          Operator;
+    end;
+
+    ps_define_math_symbol "\\lfloor"        Open     3 0x0a;
+    ps_define_math_symbol "\\rfloor"        Close    3 0x0f;
+    ps_define_math_symbol "\\lceil"         Open     3 0x14;
+    ps_define_math_symbol "\\rceil"         Close    3 0x19;
+    ps_define_math_symbol "\\ulcorner"      Open     3 0x1e;
+    ps_define_math_symbol "\\urcorner"      Close    3 0x23;
+    ps_define_math_symbol "\\llcorner"      Open     3 0x28;
+    ps_define_math_symbol "\\lrcorner"      Close    3 0x2d;
+    ps_define_math_symbol "\\ullcorner"     Open     3 0x32;
+    ps_define_math_symbol "\\ulrcorner"     Close    3 0x37;
+    ps_define_math_symbol "\\lsem"          Open     3 0x42;
+    ps_define_math_symbol "\\rsem"          Close    3 0x47;
+    ps_define_math_symbol "\\vert"          Ordinary 3 0x53;
+    ps_define_math_symbol "\\mvert"         Relation 3 0x53;
+    ps_define_math_symbol "\\lvert"         Open     3 0x53;
+    ps_define_math_symbol "\\rvert"         Close    3 0x53;
+    ps_define_math_symbol "\\Vert"          Ordinary 3 0x59;
+    ps_define_math_symbol "\\mVert"         Relation 3 0x59;
+    ps_define_math_symbol "\\lVert"         Open     3 0x59;
+    ps_define_math_symbol "\\rVert"         Close    3 0x59;
+    ps_define_math_symbol "\\arrowvert"     Ordinary 3 0x52;
+    ps_define_math_symbol "\\Arrowvert"     Ordinary 3 0x58;
+    ps_define_math_symbol "\\lwavy"         Open     3 0x5e;
+    ps_define_math_symbol "\\rwavy"         Close    3 0x5e;
+    ps_define_math_symbol "\\lWavy"         Open     3 0x5f;
+    ps_define_math_symbol "\\rWavy"         Close    3 0x5f;
+    ps_define_math_symbol "\\langle"        Open     3 0x60;
+    ps_define_math_symbol "\\rangle"        Close    3 0x65;
+    ps_define_math_symbol "\\langlebar"     Open     3 0x6a;
+    ps_define_math_symbol "\\ranglebar"     Close    3 0x6f;
+    ps_define_math_symbol "\\llangle"       Open     3 0x74;
+    ps_define_math_symbol "\\rrangle"       Close    3 0x79;
+    ps_define_math_symbol "\\backslash"     Ordinary 3 0x83;
+    ps_define_math_symbol "\\lbrace"        Open     3 0x98;
+    ps_define_math_symbol "\\rbrace"        Close    3 0x9d;
+    ps_define_math_symbol "\\lgroup"        Close    3 0xa2;
+    ps_define_math_symbol "\\rgroup"        Open     3 0xa3;
+    ps_define_math_symbol "\\rmoustache"    Close    3 0xa4;
+    ps_define_math_symbol "\\lmoustache"    Open     3 0xa5;
+    ps_define_math_symbol "\\bracevert"     Ordinary 3 0xa8;
+    ps_define_math_symbol "\\divides"       BinOp    3 0x53;
+    ps_define_math_symbol "\\downbrace"     Ordinary 3 0xa9;
+    ps_define_math_symbol "\\downbraceg"    Ordinary 3 0xaa;
+    ps_define_math_symbol "\\downbracegg"   Ordinary 3 0xab;
+    ps_define_math_symbol "\\downbraceggg"  Ordinary 3 0xac;
+    ps_define_math_symbol "\\downbracegggg" Ordinary 3 0xad;
+    ps_define_math_symbol "\\upbrace"       Ordinary 3 0xae;
+    ps_define_math_symbol "\\upbraceg"      Ordinary 3 0xaf;
+    ps_define_math_symbol "\\upbracegg"     Ordinary 3 0xb0;
+    ps_define_math_symbol "\\upbraceggg"    Ordinary 3 0xb1;
+    ps_define_math_symbol "\\upbracegggg"   Ordinary 3 0xb2;
+    ps_define_math_symbol "\\braceld"       Ordinary 3 0xb3;
+    ps_define_math_symbol "\\bracelu"       Ordinary 3 0xb4;
+    ps_define_math_symbol "\\bracerd"       Ordinary 3 0xb5;
+    ps_define_math_symbol "\\braceru"       Ordinary 3 0xb6;
+    ps_define_math_symbol "\\bracemd"       Ordinary 3 0xb7;
+    ps_define_math_symbol "\\bracemu"       Ordinary 3 0xb8;
+    ps_define_math_symbol "\\bracemid"      Ordinary 3 0xb9;
+
+    ps_set_math_code '='  Relation 7 0x00 7 0x00;
+    ps_set_math_code '<'  Relation 7 0x40 7 0x40;
+    ps_set_math_code '>'  Relation 7 0x41 7 0x41;
+    ps_set_math_code '+'  BinOp    6 0x14 6 0x14;
+    ps_set_math_code '-'  BinOp    6 0x10 6 0x10;
+    ps_set_math_code '*'  BinOp    6 0x87 6 0x87;
+    ps_set_math_code '|'  Ordinary 3 0x53 3 0x53;
+    ps_set_math_code '('  Open     3 0x88 3 0x88;
+    ps_set_math_code ')'  Close    3 0x8d 3 0x8d;
+    ps_set_math_code ':'  Relation 6 0x02 6 0x02;
+    ps_set_math_code '['  Open     3 0x00 3 0x00;
+    ps_set_math_code ']'  Close    3 0x05 3 0x05;
+    ps_set_math_code '/'  Ordinary 3 0x7e 3 0x7e;
+    ps_set_math_code '|'  Ordinary 3 0x53 3 0x53;
+
+    ps_define_root_symbol "\\sqrt" 3 0xba 3 0xba;
+
+    ps_define_math_accent "\\widehat"     3 0xc2;
+    ps_define_math_accent "\\widetilde"   3 0xc7;
+    ps_define_math_accent "\\wideparen"   3 0xcc;
+    ps_define_math_accent "\\vec"         3 0xd1;
+  end
+}
+
+\definecommand\to{\rightarrow }
+\definecommand\gets{\leftarrow }
+\definecommand\mapsto{\rightmapsto }
+\definecommand\hookrightarrow{\lhookrightarrow }
+\definecommand\hookleftarrow{\rhookleftarrow }
+\definecommand\upharpoonleft{\upharpoonup }
+\definecommand\downharpoonright{\downharpoonup }
+\definecommand\upharpoonright{\upharpoondown }
+\definecommand\restriction{\upharpoondown }
+\definecommand\downharpoonleft{\downharpoondown }
+\definecommand\dashrightarrow{\dashedrightarrow }
+\definecommand\dasharrow{\dashedrightarrow }
+\definecommand\dashleftarrow{\dashedleftarrow }
+\definecommand\multimap{\rightspoon }
+\definecommand\pitchfork{\uppitchfork }
+\definecommand\leadsto{\rightlsquigarrow }
+\definecommand\rightsquigarrow{\rightlsquigarrow }
+\definecommand\leftrightsquigarrow{\squigarrowleftright }
+\definecommand\curvearrowright{\lcurvearrowright }
+\definecommand\curvearrowleft{\rcurvearrowleft }
+\definecommand\relbar{\leftrightline }
+\definecommand\diagup{\neswline }
+\definecommand\diagdown{\nwseline }
+\definecommand\Relbar{\Leftrightline }
+\definecommand\vdash{\rightvdash }
+\definecommand\perp{\upvdash }
+\definecommand\dashv{\leftvdash }
+\definecommand\models{\rightmodels }
+\definecommand\vDash{\models }
+\definecommand\Vdash{\rightVdash }
+\definecommand\VDash{\rightModels }
+\definecommand\circlearrowleft{\rcirclearrowup }
+\definecommand\circlearrowright{\rcirclearrowup }
+
+\definecommand\joinrel{\mathrel{\mkern-3.1mu}}
+\definecommand\longrightarrow{\leftrightline\joinrel\rightarrow }
+\definecommand\longleftarrow{\leftarrow\joinrel\leftrightline }
+\definecommand\longleftrightarrow{\leftarrow\joinrel\rightarrow }
+\definecommand\Longrightarrow{\Leftrightline\joinrel\Rightarrow }
+\definecommand\Longleftarrow{\Leftarrow\joinrel\Leftrightline }
+\definecommand\Longleftrightarrow{\Leftarrow\joinrel\Rightarrow }
+\definecommand\longmapsto{\leftfootline\joinrel\rightarrow }
+\definecommand\emptyfilledspoon{\leftspoon\mkern-14mu\rightfilledspoon }
+\definecommand\filledemptyspoon{\leftfilledspoon\mkern-14mu\rightspoon }
+\definecommand\largeemptyfilledspoon{\mathrel{\circ\mkern-8mu\relbar\mkern-8mu\bullet}}
+\definecommand\largefilledemptyspoon{\mathrel{\bullet\mkern-8mu\relbar\mkern-8mu\circ}}
+
+\definecommand\nmid{\nupdownline }
+\definecommand\nparallel{\nUpdownline }
+\definecommand\nvdash{\nrightvdash }
+\definecommand\nmodels{\nrightmodels }
+\definecommand\nvDash{\nmodels }
+\definecommand\nVdash{\nrightVdash }
+\definecommand\nVDash{\nrightModels }
+\definecommand\cdotp{\mathpunct{\cdot}}
+\definecommand\colon{\mathpunct{\vdotdot}}
+\definecommand\cdots{\mathinner{\hdots}}
+\definecommand\therefore{\uptherefore }
+\definecommand\because{\downtherefore }
+\definecommand\shortmid{\mathrel{\medvert}}
+\definecommand\setminus{\medbackslash }
+\definecommand\smallsetminus{\medbackslash }
+\definecommand\lnot{\neg }
+\definecommand\Join{\bowtie }
+\definecommand\land{\wedge }
+\definecommand\lor{\vee }
+\definecommand\Cup{\doublecup }
+\definecommand\Cap{\doublecap }
+\definecommand\uplus{\cupplus }
+\definecommand\blacktriangleright{\filledtriangleright }
+\definecommand\blacktriangleleft{\filledtriangleleft }
+\definecommand\triangleright{\medtriangleright }
+\definecommand\triangle{\medtriangleup }
+\definecommand\vartriangle{\medtriangleup }
+\definecommand\bigtriangleup{\medtriangleup }
+\definecommand\triangleleft{\medtriangleleft }
+\definecommand\bigtriangledown{\medtriangledown }
+\definecommand\triangledown{\medtriangledown }
+\definecommand\bigcirc{\largecircle }
+\definecommand\circleddash{\ominus }
+\definecommand\circledcirc{\ocirc }
+\definecommand\circledast{\oast }
+\definecommand\emptyset{\diameter }
+\definecommand\varnothing{\diameter }
+\definecommand\square{\medsquare }
+\definecommand\Box{\medsquare }
+\definecommand\diamond{\smalldiamond }
+\definecommand\Diamond{\meddiamond }
+\definecommand\lozenge{\meddiamond }
+\definecommand\star{\thinstar }
+\definecommand\propto{\leftpropto }
+\definecommand\varpropto{\propto }
+\definecommand\wr{\wreath }
+\definecommand\doteqdot{\Doteq }
+\definecommand\smallsmile{\smile }
+\definecommand\smallfrown{\frown }
+\definecommand\asymp{\smilefrown }
+\definecommand\triangleq{\triangleeq }
+\definecommand\ni{\owns }
+\definecommand\le{\leq }
+\definecommand\ge{\geq }
+\definecommand\llless{\lll }
+\definecommand\gggtr{\ggg }
+\definecommand\lhd{\lessclosed }
+\definecommand\vartriangleleft{\lessclosed }
+\definecommand\rhd{\gtrclosed }
+\definecommand\vartriangleright{\gtrclosed }
+\definecommand\unlhd{\leqclosed }
+\definecommand\trianglelefteq{\leqclosed }
+\definecommand\unrhd{\geqclosed }
+\definecommand\trianglerighteq{\geqclosed }
+\definecommand\neq{\nequal }
+\definecommand\ne{\nequal }
+\definecommand\nasymp{\nsmilefrown }
+\definecommand\notin{\nin }
+\definecommand\ntriangleleft{\nlessclosed }
+\definecommand\ntriangleright{\ngtrclosed }
+\definecommand\ntrianglelefteq{\nleqclosed }
+\definecommand\ntrianglerighteq{\ngeqclosed }
+\definecommand\lvertneqq{\lneqq }
+\definecommand\gvertneqq{\gneqq }
+\definecommand\varsubsetneq{\subsetneq }
+\definecommand\varsupsetneq{\supsetneq }
+\definecommand\varsubsetneqq{\subsetneqq }
+\definecommand\varsupsetneqq{\supsetneqq }
+
+%\let\intop\tint
+%\let\ointop\toint
+%\Decl@Mn@Int\iint\diint\tiint
+%\Decl@Mn@Int\iiint\diiint\tiiint
+%\Decl@Mn@Int\iiiint\diiiint\tiiiint
+%\Decl@Mn@Int\idotsint\didotsint\tidotsint
+%\Decl@Mn@Int\landupint\dlandupint\tlandupint
+%\Decl@Mn@Int\landdownint\dlanddownint\tlanddownint
+%\Decl@Mn@Int\strokedint\dstrokedint\tstrokedint
+%\Decl@Mn@Int\oiint\doiint\toiint
+%\Decl@Mn@Int\rcirclerightint\drcirclerightint\trcirclerightint
+%\Decl@Mn@Int\lcirclerightint\dlcirclerightint\tlcirclerightint
+%\Decl@Mn@Int\rcircleleftint\drcircleleftint\trcircleleftint
+%\Decl@Mn@Int\lcircleleftint\dlcircleleftint\tlcircleleftint
+%\Decl@Mn@Int\sumint\dsumint\tsumint
+%
+%\def\intkern@{\mkern-10mu\mathchoice{\mkern-6mu}{}{}{}}
+%\def\intdots@{\mkern-7mu%
+%  \mathchoice{\mkern-3mu\@cdots\mkern-3mu}%
+%  {{\cdotp}\mkern0.5mu{\cdotp}\mkern0.5mu{\cdotp}}%
+%  {{\cdotp}{\cdotp}{\cdotp}}%
+%  {{\cdotp}{\cdotp}{\cdotp}}%
+%  \mkern-6mu}
+
+\definecommand\bigplus{\tbigplus\indexposition{vert}}
+\definecommand\bigtimes{\tbigtimes\indexposition{vert}}
+\definecommand\bigwedge{\tbigwedge\indexposition{vert}}
+\definecommand\bigvee{\tbigvee\indexposition{vert}}
+\definecommand\bigwedgedot{\tbigwedgedot\indexposition{vert}}
+\definecommand\bigveedot{\tbigveedot\indexposition{vert}}
+\definecommand\bigdoublewedge{\tbigdoublewedge\indexposition{vert}}
+\definecommand\bigdoublevee{\tbigdoublevee\indexposition{vert}}
+\definecommand\bigcurlywedge{\tbigcurlywedge\indexposition{vert}}
+\definecommand\bigcurlyvee{\tbigcurlyvee\indexposition{vert}}
+\definecommand\bigcurlywedgedot{\tbigcurlywedgedot\indexposition{vert}}
+\definecommand\bigcurlyveedot{\tbigcurlyveedot\indexposition{vert}}
+\definecommand\bigdoublecurlywedge{\tbigdoublecurlywedge\indexposition{vert}}
+\definecommand\bigdoublecurlyvee{\tbigdoublecurlyvee\indexposition{vert}}
+\definecommand\bigcap{\tbigcap\indexposition{vert}}
+\definecommand\bigcup{\tbigcup\indexposition{vert}}
+\definecommand\bigcapdot{\tbigcapdot\indexposition{vert}}
+\definecommand\bigcupdot{\tbigcupdot\indexposition{vert}}
+\definecommand\bigcapplus{\tbigcapplus\indexposition{vert}}
+\definecommand\bigcupplus{\tbigcupplus\indexposition{vert}}
+\definecommand\bigsqcap{\tbigsqcap\indexposition{vert}}
+\definecommand\bigsqcup{\tbigsqcup\indexposition{vert}}
+\definecommand\bigsqcapdot{\tbigsqcapdot\indexposition{vert}}
+\definecommand\bigsqcupdot{\tbigsqcupdot\indexposition{vert}}
+\definecommand\bigsqcapplus{\tbigsqcapplus\indexposition{vert}}
+\definecommand\bigsqcupplus{\tbigsqcupplus\indexposition{vert}}
+\definecommand\bigcircle{\tbigcircle\indexposition{vert}}
+\definecommand\bigominus{\tbigominus\indexposition{vert}}
+\definecommand\bigovert{\tbigovert\indexposition{vert}}
+\definecommand\bigoslash{\tbigoslash\indexposition{vert}}
+\definecommand\bigobackslash{\tbigobackslash\indexposition{vert}}
+\definecommand\bigoplus{\tbigoplus\indexposition{vert}}
+\definecommand\bigotimes{\tbigotimes\indexposition{vert}}
+\definecommand\bigodot{\tbigodot\indexposition{vert}}
+\definecommand\bigocirc{\tbigocirc\indexposition{vert}}
+\definecommand\bigotriangle{\tbigotriangle\indexposition{vert}}
+\definecommand\bigoast{\tbigoast\indexposition{vert}}
+\definecommand\bigostar{\tbigostar\indexposition{vert}}
+\definecommand\sum{\tsum\indexposition{vert}}
+\definecommand\prod{\tprod\indexposition{vert}}
+\definecommand\coprod{\tcoprod\indexposition{vert}}
+
+\definecommand\biguplus{\bigcupplus }
+\definecommand\mid{\mvert }
+\definecommand\|{\Vert }
+\definecommand\parallel{\mVert }
+
+%\expandafter\DeclareMathDelimiter\@backslashchar
+%                          {\mathord}{largesymbols}{'203}{largesymbols}{'203}
+%
+%\def\horiz@expandable#1#2#3#4#5#6#7#8{%
+%  \@mathmeasure\z@#7{#8}%
+%  \@tempdima=\wd\z@
+%  \@mathmeasure\z@#7{#1}%
+%  \ifdim\noexpand\wd\z@>\@tempdima
+%    $\m@th#7#1$%
+%  \else
+%    \@mathmeasure\z@#7{#2}%
+%    \ifdim\noexpand\wd\z@>\@tempdima
+%      $\m@th#7#2$%
+%    \else
+%      \@mathmeasure\z@#7{#3}%
+%      \ifdim\noexpand\wd\z@>\@tempdima
+%        $\m@th#7#3$%
+%      \else
+%        \@mathmeasure\z@#7{#4}%
+%        \ifdim\noexpand\wd\z@>\@tempdima
+%          $\m@th#7#4$%
+%        \else
+%          \@mathmeasure\z@#7{#5}%
+%          \ifdim\noexpand\wd\z@>\@tempdima
+%            $\m@th#7#5$%
+%          \else
+%           #6#7%
+%          \fi
+%        \fi
+%      \fi
+%    \fi
+%  \fi}
+%
+%\def\overbrace@expandable#1#2#3{\vbox{\m@th\ialign{##\crcr
+%  #1#2{#3}\crcr\noalign{\kern2\p@\nointerlineskip}%
+%  $\m@th\hfil#2#3\hfil$\crcr}}}
+%\def\underbrace@expandable#1#2#3{\vtop{\m@th\ialign{##\crcr
+%  $\m@th\hfil#2#3\hfil$\crcr
+%  \noalign{\kern2\p@\nointerlineskip}%
+%  #1#2{#3}\crcr}}}
+%
+%\def\overbrace@#1#2#3{\vbox{\m@th\ialign{##\crcr
+%  #1#2\crcr\noalign{\kern2\p@\nointerlineskip}%
+%  $\m@th\hfil#2#3\hfil$\crcr}}}
+%\def\underbrace@#1#2#3{\vtop{\m@th\ialign{##\crcr
+%  $\m@th\hfil#2#3\hfil$\crcr
+%  \noalign{\kern2\p@\nointerlineskip}%
+%  #1#2\crcr}}}
+%
+%\definecommand\bracefill@[mmmmm]{$\m@th#5#1\leaders\hbox{$#4$}\hfill#2\leaders\hbox{$#4$}\hfill#3$}
+%
+%\definecommand\downbracefill{\bracefill@\braceld\bracemd\bracerd\bracemid}
+%\definecommand\upbracefill{\bracefill@\bracelu\bracemu\braceru\bracemid}
+%\definecommand\downgroupfill@{\bracefill@\braceld{}\bracerd\bracemid}
+%\definecommand\upgroupfill@{\bracefill@\bracelu{}\braceru\bracemid}
+%\definecommand\linesegmentfill@{\arrowfill@\leftfootline\relbar\rightfootline}
+%\definecommand\leftharpoonfill@{\arrowfill@\leftharpoondown\relbar\relbar}
+%\definecommand\rightharpoonfill@{\arrowfill@\relbar\relbar\rightharpoonup}
+%
+%\def\upbrace@expandable{%
+%  \horiz@expandable
+%    \upbrace
+%    \upbraceg
+%    \upbracegg
+%    \upbraceggg
+%    \upbracegggg
+%    \upbracefill}
+%\def\downbrace@expandable{%
+%  \horiz@expandable
+%    \downbrace
+%    \downbraceg
+%    \downbracegg
+%    \downbraceggg
+%    \downbracegggg
+%    \downbracefill}
+%
+%\DeclareRobustCommand{\overbrace}[1]{\mathop{\mathpalette{\overbrace@expandable\downbrace@expandable}{#1}}\limits}
+%\DeclareRobustCommand{\underbrace}[1]{\mathop{\mathpalette{\underbrace@expandable\upbrace@expandable}{#1}}\limits}
+%
+%\DeclareRobustCommand{\overgroup}{\mathpalette{\overbrace@\downgroupfill@}}
+%\DeclareRobustCommand{\undergroup}{\mathpalette{\underbrace@\upgroupfill@}}
+%\DeclareRobustCommand{\overlinesegment}{\mathpalette{\overarrow@\linesegmentfill@}}
+%\DeclareRobustCommand{\overleftharpoon}{\mathpalette{\overarrow@\leftharpoonfill@}}
+%\DeclareRobustCommand{\overrightharpoon}{\mathpalette{\overarrow@\rightharpoonfill@}}
+%\DeclareRobustCommand{\underlinesegment}{\mathpalette{\underarrow@\linesegmentfill@}}
+%
+%\DeclareRobustCommand{\surd}{{\mathchar'11672}}
+%
+%\def\c@ncel#1#2{\m@th\ooalign{$\hfil#1/\hfil$\crcr$#1#2$}}
+%\def\not#1{\mathrel{\m@th\mathpalette\c@ncel{#1}}}
+%\DeclareRobustCommand{\coloneq}{\mathrel{{\vdotdot}{\equal}}}
+%\DeclareRobustCommand{\dagger}{\Mn@Text@With@MathVersion{\textdagger}}
+%\DeclareRobustCommand{\ddagger}{\Mn@Text@With@MathVersion{\textdaggerdbl}}
+%\DeclareRobustCommand{\mathparagraph}{\Mn@Text@With@MathVersion{\textparagraph}}
+%\DeclareRobustCommand{\mathsection}{\Mn@Text@With@MathVersion{\textsection}}
+%\DeclareRobustCommand{\mathdollar}{\Mn@Text@With@MathVersion{\textdollar}}
+%\DeclareRobustCommand{\mathsterling}{\Mn@Text@With@MathVersion{\textsterling}}
+%\DeclareRobustCommand{\yen}{\Mn@Text@With@MathVersion{\textyen}}
+%\DeclareRobustCommand{\Re}{\mathfrak{R}}
+%\DeclareRobustCommand{\Im}{\mathfrak{I}}
+%\DeclareRobustCommand{\dotplus}{\dot{+}}
+%\DeclareRobustCommand{\thicksim}{\mathrel{\text{\boldmath$\m@th\sim$}}}
+%\DeclareRobustCommand{\thickapprox}{\mathrel{\text{\boldmath$\m@th\approx$}}}
+
+% vim:set ft=tex fenc=utf8:

@@ -1,0 +1,349 @@
+
+\ALcommand{
+  local begin
+    fam  := "MinionPro";
+    med  := "medium";
+    sb   := "semibold";
+    bold := "bold";
+    nor  := "normal";
+    it   := "italic";
+    rm_kern := [(   2, ~0.020, ~0.050),  ;; !
+                (   8, ~0.100, ~0.150),  ;; '
+                (  65, ~0.150, ~0.100),  ;; `
+                (   9, ~0.020, ~0.010),  ;; (
+                (  10, ~0.010, ~0.020),  ;; )
+                (  60, ~0.035, ~0.055),  ;; [
+                (  62, ~0.055, ~0.035),  ;; ]
+                (  13, ~0.100, ~0.160),  ;; ,
+                (  14, ~0.250, ~0.250),  ;; -
+                (  15, ~0.150, ~0.160),  ;; .
+                (  27, ~0.090, ~0.110),  ;; :
+                (  28, ~0.080, ~0.100),  ;; ;
+                ( 117, ~0.160, ~0.160),  ;; quote single base
+                ( 107, ~0.140, ~0.100),  ;; guillemot single left
+                ( 108, ~0.100, ~0.140),  ;; guillemot single right
+                ( 105, ~0.150, ~0.100),  ;; quote double left
+                ( 119, ~0.100, ~0.150),  ;; qoute double right
+                ( 118, ~0.160, ~0.160),  ;; qoute double base
+                ( 106, ~0.140, ~0.100),  ;; guillemot left
+                ( 120, ~0.100, ~0.140),  ;; guillemot right
+                ( 111, ~0.200, ~0.250),  ;; en-dash
+                ( 137, ~0.200, ~0.250),  ;; em-dash
+                (  34, ~0.030, ~0.030),  ;; A
+                ( 171, ~0.030, ~0.030),  ;; Aacute
+                ( 172, ~0.030, ~0.030),  ;; Acircumflex
+                ( 173, ~0.030, ~0.030),  ;; Adieresis
+                ( 174, ~0.030, ~0.030),  ;; Agrave
+                ( 175, ~0.030, ~0.030),  ;; Aring
+                ( 176, ~0.030, ~0.030),  ;; Atilde
+                ( 379, ~0.030, ~0.030),  ;; Abreve
+                ( 380, ~0.030, ~0.030),  ;; Amacron
+                ( 381, ~0.030, ~0.030),  ;; Aogonec
+                ( 138, ~0.030, ~0.000),  ;; AE
+                ( 382, ~0.030, ~0.000),  ;; AEacute
+                (  39, ~0.000, ~0.030),  ;; F
+                (  43, ~0.030, ~0.000),  ;; J
+                (  44, ~0.000, ~0.030),  ;; K
+                (  45, ~0.000, ~0.030),  ;; L
+                ( 408, ~0.000, ~0.030),  ;; Lacute
+                ( 409, ~0.000, ~0.030),  ;; Lcaron
+                ( 410, ~0.000, ~0.030),  ;; Lcommaaccent
+                ( 411, ~0.000, ~0.030),  ;; Ldot
+                (  53, ~0.030, ~0.030),  ;; T
+                ( 426, ~0.030, ~0.030),  ;; Tbar
+                ( 427, ~0.030, ~0.030),  ;; Tcaron
+                ( 428, ~0.030, ~0.030),  ;; Tcommaaccent
+                (1029, ~0.030, ~0.000),  ;; Th
+                (  55, ~0.030, ~0.030),  ;; V
+                (  56, ~0.030, ~0.030),  ;; W
+                ( 435, ~0.030, ~0.030),  ;; Wacute
+                ( 436, ~0.030, ~0.030),  ;; Wcircumflex
+                ( 437, ~0.030, ~0.030),  ;; Wdieresis
+                ( 438, ~0.030, ~0.030),  ;; Wgrave
+                (  57, ~0.030, ~0.030),  ;; X
+                (  58, ~0.030, ~0.030),  ;; Y
+                ( 197, ~0.030, ~0.030),  ;; Yacute
+                ( 198, ~0.030, ~0.030),  ;; Ydieresis
+                ( 439, ~0.030, ~0.030),  ;; Ycircumflex
+                ( 440, ~0.030, ~0.030),  ;; Ygrave
+                (  76, ~0.000, ~0.030),  ;; k
+                ( 472, ~0.000, ~0.030),  ;; kcommaaccent
+                (1014, ~0.000, ~0.030),  ;; ck
+                (1020, ~0.000, ~0.030),  ;; ffk
+                (1025, ~0.000, ~0.030),  ;; fk
+                (  83, ~0.000, ~0.030),  ;; r
+                ( 484, ~0.000, ~0.030),  ;; racute
+                ( 485, ~0.000, ~0.030),  ;; rcircumflex
+                ( 486, ~0.000, ~0.030),  ;; rcommaaccent
+                (  85, ~0.000, ~0.030),  ;; t
+                ( 491, ~0.000, ~0.030),  ;; tbar
+                ( 493, ~0.000, ~0.030),  ;; tcommaaccent
+                (1021, ~0.000, ~0.030),  ;; fft
+                (1026, ~0.000, ~0.030),  ;; ft
+                (  87, ~0.030, ~0.030),  ;; v
+                (  88, ~0.030, ~0.030),  ;; w
+                ( 500, ~0.030, ~0.030),  ;; wacute
+                ( 501, ~0.030, ~0.030),  ;; wcircumflex
+                ( 502, ~0.030, ~0.030),  ;; wdieresis
+                ( 503, ~0.030, ~0.030),  ;; wgrave
+                (  89, ~0.030, ~0.030),  ;; x
+                (  90, ~0.030, ~0.030),  ;; y
+                ( 226, ~0.030, ~0.030),  ;; yacute
+                ( 227, ~0.030, ~0.030),  ;; ydieresis
+                ( 504, ~0.030, ~0.030),  ;; ycircumflex
+                ( 505, ~0.030, ~0.030)]; ;; ygrave
+;;  it_kern := [
+;;  ( 13,~0.050,~0.160),  ;; quote single base
+;;  ( 14,~0.140,~0.050),  ;; guillemot single left
+;;  ( 15,~0.100,~0.100),  ;; guillemot single right
+;;  ( 16,~0.200,~0.050),  ;; quote double left
+;;  ( 17,~0.200,~0.050),  ;; qoute double right
+;;  ( 18,~0.050,~0.160),  ;; qoute double base
+;;  ( 19,~0.140,~0.050),  ;; guillemot left
+;;  ( 20,~0.100,~0.100),  ;; guillemot right
+;;  ( 21,~0.200,~0.250),  ;; en-dash
+;;  ( 22,~0.200,~0.250),  ;; em-dash
+;;  ( `!,~0.050,~0.010),  ;; !
+;;  ( 34,~0.200,~0.050),  ;; quote double
+;;  ( `',~0.100,~0.050),  ;; '
+;;  ( ``,~0.150,~0.030),  ;; `
+;;  ( `(,~0.030,~0.000),  ;; (
+;;  ( `),~0.030,~0.000),  ;; )
+;;  ( `[,~0.030,~0.030),  ;; [
+;;  ( `],~0.040,~0.020),  ;; ]
+;;  ( `,,~0.050,~0.160),  ;; ,
+;;  ( `-,~0.250,~0.250),  ;; -
+;;  ( `.,~0.150,~0.160),  ;; .
+;;  ( `:,~0.090,~0.100),  ;; :
+;;  ( `;,~0.000,~0.100),  ;; ;
+;;  ( `A,~0.080,~0.030),  ;; A
+;;  ( `B,~0.050, 0.300),  ;; B
+;;  ( `C,~0.030, 0.400),  ;; C
+;;  ( `D,~0.050, 0.200),  ;; D
+;;  ( `E,~0.050, 0.300),  ;; E
+;;  ( `F,~0.050, 0.200),  ;; F
+;;  ( `G,~0.030, 0.400),  ;; G
+;;  ( `H,~0.050, 0.300),  ;; H
+;;  ( `I,~0.050, 0.300),  ;; I
+;;  ( `J,~0.080, 0.400),  ;; J
+;;  ( `K,~0.050, 0.300),  ;; K
+;;  ( `L,~0.050,~0.030),  ;; L
+;;  ( `M,~0.050, 0.300),  ;; M
+;;  ( `N,~0.050, 0.300),  ;; N
+;;  ( `O,~0.050, 0.200),  ;; O
+;;  ( `P,~0.040, 0.600),  ;; P
+;;  ( `Q,~0.030, 0.300),  ;; Q
+;;  ( `R,~0.050, 0.300),  ;; R
+;;  ( `S,~0.030, 0.300),  ;; S
+;;  ( `T,~0.080,~0.000),  ;; T
+;;  ( `U,~0.050, 0.300),  ;; U
+;;  ( `V,~0.080,~0.020),  ;; V
+;;  ( `W,~0.080,~0.020),  ;; W
+;;  ( `X,~0.030,~0.000),  ;; X
+;;  ( `Y,~0.100,~0.000),  ;; Y
+;;  ( `Z,~0.030, 0.300),  ;; Z
+;;  ( `d,~0.030, 0.300),  ;; d
+;;  ( `f,~0.000, 0.500),  ;; f
+;;  ( 27,~0.000, 0.500),  ;; ff ligature
+;;  ( `g, 0.300, 0.300),  ;; g
+;;  ( `i,~0.000, 0.300),  ;; i
+;;  ( 25,~0.000, 0.300),  ;; dotlessi
+;;  ( 28,~0.000, 0.300),  ;; fi ligature
+;;  ( 30,~0.000, 0.300),  ;; ffi ligature
+;;  ( `j, 0.250, 0.400),  ;; j
+;;  ( `p, 0.200,~0.000),  ;; p
+;;  ( `r,~0.000,~0.030),  ;; r
+;;  ( `t,~0.000,~0.030),  ;; t
+;;  ( `v,~0.040,~0.000),  ;; v
+;;  ( `w,~0.040,~0.005),  ;; w
+;;  ( `x,~0.040,~0.000),  ;; x
+;;  (127,~0.220,~0.250),  ;; hyphen
+;;  (128,~0.080,~0.030),  ;; Abreve
+;;  (129,~0.080,~0.030),  ;; Aogonek
+;;  (192,~0.080,~0.030),  ;; Agrave
+;;  (193,~0.080,~0.030),  ;; Aacute
+;;  (194,~0.080,~0.030),  ;; Acircumflex
+;;  (195,~0.080,~0.030),  ;; Atilde
+;;  (196,~0.080,~0.030),  ;; Adieresis
+;;  (197,~0.080,~0.030),  ;; Aring
+;;  (198,~0.080, 0.300),  ;; AE
+;;  (130,~0.030, 0.400),  ;; Cacute
+;;  (131,~0.030, 0.400),  ;; Ccaron
+;;  (199,~0.030, 0.400),  ;; Ccedilla
+;;  (131,~0.050, 0.200),  ;; Dcaron
+;;  (132,~0.050, 0.300),  ;; Ecaron
+;;  (133,~0.050, 0.300),  ;; Eogonek
+;;  (200,~0.050, 0.300),  ;; Egrave
+;;  (201,~0.050, 0.300),  ;; Eacute
+;;  (202,~0.050, 0.300),  ;; Ecircumflex
+;;  (203,~0.050, 0.300),  ;; Edieresis
+;;  (135,~0.030, 0.400),  ;; Gbreve
+;;  (156,~0.050, 0.400),  ;; IJ
+;;  (157,~0.050, 0.300),  ;; Idotaccent
+;;  (204,~0.050, 0.300),  ;; Igrave
+;;  (205,~0.050, 0.300),  ;; Iacute
+;;  (206,~0.050, 0.300),  ;; Icircumflex
+;;  (207,~0.050, 0.300),  ;; Idieresis
+;;  (136,~0.050,~0.030),  ;; Lacute
+;;  (137,~0.050,~0.030),  ;; Lcaron
+;;  (138,~0.050,~0.030),  ;; Lslash
+;;  (139,~0.050, 0.300),  ;; Nacute
+;;  (140,~0.050, 0.300),  ;; Ncaron
+;;  (209,~0.050, 0.300),  ;; Ntilde
+;;  (142,~0.050, 0.200),  ;; Ohungarumlaut
+;;  (210,~0.050, 0.200),  ;; Ograve
+;;  (211,~0.050, 0.200),  ;; Oacute
+;;  (212,~0.050, 0.200),  ;; Ocircumflex
+;;  (213,~0.050, 0.200),  ;; Otilde
+;;  (214,~0.050, 0.200),  ;; Odieresis
+;;  (215,~0.050, 0.300),  ;; OE
+;;  (216,~0.050, 0.200),  ;; Oslash
+;;  (143,~0.050, 0.300),  ;; Racute
+;;  (144,~0.050, 0.300),  ;; Rcaron
+;;  (145,~0.030, 0.300),  ;; Sacute
+;;  (146,~0.030, 0.300),  ;; Scaron
+;;  (147,~0.030, 0.300),  ;; Scedilla
+;;  (141,~0.080,~0.030),  ;; Th ligature
+;;  (148,~0.080,~0.000),  ;; Tcaron
+;;  (150,~0.050, 0.300),  ;; Uhungarumlaut
+;;  (151,~0.050, 0.300),  ;; Uring
+;;  (217,~0.050, 0.300),  ;; Ugrave
+;;  (218,~0.050, 0.300),  ;; Uacute
+;;  (219,~0.050, 0.300),  ;; Ucircumflex
+;;  (220,~0.050, 0.300),  ;; Udieresis
+;;  (152,~0.100,~0.000),  ;; Ydieresis
+;;  (221,~0.100,~0.000),  ;; Yacute
+;;  (153,~0.030, 0.300),  ;; Zacute
+;;  (154,~0.030, 0.300),  ;; Zcaron
+;;  (155,~0.030, 0.300),  ;; Zdotaccent
+;;  (164,~0.030, 0.300),  ;; dcaron
+;;  (173,~0.000,~0.030),  ;; ffk ligature
+;;  (180,~0.000,~0.030),  ;; fk ligature
+;;  (181,~0.000,~0.030),  ;; fft ligature
+;;  (223,~0.000,~0.030),  ;; ft ligature
+;;  (167, 0.300, 0.300),  ;; gbreve
+;;  (188,~0.000, 0.400),  ;; ij
+;;  (236,~0.000, 0.300),  ;; igrave
+;;  (237,~0.000, 0.300),  ;; iacute
+;;  (238,~0.000, 0.300),  ;; icircumflex
+;;  (239,~0.000, 0.300),  ;; idieresis
+;;  (167,~0.000,~0.030),  ;; racute
+;;  (168,~0.000,~0.030),  ;; rcaron
+;;  (184,~0.030,~0.030),  ;; ydieresis
+;;  (253,~0.030,~0.030)]; ;; yacute
+  end
+  do
+    ps_declare_font "MinionPro-SemiboldCapt.otf"   fam med  nor ( 0,    6)   { LetterSpacing := 0.04 };
+    ps_declare_font "MinionPro-Capt.otf"           fam med  nor ( 6,    7.5) { LetterSpacing := 0.04 };
+    ps_declare_font "MinionPro-Capt.otf"           fam med  nor ( 7.5,  8.5) {};
+    ps_declare_font "MinionPro-Regular.otf"        fam med  nor ( 8.5, 13.1) { BorderKern := rm_kern };
+    ps_declare_font "MinionPro-Subh.otf"           fam med  nor (13.1, 20)   {};
+    ps_declare_font "MinionPro-Disp.otf"           fam med  nor (20,    0)   {};
+    ps_declare_font "MinionPro-SemiboldItCapt.otf" fam med  it  ( 0,    6)   { LetterSpacing := 0.04 };
+    ps_declare_font "MinionPro-ItCapt.otf"         fam med  it  ( 6,    7.5) { LetterSpacing := 0.04 };
+    ps_declare_font "MinionPro-ItCapt.otf"         fam med  it  ( 7.5,  8.5) {};
+    ps_declare_font "MinionPro-It.otf"             fam med  it  ( 8.5, 13.1) {};
+    ps_declare_font "MinionPro-ItSubh.otf"         fam med  it  (13.1, 20)   {};
+    ps_declare_font "MinionPro-ItDisp.otf"         fam med  it  (20,    0)   {};
+    ps_declare_font "MinionPro-BoldCapt.otf"       fam sb   nor ( 0,    6)   { LetterSpacing := 0.04 };
+    ps_declare_font "MinionPro-SemiboldCapt.otf"   fam sb   nor ( 6,    7.5) { LetterSpacing := 0.04 };
+    ps_declare_font "MinionPro-SemiboldCapt.otf"   fam sb   nor ( 7.5,  8.5) {};
+    ps_declare_font "MinionPro-Semibold.otf"       fam sb   nor ( 8.5, 13.1) {};
+    ps_declare_font "MinionPro-SemiboldSubh.otf"   fam sb   nor (13.1, 20)   {};
+    ps_declare_font "MinionPro-SemiboldDisp.otf"   fam sb   nor (20,    0)   {};
+    ps_declare_font "MinionPro-BoldItCapt.otf"     fam sb   it  ( 0,    6)   { LetterSpacing := 0.04 };
+    ps_declare_font "MinionPro-SemiboldItCapt.otf" fam sb   it  ( 6,    7.5) { LetterSpacing := 0.04 };
+    ps_declare_font "MinionPro-SemiboldItCapt.otf" fam sb   it  ( 7.5,  8.5) {};
+    ps_declare_font "MinionPro-SemiboldIt.otf"     fam sb   it  ( 8.5, 13.1) {};
+    ps_declare_font "MinionPro-SemiboldItSubh.otf" fam sb   it  (13.1, 20)   {};
+    ps_declare_font "MinionPro-SemiboldItDisp.otf" fam sb   it  (20,    0)   { LetterSpacing := 0.04 };
+    ps_declare_font "MinionPro-BoldCapt.otf"       fam bold nor ( 0,    7.5) { LetterSpacing := 0.04 };
+    ps_declare_font "MinionPro-BoldCapt.otf"       fam bold nor ( 7.5,  8.5) {};
+    ps_declare_font "MinionPro-Bold.otf"           fam bold nor ( 8.5, 13.1) {};
+    ps_declare_font "MinionPro-BoldSubh.otf"       fam bold nor (13.1, 20)   {};
+    ps_declare_font "MinionPro-BoldDisp.otf"       fam bold nor (20,    0)   {};
+    ps_declare_font "MinionPro-BoldItCapt.otf"     fam bold it  ( 0,    7.5) { LetterSpacing := 0.04 };
+    ps_declare_font "MinionPro-BoldItCapt.otf"     fam bold it  ( 7.5,  8.5) { LetterSpacing := 0.04 };
+    ps_declare_font "MinionPro-BoldIt.otf"         fam bold it  ( 8.5, 13.1) {};
+    ps_declare_font "MinionPro-BoldItSubh.otf"     fam bold it  (13.1, 20)   {};
+    ps_declare_font "MinionPro-BoldItDisp.otf"     fam bold it  (20,    0)   {};
+  end
+}
+
+\definecommand\FontFamilyRoman{MinionPro}
+\setparameter{font}{           family = MinionPro; series = medium; shape = normal }
+\setmathfont{ math-family = 0; family = MinionPro; series = medium; shape = normal }
+\setmathfont{ math-family = 1; family = MinionPro; series = medium; shape = italic }
+
+\ALcommand{
+do
+  ps_define_math_symbol "\\ldotp" Punct 1 0x0f;
+
+  ps_set_math_code '!' Ordinary 0 0x02 0 0x02;
+  ps_set_math_code ',' Punct    1 0x0d 1 0x0d;
+  ps_set_math_code '.' Ordinary 1 0x0f 1 0x0f;
+  ps_set_math_code '/' Ordinary 1 0x10 1 0x10;
+  ps_set_math_code '0' Ordinary 0 0x11 0 0x11;
+  ps_set_math_code '1' Ordinary 0 0x12 0 0x12;
+  ps_set_math_code '2' Ordinary 0 0x13 0 0x13;
+  ps_set_math_code '3' Ordinary 0 0x14 0 0x14;
+  ps_set_math_code '4' Ordinary 0 0x15 0 0x15;
+  ps_set_math_code '5' Ordinary 0 0x16 0 0x16;
+  ps_set_math_code '6' Ordinary 0 0x17 0 0x17;
+  ps_set_math_code '7' Ordinary 0 0x18 0 0x18;
+  ps_set_math_code '8' Ordinary 0 0x19 0 0x19;
+  ps_set_math_code '9' Ordinary 0 0x1a 0 0x1a;
+  ps_set_math_code ':' Relation 0 0x1b 0 0x1b;
+  ps_set_math_code ';' Punct    0 0x1c 0 0x1c;
+  ps_set_math_code '?' Ordinary 0 0x20 0 0x20;
+  ps_set_math_code '@' Ordinary 0 0x21 0 0x21;
+  ps_set_math_code '`' Ordinary 0 0x41 0 0x41;
+
+  ps_define_math_symbol "\\alpha"            NoMath 1 0x03b1;
+  ps_define_math_symbol "\\beta"             NoMath 1 0x03b2;
+  ps_define_math_symbol "\\gamma"            NoMath 1 0x03b3;
+  ps_define_math_symbol "\\delta"            NoMath 1 0x03b4;
+  ps_define_math_symbol "\\epsilon"          NoMath 1 0x03b5;
+  ps_define_math_symbol "\\zeta"             NoMath 1 0x03b6;
+  ps_define_math_symbol "\\eta"              NoMath 1 0x03b7;
+  ps_define_math_symbol "\\theta"            NoMath 1 0x03b8;
+  ps_define_math_symbol "\\iota"             NoMath 1 0x03b9;
+  ps_define_math_symbol "\\kappa"            NoMath 1 0x03ba;
+  ps_define_math_symbol "\\lambda"           NoMath 1 0x03bb;
+  ps_define_math_symbol "\\mu"               NoMath 1 0x03bc;
+  ps_define_math_symbol "\\nu"               NoMath 1 0x03bd;
+  ps_define_math_symbol "\\xi"               NoMath 1 0x03be;
+  ps_define_math_symbol "\\pi"               NoMath 1 0x03c0;
+  ps_define_math_symbol "\\rho"              NoMath 1 0x03c1;
+  ps_define_math_symbol "\\sigma"            NoMath 1 0x03c3;
+  ps_define_math_symbol "\\tau"              NoMath 1 0x03c4;
+  ps_define_math_symbol "\\upsilon"          NoMath 1 0x03c5;
+  ps_define_math_symbol "\\phi"              NoMath 1 0x03d5;
+  ps_define_math_symbol "\\chi"              NoMath 1 0x03c7;
+  ps_define_math_symbol "\\psi"              NoMath 1 0x03c8;
+  ps_define_math_symbol "\\omega"            NoMath 1 0x03c9;
+  ps_define_math_symbol "\\varepsilon"       NoMath 1 0x03b5;
+  ps_define_math_symbol "\\vartheta"         NoMath 1 0x03d1;
+  ps_define_math_symbol "\\varpi"            NoMath 1 0x03d6;
+  ps_define_math_symbol "\\varrho"           NoMath 1 0x03c1;
+  ps_define_math_symbol "\\varsigma"         NoMath 1 0x03c2;
+  ps_define_math_symbol "\\varphi"           NoMath 1 0x03c6;
+  ps_define_math_symbol "\\varkappa"         NoMath 1 0x03f0;
+  ps_define_math_symbol "\\Gamma"            NoMath 1 0x0393;
+  ps_define_math_symbol "\\Delta"            NoMath 1 0x0394;
+  ps_define_math_symbol "\\Theta"            NoMath 1 0x0398;
+  ps_define_math_symbol "\\Lambda"           NoMath 1 0x039b;
+  ps_define_math_symbol "\\Xi"               NoMath 1 0x039e;
+  ps_define_math_symbol "\\Pi"               NoMath 1 0x03a0;
+  ps_define_math_symbol "\\Sigma"            NoMath 1 0x03a3;
+  ps_define_math_symbol "\\Upsilon"          NoMath 1 0x03a5;
+  ps_define_math_symbol "\\Phi"              NoMath 1 0x03a6;
+  ps_define_math_symbol "\\Psi"              NoMath 1 0x03a8;
+  ps_define_math_symbol "\\Omega"            NoMath 1 0x03a9;
+  ps_define_math_symbol "\\imath"            NoMath 1 0x0131;
+  ps_define_math_symbol "\\ell"              NoMath 1 0x2113;
+  ps_define_math_symbol "\\partial"          NoMath 1 0x2202;
+end
+}
+
+% vim:set ft=tex fenc=utf8:

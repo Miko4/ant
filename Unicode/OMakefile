@@ -1,0 +1,54 @@
+
+MODULES[] =
+  Types
+  Charmap
+  UChar
+  UString
+  SymbolTable
+  Format
+C_FILES[] = Tables
+O_FILES[] = $(addsuffix .o, $(C_FILES))
+
+DATAFILE = data/UnicodeData.txt
+
+.SCANNER: scan-ocaml-%: $(MLPP_TARGETS) $(ROOT)/Tools/Tools.$(CMA)
+
+OCAMLFLAGS += -I .
+
+section
+  OCAML_LIBS       += $(ROOT)/Tools/Tools
+  OCAML_LINK_FLAGS += -cclib -lz
+
+  OCamlProgram(GenUnicodeTable, GenUnicodeTable)
+
+OCamlPackageModules(Unicode, $(MODULES))
+
+OCamlPackage(Unicode, $(MODULES))
+
+section
+  OCAML_LIB_FLAGS += $(absname $(O_FILES))
+
+  Unicode.$(CMA): $(O_FILES)
+
+  OCamlLibrary(Unicode, Unicode)
+
+.PHONY: Unicode-install
+
+OCamlLibraryCopy(Unicode-install, $(ROOT)/lib, Unicode, Unicode)
+
+Tables.c: Tables.c.top Tables.c.bot GenUnicodeTable
+  if $(file-exists $(DATAFILE))
+    echo "Generating unicode table ..."
+    (cat Tables.c.top; GenUnicodeTable <$(DATAFILE); cat Tables.c.bot) >Tables.c
+  else
+    if $(file-exists $@)
+      touch $@
+    else
+      echo "$(DATAFILE) not found. Please download it from ftp.unicode.org."; \
+      exit 1
+
+Tables.o: Tables.c
+  $(OCAMLC) -c -o $@ $^
+  mv Tables.o $@  # BUG: ocaml creates the object file in the current directory
+
+# vim:set ft=make:

@@ -1,0 +1,40 @@
+
+MODULES[] =
+  Counter
+  CharCode
+  Parser
+  ParseState
+  Group
+  Macro
+  Mode
+  ParseArgs
+  ALCoding
+  ALDim
+  ALEnvironment
+  ALGraphics
+  ALNodes
+  ALParseState
+  ALBindings
+  Primitives
+  Run
+
+.SCANNER: scan-ocaml-%: $(MLPP_TARGETS)
+
+LocalOCamlGeneratedFiles($(ROOT)/Tools/Tools.$(CMA))
+OCamlDependsOnLibrary($(ROOT)/lib/Unicode)
+OCamlDependsOnLibrary($(ROOT)/lib/Runtime)
+OCamlDependsOnPackage($(ROOT)/lib/VM)
+OCamlDependsOnPackage($(ROOT)/lib/Typesetting)
+OCamlDependsOnPackage($(ROOT)/lib/Engine)
+
+OCAMLFLAGS += -I .
+
+OCamlPackageModules(Markup, $(MODULES))
+
+OCamlPackage(Markup, $(MODULES))
+
+.PHONY: Markup-install
+
+OCamlPackageCopy(Markup-install, $(ROOT)/lib, Markup)
+
+# vim:set ft=make:

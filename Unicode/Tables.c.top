@@ -1,0 +1,57 @@
+#include <caml/mlvalues.h>
+#include <caml/misc.h>
+#include <caml/alloc.h>
+#include <caml/memory.h>
+
+#define Lu  0
+#define Ll  1
+#define Lt  2
+#define Lm  3
+#define Lo  4
+#define Mn  5
+#define Mc  6
+#define Me  7
+#define Nd  8
+#define Nl  9
+#define No 10
+#define Pc 11
+#define Pd 12
+#define Ps 13
+#define Pe 14
+#define Pi 15
+#define Pf 16
+#define Po 17
+#define Sm 18
+#define Sc 19
+#define Sk 20
+#define So 21
+#define Zs 22
+#define Zl 23
+#define Zp 24
+#define Cc 25
+#define Cf 26
+#define Cs 27
+#define Co 28
+#define Cn 29
+
+#define L    0
+#define LRE  1
+#define LRO  2
+#define R    3
+#define AL   4
+#define RLE  5
+#define RLO  6
+#define PDF  7
+#define EN   8
+#define ES   9
+#define ET  10
+#define AN  11
+#define CS  12
+#define NSM 13
+#define BN  14
+#define B   15
+#define S   16
+#define WS  17
+#define ON  18
+
+/* vim:set ft=c: */

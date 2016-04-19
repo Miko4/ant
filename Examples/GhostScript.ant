@@ -1,0 +1,71 @@
+% GhostScript fonts
+
+\ALcommand{
+  local begin
+    ug   := "URW Gothic L";
+    ub   := "URW Bookman L";
+    cs   := "Century Schoolbook L";
+    db   := "Dingbats";
+    ns   := "Nimbus Sans L";
+    nr   := "Nimbus Roman No9 L";
+    nm   := "Nimbus Mono L";
+    up   := "URW Palladio L";
+    ss   := "Standard Symbols L";
+    uc   := "URW Chancery L";
+    bc   := "Bitstream Charter";
+    ut   := "Utopia";
+    med  := "medium";
+    bold := "bold";
+    mc   := "medium condensed";
+    bc   := "bold condensed";
+    nor  := "normal";
+    it   := "italic";
+  end
+  begin
+    ps_declare_font "a010013l.pfb" ug med  nor (0,0) {} >>
+    ps_declare_font "a010015l.pfb" ug bold nor (0,0) {} >>
+    ps_declare_font "a010033l.pfb" ug med  it  (0,0) {} >>
+    ps_declare_font "a010035l.pfb" ug bold it  (0,0) {} >>
+    ps_declare_font "b018012l.pfb" ub med  nor (0,0) {} >>
+    ps_declare_font "b018015l.pfb" ub bold nor (0,0) {} >>
+    ps_declare_font "b018032l.pfb" ub med  it  (0,0) {} >>
+    ps_declare_font "b018035l.pfb" ub bold it  (0,0) {} >>
+    ps_declare_font "c059013l.pfb" cs med  nor (0,0) {} >>
+    ps_declare_font "c059016l.pfb" cs bold nor (0,0) {} >>
+    ps_declare_font "c059033l.pfb" cs med  it  (0,0) {} >>
+    ps_declare_font "c059036l.pfb" cs bold it  (0,0) {} >>
+    ps_declare_font "d050000l.pfb" db med  nor (0,0) {} >>
+    ps_declare_font "n019003l.pfb" ns med  nor (0,0) {} >>
+    ps_declare_font "n019004l.pfb" ns bold nor (0,0) {} >>
+    ps_declare_font "n019023l.pfb" ns med  it  (0,0) {} >>
+    ps_declare_font "n019024l.pfb" ns bold it  (0,0) {} >>
+    ps_declare_font "n019043l.pfb" ns mc   nor (0,0) {} >>
+    ps_declare_font "n019044l.pfb" ns bc   nor (0,0) {} >>
+    ps_declare_font "n019063l.pfb" ns mc   it  (0,0) {} >>
+    ps_declare_font "n019064l.pfb" ns bc   it  (0,0) {} >>
+    ps_declare_font "n021003l.pfb" nr med  nor (0,0) {} >>
+    ps_declare_font "n021004l.pfb" nr bold nor (0,0) {} >>
+    ps_declare_font "n021023l.pfb" nr med  it  (0,0) {} >>
+    ps_declare_font "n021024l.pfb" nr bold it  (0,0) {} >>
+    ps_declare_font "n022003l.pfb" nm med  nor (0,0) {} >>
+    ps_declare_font "n022004l.pfb" nm bold nor (0,0) {} >>
+    ps_declare_font "n022023l.pfb" nm med  it  (0,0) {} >>
+    ps_declare_font "n022024l.pfb" nm bold it  (0,0) {} >>
+    ps_declare_font "p052003l.pfb" up med  nor (0,0) {} >>
+    ps_declare_font "p052004l.pfb" up bold nor (0,0) {} >>
+    ps_declare_font "p052023l.pfb" up med  it  (0,0) {} >>
+    ps_declare_font "p052024l.pfb" up bold it  (0,0) {} >>
+    ps_declare_font "s050000l.pfb" ss med  nor (0,0) {} >>
+    ps_declare_font "z003034l.pfb" uc med  it  (0,0) {} >>
+    ps_declare_font "bchbi.pfa"    bc bold it  (0,0) {} >>
+    ps_declare_font "bchb.pfa"     bc bold nor (0,0) {} >>
+    ps_declare_font "bchri.pfa"    bc med  it  (0,0) {} >>
+    ps_declare_font "bchr.pfa"     bc med  nor (0,0) {} >>
+    ps_declare_font "putbi.pfa"    ut bold it  (0,0) {} >>
+    ps_declare_font "putb.pfa"     ut bold nor (0,0) {} >>
+    ps_declare_font "putri.pfa"    ut med  it  (0,0) {} >>
+    ps_declare_font "putr.pfa"     ut med  nor (0,0) {}
+  end
+}
+
+% vim:set ft=tex fenc=utf8:

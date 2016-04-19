@@ -1,0 +1,45 @@
+
+GMP_LIB = $(OCAML_LIB_DIR)/gmp
+
+.SCANNER: scan-ocaml-%: $(MLPP_TARGETS)
+
+MODULES[] =
+  IO_Base
+  Num$(MATH_LIB)
+  OrderedInt
+  Maps
+  Option
+  XList
+  XNum
+  XString
+  Zlib
+  IO
+  LinForm
+  Constraint
+  PlanePartition
+  ListBuilder
+  ShortestPath
+C_FILES = zlib-stubs
+
+.SCANNER: scan-ocaml-%: XNum.ml
+%.cmi:       XNum.ml
+%.cmx %.cmo: XNum.ml
+
+XNum.ml: :value: $(MATH_LIB)
+  echo "include Num$(MATH_LIB);" >$@
+
+OCAML_LIB_FLAGS += $(absname $(addsuffix .o, $(C_FILES)))
+
+OCamlLibrary(Tools, $(MODULES))
+
+Zlib.$(CMO) Zlib.o: zlib-stubs.o
+
+zlib-stubs.o: zlib-stubs.c
+  $(OCAMLC) -c -o $@ $^
+
+.PHONY: Tools-clean
+
+Tools-clean:
+  rm -f XNum.ml
+
+# vim:set ft=make:

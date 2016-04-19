@@ -1,0 +1,28 @@
+
+CAMLP4   = camlp4rf
+MLCPPLIB = $(shell $(CAMLP4) -where)
+
+OCAMLFLAGS       += -pp "$(CAMLP4)" -I $(MLCPPLIB)
+OCAMLDEPFLAGS    += -pp "$(CAMLP4)" -I $(MLCPPLIB)
+OCAML_LINK_FLAGS += -linkall -I $(MLCPPLIB)
+OCAML_OTHER_LIBS = camlp4lib
+
+if $(not $(NATIVE_CAMLP4))
+  BYTE_ENABLED = true
+  export
+
+CAMLP4_MODULES[] =
+  $(MLCPPLIB)/Camlp4Parsers/Camlp4OCamlRevisedParser
+  pa_Num
+  pa_extensions
+  $(MLCPPLIB)/Camlp4Printers/Camlp4OCamlAstDumper
+  $(MLCPPLIB)/Camlp4Bin
+
+OCamlProgram(camlp4opt, $(CAMLP4_MODULES))
+
+.PHONY: PreProc-clean
+
+PreProc-clean:
+  rm -f camlp4opt camlp4opt.opt camlp4opt.run *.cm[aixo] *.cmxa *.[ao]
+
+# vim:set ft=make:

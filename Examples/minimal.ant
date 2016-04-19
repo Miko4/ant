@@ -1,0 +1,31 @@
+
+\ALcommand{
+  do
+    ;; declare a font
+
+    ps_declare_font "lmroman10-regular.otf" "Latin Modern" "medium" "normal" (0,0) {};
+
+    ;; define a page layout
+
+    ps_new_page_layout "A4" 210mm 297mm;
+    ps_new_area "main area"
+      (1/9*210mm) (1/9*297mm+10pt)
+      (7/9*210mm) (7/9*210mm)
+      10pt 3pt
+      Galley { Name := "main galley" };
+    ps_new_galley "main galley" (7/9*210mm);
+  end
+}
+
+% use the font
+\setparameter{font}{ family = {Latin Modern}; series = medium; shape = normal }
+
+% content
+\begingalley{main galley}
+The quick brown fox jumps over the lazy dog.
+\endgalley
+
+% write the output
+\shipoutpages{A4}{A4}
+
+% vim:set ft=tex fenc=utf8:

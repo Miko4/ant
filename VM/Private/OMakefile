@@ -1,0 +1,28 @@
+
+MODULES[] =
+  Lexer
+  Parser
+  Scope
+  Compile
+  Evaluate
+  Serialise
+  Path
+  Primitives
+
+.SCANNER: scan-ocaml-%: $(MLPP_TARGETS) $(ROOT)/Tools/Tools.$(CMA) ../Types.$(CMO)
+
+%.cmi:       ../Types.$(CMO)
+%.cmo %.cmx: ../Types.$(CMO)
+
+OCamlDependsOnLibrary($(ROOT)/lib/Unicode)
+OCamlDependsOnLibrary($(ROOT)/lib/Runtime)
+
+OCAMLFLAGS += -I ..
+
+OCamlPackageModules(VM.VMPrivate, $(MODULES))
+
+OCAMLFLAGS += -for-pack VM
+
+OCamlPackage(VMPrivate, $(MODULES))
+
+# vim:set ft=make:

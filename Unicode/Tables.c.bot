@@ -1,0 +1,449 @@
+
+const char *uc_name(unsigned c)
+{
+  int k = c & 0xff;
+  int n = c >> 8;
+
+  if (n >= 0 && n < sizeof(name_table)/sizeof(const char *))
+    return name_table[n][k];
+  else
+    return "<reserved>";
+};
+
+unsigned char uc_category(unsigned c)
+{
+  int k = c & 0xff;
+  int n = c >> 8;
+
+  if (n >= 0 && n < sizeof(category_table))
+    return category_table[n][k];
+  else
+    return Cn;
+};
+
+unsigned char uc_combining_class(unsigned c)
+{
+  int k = c & 0xff;
+  int n = c >> 8;
+
+  if (n >= 0 && n < sizeof(combining_class_table))
+    return combining_class_table[n][k];
+  else
+    return 0;
+};
+
+unsigned char uc_bidi_class(unsigned c)
+{
+  int k = c & 0xff;
+  int n = c >> 8;
+
+  if (n >= 0 && n < sizeof(bidi_table))
+    return bidi_table[n][k];
+  else
+    return L;
+};
+
+const char *uc_decomposition(unsigned c)
+{
+  int k = c & 0xff;
+  int n = c >> 8;
+
+  if (n >= 0 && n < sizeof(decomposition_table)/sizeof(const char *))
+    return decomposition_table[n][k];
+  else
+    return "";
+};
+
+signed char uc_number1(unsigned c)
+{
+  int k = c & 0xff;
+  int n = c >> 8;
+
+  if (n >= 0 && n < sizeof(number_1_table))
+    return number_1_table[n][k];
+  else
+    return -1;
+};
+
+signed char uc_number2(unsigned c)
+{
+  int k = c & 0xff;
+  int n = c >> 8;
+
+  if (n >= 0 && n < sizeof(number_2_table))
+    return number_2_table[n][k];
+  else
+    return -1;
+};
+
+int uc_number3(unsigned c)
+{
+  int k = c & 0xff;
+  int n = c >> 8;
+
+  if (n >= 0 && n < sizeof(number_3_table)/sizeof(int))
+    return number_3_table[n][k];
+  else
+    return -1;
+};
+
+signed char uc_number4(unsigned c)
+{
+  int k = c & 0xff;
+  int n = c >> 8;
+
+  if (n >= 0 && n < sizeof(number_4_table))
+    return number_4_table[n][k];
+  else
+    return -1;
+};
+
+unsigned char uc_mirrored(unsigned c)
+{
+  int k = c & 0xff;
+  int n = c >> 8;
+
+  if (n >= 0 && n < sizeof(mirrored_table))
+    return mirrored_table[n][k];
+  else
+    return 0;
+};
+
+const char *uc_comment(unsigned c)
+{
+  int k = c & 0xff;
+  int n = c >> 8;
+
+  if (n >= 0 && n < sizeof(comment_table)/sizeof(const char *))
+    return comment_table[n][k];
+  else
+    return "";
+};
+
+int uc_to_upper(unsigned c)
+{
+  int k = c & 0xff;
+  int n = c >> 8;
+
+  if (n >= 0 && n < sizeof(uppercase_table)/sizeof(int))
+  {
+    int d = uppercase_table[n][k];
+
+    if (d < 0)
+      return c;
+    else
+      return d;
+  }
+  else
+    return c;
+};
+
+int uc_to_lower(unsigned c)
+{
+  int k = c & 0xff;
+  int n = c >> 8;
+
+  if (n >= 0 && n < sizeof(lowercase_table)/sizeof(int))
+  {
+    int d = lowercase_table[n][k];
+
+    if (d < 0)
+      return c;
+    else
+      return d;
+  }
+  else
+    return c;
+};
+
+int uc_to_title(unsigned c)
+{
+  int k = c & 0xff;
+  int n = c >> 8;
+
+  if (n >= 0 && n < sizeof(titlecase_table)/sizeof(int))
+  {
+    int d = titlecase_table[n][k];
+
+    if (d < 0)
+      return c;
+    else
+      return d;
+  }
+  else
+    return c;
+};
+
+unsigned char uc_is_letter(unsigned c)
+{
+  switch (uc_category(c))
+  {
+    case Lu:
+    case Ll:
+    case Lt:
+    case Lm:
+    case Lo:
+      return 1;
+    default:
+      return 0;
+  };
+};
+
+unsigned char uc_is_mark(unsigned c)
+{
+  switch (uc_category(c))
+  {
+    case Mn:
+    case Mc:
+    case Me:
+      return 1;
+    default:
+      return 0;
+  };
+};
+
+unsigned char uc_is_number(unsigned c)
+{
+  switch (uc_category(c))
+  {
+    case Nd:
+    case Nl:
+    case No:
+      return 1;
+    default:
+      return 0;
+  };
+};
+
+unsigned char uc_is_punct(unsigned c)
+{
+  switch (uc_category(c))
+  {
+    case Pc:
+    case Pd:
+    case Ps:
+    case Pe:
+    case Pi:
+    case Pf:
+    case Po:
+      return 1;
+    default:
+      return 0;
+  };
+};
+
+unsigned char uc_is_symbol(unsigned c)
+{
+  switch (uc_category(c))
+  {
+    case Sm:
+    case Sc:
+    case Sk:
+    case So:
+      return 1;
+    default:
+      return 0;
+  };
+};
+
+unsigned char uc_is_separator(unsigned c)
+{
+  switch (uc_category(c))
+  {
+    case Zs:
+    case Zl:
+    case Zp:
+      return 1;
+    default:
+      return 0;
+  };
+};
+
+unsigned char uc_is_control(unsigned c)
+{
+  switch (uc_category(c))
+  {
+    case Cc:
+    case Cf:
+    case Cs:
+    case Co:
+    case Cn:
+      return 1;
+    default:
+      return 0;
+  };
+};
+
+/* separator or control */
+
+unsigned char uc_is_space(unsigned c)
+{
+  switch (uc_category(c))
+  {
+    case Zs:
+    case Zl:
+    case Zp:
+    case Cc:
+    case Cf:
+    case Cs:
+    case Co:
+    case Cn:
+      return 1;
+    default:
+      return 0;
+  };
+};
+
+CAMLprim value stub_name(value c)
+{
+  CAMLparam1(c);
+  CAMLlocal1(str);
+
+  str = copy_string(uc_name(Unsigned_int_val(c)));
+
+  CAMLreturn(str);
+};
+
+CAMLprim value stub_category(value c)
+{
+  return Val_int(uc_category(Unsigned_int_val(c)));
+};
+
+CAMLprim value stub_combining_class(value c)
+{
+  return Val_int(uc_combining_class(Unsigned_int_val(c)));
+};
+
+CAMLprim value stub_bidi_class(value c)
+{
+  return Val_int(uc_bidi_class(Unsigned_int_val(c)));
+};
+
+CAMLprim value stub_decomposition(value c)
+{
+  CAMLparam1(c);
+  CAMLlocal1(str);
+
+  str = copy_string(uc_decomposition(Unsigned_int_val(c)));
+
+  CAMLreturn(str);
+};
+
+CAMLprim value stub_number1(value c)
+{
+  return Val_int(uc_number1(Unsigned_int_val(c)));
+};
+
+CAMLprim value stub_number2(value c)
+{
+  return Val_int(uc_number2(Unsigned_int_val(c)));
+};
+
+CAMLprim value stub_number3(value c)
+{
+  return Val_int(uc_number3(Unsigned_int_val(c)));
+};
+
+CAMLprim value stub_number4(value c)
+{
+  return Val_int(uc_number4(Unsigned_int_val(c)));
+};
+
+CAMLprim value stub_mirrored(value c)
+{
+  if (uc_mirrored(Unsigned_int_val(c)))
+    return Val_true;
+  else
+    return Val_false;
+};
+
+CAMLprim value stub_comment(value c)
+{
+  CAMLparam1(c);
+  CAMLlocal1(str);
+
+  str = copy_string(uc_comment(Unsigned_int_val(c)));
+
+  CAMLreturn(str);
+};
+
+CAMLprim value stub_to_upper(value c)
+{
+  return Val_int(uc_to_upper(Unsigned_int_val(c)));
+};
+
+CAMLprim value stub_to_lower(value c)
+{
+  return Val_int(uc_to_lower(Unsigned_int_val(c)));
+};
+
+CAMLprim value stub_to_title(value c)
+{
+  return Val_int(uc_to_title(Unsigned_int_val(c)));
+};
+
+CAMLprim value stub_is_letter(value c)
+{
+  if (uc_is_letter(Unsigned_int_val(c)))
+    return Val_true;
+  else
+    return Val_false;
+};
+
+CAMLprim value stub_is_mark(value c)
+{
+  if (uc_is_mark(Unsigned_int_val(c)))
+    return Val_true;
+  else
+    return Val_false;
+};
+
+CAMLprim value stub_is_number(value c)
+{
+  if (uc_is_number(Unsigned_int_val(c)))
+    return Val_true;
+  else
+    return Val_false;
+};
+
+CAMLprim value stub_is_punct(value c)
+{
+  if (uc_is_punct(Unsigned_int_val(c)))
+    return Val_true;
+  else
+    return Val_false;
+};
+
+CAMLprim value stub_is_symbol(value c)
+{
+  if (uc_is_symbol(Unsigned_int_val(c)))
+    return Val_true;
+  else
+    return Val_false;
+};
+
+CAMLprim value stub_is_separator(value c)
+{
+  if (uc_is_separator(Unsigned_int_val(c)))
+    return Val_true;
+  else
+    return Val_false;
+};
+
+CAMLprim value stub_is_control(value c)
+{
+  if (uc_is_control(Unsigned_int_val(c)))
+    return Val_true;
+  else
+    return Val_false;
+};
+
+CAMLprim value stub_is_space(value c)
+{
+  if (uc_is_space(Unsigned_int_val(c)))
+    return Val_true;
+  else
+    return Val_false;
+};
+
+/* vim:set ft=c: */

@@ -1,0 +1,41 @@
+
+MODULES[] =
+  HyphenTable
+  Fonts
+  Environment
+  Node
+  Evaluate
+  Job
+  Output
+
+HYPHEN_FILES = $(addprefix $(ROOT)/data/hyphen/, $(addsuffix .hyphen, $(HYPHEN_PATTERNS)))
+
+.SCANNER: scan-ocaml-%: $(MLPP_TARGETS)
+
+LocalOCamlGeneratedFiles($(ROOT)/Tools/Tools.$(CMA))
+OCamlDependsOnLibrary($(ROOT)/lib/Unicode)
+OCamlDependsOnLibrary($(ROOT)/lib/Runtime)
+OCamlDependsOnPackage($(ROOT)/lib/VM)
+OCamlDependsOnPackage($(ROOT)/lib/Typesetting)
+LocalOCamlGeneratedFiles(HyphenTable.ml)
+
+OCAMLFLAGS += -I .
+
+OCamlPackageModules(Engine, $(MODULES))
+
+OCamlPackage(Engine, $(MODULES))
+
+.PHONY: Engine-install
+
+OCamlPackageCopy(Engine-install, $(ROOT)/lib, Engine)
+
+HyphenTable.ml: ../Util/GenHyphTable :value: $(HYPHEN_FILES)
+	../Util/GenHyphTable $(HYPHEN_FILES) >$@
+
+section
+  OCAMLFLAGS    = -w Aes -warn-error P -rectypes -I $(ROOT)/Tools -I $(ROOT)/lib -for-pack Engine
+  OCAMLDEPFLAGS = -native
+
+  HyphenTable.$(CMO) HyphenTable.o: HyphenTable.ml :scanner: scan-ocaml-HyphenTable.ml
+
+# vim:set ft=make:

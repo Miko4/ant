@@ -1,0 +1,73 @@
+
+MODULES[] =
+   UCStream
+   Bitmap
+   KPathSea
+   FreeType
+   PDF
+   LoadImage
+   DynamicTrie
+   DynUCTrie
+   Trie
+   PTable
+   SymbolSet
+   Type1
+   OpenType
+   Logging
+   Dim
+   Bezier
+   Graphic
+   Substitute
+   GlyphMetric
+   FontMetric
+   Encodings
+   Hyphenation
+   JustHyph
+   GlyphBitmap
+   FontPK
+   FontTFM
+   FontFT
+   FontVirtual
+   LoadFont
+   GenerateDVI
+   GeneratePDF
+   GeneratePostScript
+   GenerateSVG
+
+C_FILES[] =
+  kpathsea-stubs
+  freetype-stubs
+O_FILES[] = $(addsuffix .o, $(C_FILES))
+
+.SCANNER: scan-ocaml-%: $(MLPP_TARGETS)
+
+LocalOCamlGeneratedFiles($(ROOT)/Tools/Tools.$(CMA))
+OCamlDependsOnLibrary($(ROOT)/lib/Unicode)
+OCamlDependsOnPackage($(ROOT)/lib/CamlImages)
+
+OCAMLFLAGS += -I .
+
+OCamlPackageModules(Runtime, $(MODULES))
+
+OCamlPackage(Runtime, $(MODULES))
+
+section
+  OCAML_LIB_FLAGS += $(absname $(O_FILES))
+
+  Runtime.$(CMA): $(O_FILES)
+
+  OCamlLibrary(Runtime, $(ROOT)/lib/CamlImages Runtime)
+
+.PHONY: Runtime-install
+
+OCamlLibraryCopy(Runtime-install, $(ROOT)/lib, Runtime, Runtime)
+
+kpathsea-stubs.o: kpathsea-stubs.c
+	$(OCAMLC) -c $(KPATHSEA_CFLAGS) $(SELFAUTO_FLAGS) -o $@ $^
+	mv kpathsea-stubs.o $@  # BUG: ocaml creates the object file in the current directory
+
+freetype-stubs.o: freetype-stubs.c
+	$(OCAMLC) -c $(FREETYPE_FLAGS) -o $@ $^
+	mv freetype-stubs.o $@  # BUG: ocaml creates the object file in the current directory
+
+# vim:set ft=make:

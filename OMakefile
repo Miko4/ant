@@ -1,0 +1,122 @@
+# Configuration:
+
+# Packages to be compiled into ant:
+PACKAGES_USED[]   = #german advi
+
+# Hyphenation patterns to be compiled into ant:
+HYPHEN_PATTERNS[] = british us #deutsch-traditional deutsch-new français
+
+# Compilation options:
+
+#NATIVE_ENABLED = false # compile to native code
+#BYTE_ENABLED   = true  # compile to byte code
+NATIVE_CAMLP4  = true   # compile a native version of the preprocessor
+
+# Mathematics library:
+MATH_LIB = Float#        use floats
+#MATH_LIB = Gmp#          use the gmp library
+#MATH_LIB = Num#          use the num library
+
+# Paths to various parts of the TeX tree:
+HYPHENDIR      = $(shell kpsewhich '--expand-path=$$TEXMF/tex/generic/hyphen')
+SELFAUTOLOC    = $(shell kpsewhich '--expand-var=$$SELFAUTOLOC')
+SELFAUTODIR    = $(shell kpsewhich '--expand-var=$$SELFAUTODIR')
+SELFAUTOPARENT = $(shell kpsewhich '--expand-var=$$SELFAUTOPARENT')
+
+# Compile flags for C files:
+KPATHSEA_LFLAGS = -cclib -L$(SELFAUTOPARENT)/lib
+KPATHSEA_CFLAGS = -ccopt -I$(SELFAUTOPARENT)/include
+SELFAUTO_FLAGS  = -ccopt $""-DSELFAUTOLOC='"$(SELFAUTOLOC)"' "" \
+                  -ccopt $""-DSELFAUTODIR='"$(SELFAUTODIR)"' "" \
+                  -ccopt $""-DSELFAUTOPARENT='"$(SELFAUTOPARENT)"' ""
+FREETYPE_FLAGS  = $(mapprefix -ccopt, $(shell freetype-config --cflags))
+X11_LFLAGS      = -cclib -L/usr/X11/lib
+
+if $(NATIVE_ENABLED)
+  CMO = cmx
+  CMA = cmxa
+  export
+else
+  CMO = cmo
+  CMA = cma
+  export
+
+if $(NATIVE_CAMLP4)
+  PP_FLAGS     = -pp "$(ROOT)/PreProc/camlp4opt"
+  MLPP_TARGETS = $(ROOT)/PreProc/camlp4opt
+  export
+else
+  PP_FLAGS     = -pp "camlp4r $(ROOT)/PreProc/pa_Num.cmo $(ROOT)/PreProc/pa_extensions.cmo"
+  MLPP_TARGETS = $(ROOT)/PreProc/pa_Num.cmo $(ROOT)/PreProc/pa_extensions.cmo
+  export
+
+OCAML_LIB_DIR          = $(shell $(OCAMLC) -where)
+
+.SUBDIRS: PreProc
+
+OCAMLCFLAGS                 = -g
+OCAML_BYTE_LINK_FLAGS       = -custom
+OCAMLFLAGS_WITHOUT_CAMLP    = -w Aes -warn-error P -rectypes -I $(ROOT)/Tools -I $(ROOT)/lib
+OCAMLDEPFLAGS_WITHOUT_CAMLP = $(OCAMLDEPFLAGS) -I $(ROOT)/Tools -I $(ROOT)/lib
+OCAMLFLAGS                  = $(OCAMLFLAGS_WITHOUT_CAMLP)    $(PP_FLAGS)
+OCAMLDEPFLAGS               = $(OCAMLDEPFLAGS_WITHOUT_CAMLP) $(PP_FLAGS)
+
+INSTALL_INTERFACES          = true
+
+CAMLIMAGES_DIR     = $(OCAML_LIB_DIR)/camlimages
+CAMLIMAGES_CLIBS   = -lgif -ljpeg -ltiff -lfreetype -lpng -lXpm
+CAMLIMAGES_MLLIBS  = $(addprefix $(CAMLIMAGES_DIR)/, ci_core ci_freetype ci_gif ci_jpeg \
+                                                     ci_tiff ci_bmp ci_ppm ci_png ci_xvthumb ci_xpm ci_ps)
+
+switch $(MATH_LIB)
+case Gmp
+  NUMLIB = gmp/gmp
+  export
+case Num
+  NUMLIB = nums
+  export
+default
+  NUMLIB =
+  export
+
+OCAML_OTHER_LIBS = $(NUMLIB) unix $(CAMLIMAGES_MLLIBS)
+OCAML_LINK_FLAGS = -I $(CAMLIMAGES_DIR) $(KPATHSEA_LFLAGS) $(X11_LFLAGS)
+OCAML_LIB_FLAGS  = $(mapprefix -cclib, -lkpathsea -lfreetype -lz $(CAMLIMAGES_CLIBS) -lstdc++)
+
+
+DIRECTORIES[]    = Tools Images Unicode Runtime VM Util Typesetting Engine Markup Packages Main Examples
+
+.SUBDIRS: $(DIRECTORIES)
+
+.PHONY: all clean distclean archive
+
+.DEFAULT: all
+
+all: Images-install Unicode-install Runtime-install VM-install Typesetting-install Engine-install Markup-install ant VM/Ali
+
+clean: PreProc-clean Tools-clean Examples-clean
+  rm -f lib/*
+  foreach(d, . $(DIRECTORIES) VM/Private)
+    rm -f $(d)/*.{o,a,cm[aiox],cmxa} $(d)/Makefile.depend
+
+DeleteBinaries(files) =
+  foreach(f, $(files))
+    rm -f $(f) $(f).opt $(f).run
+
+distclean: clean Examples-distclean
+  rm -rf CVS */CVS */*/CVS
+  rm -f *.omc */*.omc */*/*.omc
+  rm -f ant Engine/HyphenTable.ml */.viminfo
+  DeleteBinaries(Main/ant Unicode/GenUnicodeTable Util/GenHyphTable VM/Ali)
+
+DATE = $(shell date +"%Y%m%d")
+
+ARCHIVE_FILES = OMakefile OMakeroot Ant.om README ant.1 data/hyphen \
+                $(filter-out Examples, $(DIRECTORIES)) lib PreProc \
+                $(glob Examples/*.ant) $(glob Examples/*.sty) Examples/OMakefile
+
+archive: distclean
+  (cd ..; tar -cvf ant-$(DATE).tar $(addprefix ant/, $(ARCHIVE_FILES)))
+  bzip2 -vf9 ../ant-$(DATE).tar
+
+# vim:set ft=make:

@@ -1,0 +1,106 @@
+.TH ANT 1
+.SH NAME
+ant \- a typesetting system, "Ant is not TeX"
+.SH SYNOPSIS
+.B ant
+[
+.I options
+]
+.IR file ...
+.SH DESCRIPTION
+.ds A \s-2ANT\s0
+.ds T T\v'.25m'E\v'-.25m'X
+.ds L L\s-2\v'-.25m'A\v'.25m'\s0\*T
+.I ant
+is a typesetting system inspired by \*T. Although \*T does a very good
+job when typesetting mathematical articles and books - the task it has
+been designed for - it can become very difficult, cumbersome, or even
+impossible to meet the typographical requirements of texts outside this
+narrow scope. For instance, the current draft of the new output routine
+for \*L consists of more than 100 pages. Unfortunately, it is also very
+difficult to extend the functionality of \*T since its source code is a
+total mess. Even after 20 years there are only versions with minor
+modifications available.
+.LP
+For these reasons I decided to rewrite it from
+scratch aiming for a simple, clean, and modular design. In particular
+it is easily possible to replace parts of \*A with other implementations,
+say, adding an XML parser, output routines for PDF files, or a different
+page layout algorithm. The current version of \*A implements all the major
+features of \*T but a lot of minor things are still missing. In addition,
+\*A provides several improvements over \*T:
+.TP
+.B *
+a saner macro language (no catcodes);
+.TP
+.B *
+a builtin high-level scripting language;
+.TP
+.B *
+UNICODE support;
+.TP
+.B *
+support for various font formats including Type1, TrueType, and OpenType;
+.TP
+.B *
+partial support for advanced OpenType features;
+.TP
+.B *
+support for colour and graphics;
+.TP
+.B *
+simple page layout specifications;
+.TP
+.B *
+river detection.
+.SH OPTIONS
+.TP
+.B \-\-help
+writes a help message to standard error.
+.TP
+.BI \-\-format= format
+selects the output format. Supported are
+.BR dvi ,
+.BR xdvi ,
+.BR pdf " (default),
+.BR ps " (PostScript),
+and
+.BR svg .
+The latter two are only partially implemented.
+.TP
+.BI \-\-src\-specials
+enables the generation of source specials.
+.TP
+.BI \-\-debug= flags
+enables debug messages.
+.I flags
+is a combination of the following letters:
+.RS
+.IP a
+AL commands;
+.IP b
+AL bytecode;
+.IP e
+the typesetting engine;
+.IP g
+galley breaking;
+.IP i
+the current input;
+.IP l
+line breaking;
+.IP m
+macro expansion;
+.IP p
+page layout;
+.IP s
+various stacks.
+.RE
+.SH AUTHOR
+.nf
+Achim Blumensath,
+.SH SEE ALSO
+.B http://ant.berlios.de/
+.sp
+"ANT, A Typesetting System",
+Achim Blumensath.
+

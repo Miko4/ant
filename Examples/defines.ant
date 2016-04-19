@@ -1,0 +1,96 @@
+% some simple standard commands
+
+% skips
+
+\definecommand\,{\hskip{3mu}}
+\definecommand\>{\hskip{4mu plus 2mu minus 4mu}}
+\definecommand\;{\hskip{5mu plus 5mu}}
+\definecommand\!{\hskip{-3mu}}
+\definecommand\?{\hskip{0.08em}}
+
+\definecommand\hss{\hskip{0pt plus 1fil minus 1fil}}
+\definecommand\hfil{\hskip{0pt plus 1fil}}
+\definecommand\hfill{\hskip{0pt plus 1fill}}
+\definecommand\vss{\vskip{0pt plus 1fil minus 1fil}}
+\definecommand\vfil{\vskip{0pt plus 1fil}}
+\definecommand\vfill{\vskip{0pt plus 1fill}}
+
+\definecommand\dotfill{\hleaders{0pt plus 1fill}{\hskip{0.2em}.\hskip{0.2em}}}
+
+\definecommand\quad{\hskip{1em}}
+\definecommand\qquad{\hskip{2em}}
+
+\definecommand\ { }
+\definecommand\\{\hfill\penalty{-10000}}
+
+\definecommand\bigskipamount{12pt plus 4pt minus 4pt}
+\definecommand\medskipamount{6pt plus 2pt minus 2pt}
+\definecommand\smallskipamount{3pt plus 1pt minus 1pt}
+\definecommand\bigskip{\vskip{\bigskipamount}}
+\definecommand\medskip{\vskip{\medskipamount}}
+\definecommand\smallskip{\vskip{\smallskipamount}}
+
+\definecommand\-{\discretionary*{-}{}{}}
+
+% boxes
+
+\definecommand\llap[m]{\hbox to 0pt{\hss{}#1}}
+\definecommand\rlap[m]{\hbox to 0pt{#1\hss}}
+\definecommand\clap[m]{\hbox to 0pt{\hss{}#1\hss}}
+%\definecommand\centerline[m]{\hbox to 110mm{\hskip 0pt plus 1fil{}#1\hskip 0pt plus 1fil}}
+
+\definecommand\raise[mm]{\hbox{\vbox to 0pt{\vss\hbox{#2}\vskip #1}}}
+
+% math
+
+\definecommand\ensuremath[m]{\beginmath #1\endmath}
+\definecommand\ensuretext[m]{\begintext #1\endtext}
+\definecommand\text{\ensuretext}
+
+% symbols
+
+\definecommand\#{\char{35}}
+\definecommand\${\char{36}}
+\definecommand\%{\char{37}}
+\definecommand\textbackslash{\char{92}}
+\definecommand\textlbrace{\char{123}}
+\definecommand\textrbrace{\char{125}}
+\definecommand\ldots{\ensuremath{\mathinner{\ldotp\ldotp\ldotp}}}
+\definecommand\cdots{\ensuremath{\mathinner{\cdotp\cdotp\cdotp}}}
+
+
+% abbreviations for TeX compatibility
+
+\definepattern{'}{\char{0x2019}}    % replace apostrophe with quote
+\definepattern{`}{\char{0x2018}}    % replace grave accent with backquote
+\definepattern{``}{\char{0x201c}}   % replace two grave accents with double left quote
+\definepattern{--}{\char{0x2013}}   % emulate n-dash ligature
+\definepattern{---}{\char{0x2014}}  % emulate m-dash ligature
+\definepattern{‘‘}{\char{0x201c}}   % emulate double-left-quote ligature
+\definepattern{‘‘}{\char{0x201d}}   % emulate double-right-quote ligature
+\definepattern{''}{\char{0x201d}}   % emulate double-right-quote ligature
+
+% colours
+
+\definecommand\black{\setgraycolour{0}}
+\definecommand\red{\setrgbcolour{0.3}{0}{0}}
+\definecommand\blue{\setrgbcolour{0}{0}{0.3}}
+
+% date
+
+\definecommand\year{\getcounter{1}{year}}
+\definecommand\month{\getcounter{s{}{January}{February}{March}{April}{May}{June}{July}{August}{September}{October}{November}{December}}{month}}
+\definecommand\day{\getcounter{1}{day}}
+\definecommand\dayofweek{\getcounter{s{Sunday}{Monday}{Tuesday}{Wednesday}{Thursday}{Friday}{Saturday}}{day-of-week}}
+\definecommand\date{\month\ \day, \year}
+
+% fonts
+
+\definecommand\textit[m]{{\itshape #1}}
+\definecommand\textsc[m]{{\scshape #1}}%\setparameter{font}{ features = {liga,kern,smcp} } #1}}
+\definecommand\textsl[m]{{\slshape #1}}
+\definecommand\texttt[m]{{\ttfamily #1}}
+\definecommand\textsf[m]{{\sffamily #1}}
+\definecommand\emph[m]{\textit{#1}}
+
+% vim:set ft=tex:

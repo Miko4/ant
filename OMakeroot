@@ -1,0 +1,93 @@
+open build/C
+open build/OCaml
+open build/LaTeX
+
+open Ant
+
+DefineCommandVars()
+
+OCamlPackageModules(package, modules) =
+  # compile the modules with "-for-pack"
+  OCAMLFLAGS += -for-pack $(package)
+
+  foreach(m, $(modules))
+    $(m).cmx $(m).o:
+    $(m).cmo:
+    $(m).cmi:
+
+OCamlPackageCopy(tag, dir, package) =
+  private.dest = $(dir)/$(basename $(package))
+
+  foreach(suf, cmo cmx cmi o)
+    $(dest).$(suf): $(package).$(suf)
+      ln-or-cp $< $@
+
+  if $(NATIVE_ENABLED)
+    $(tag): $(dest).cmx $(dest).cmi $(dest).o
+  else
+    $(tag): $(dest).cmo $(dest).cmi
+
+OCamlDependsOnLibrary(library) =
+  if $(NATIVE_ENABLED)
+    .SCANNER: scan-ocaml-%: $(library).cmxa $(library).cmi $(library).a
+    .SCANNER: %.cmi:        $(library).cmxa $(library).cmi $(library).a
+    .SCANNER: %.cmx %.cmo:  $(library).cmxa $(library).cmi $(library).a
+    export
+  else
+    .SCANNER: scan-ocaml-%: $(library).cma $(library).cmi
+    .SCANNER: %.cmi:        $(library).cma $(library).cmi
+    .SCANNER: %.cmx %.cmo:  $(library).cma $(library).cmi
+    export
+  export
+
+OCamlDependsOnPackage(package) =
+  if $(NATIVE_ENABLED)
+    .SCANNER: scan-ocaml-%: $(package).cmx $(package).cmi $(package).o
+    .SCANNER: %.cmi:        $(package).cmx $(package).cmi $(package).o
+    .SCANNER: %.cmx %.cmo:  $(package).cmx $(package).cmi $(package).o
+    export
+  else
+    .SCANNER: scan-ocaml-%: $(package).cmo $(package).cmi
+    .SCANNER: %.cmi:        $(package).cmo $(package).cmi
+    .SCANNER: %.cmx %.cmo:  $(package).cmo $(package).cmi
+    export
+  export
+
+# BUG FIX:
+
+# public.OCamlPackage(name, files) =
+#    protected.OFILES   = $(addsuffix $(EXT_OBJ), $(files))
+#    protected.CMOFILES = $(addsuffix .cmo, $(files))
+#    protected.CMXFILES = $(addsuffix .cmx, $(files))
+# 
+#    protected.OBJ_NAME  = $(file $(name)$(EXT_OBJ))
+#    protected.CMO_NAME  = $(file $(name).cmo)
+#    protected.CMX_NAME  = $(file $(name).cmx)
+#    protected.CMI_NAME  = $(file $(name).cmi)
+# 
+#    protected.BYTE_TARGETS   = $(CMO_NAME)
+#    protected.NATIVE_TARGETS = $(CMX_NAME) $(OBJ_NAME)
+# 
+#    protected.TARGETS =
+#    if $(NATIVE_ENABLED)
+#        NATIVE_TARGETS += $(CMI_NAME)
+#        TARGETS = $(NATIVE_TARGETS)
+#        export
+#    else
+#        BYTE_TARGETS += $(CMI_NAME)
+#        TARGETS = $(BYTE_TARGETS)
+#        export
+# 
+#    $(BYTE_TARGETS): $(CMOFILES)
+#         $(OCAMLFIND) $(OCAMLC) $(LAZY_OCAMLFINDFLAGS) $(PREFIXED_OCAMLPACKS) $(OCAMLFLAGS) $(OCAMLCFLAGS) \
+#                 $(OCAML_LIB_FLAGS) -pack -o $(CMO_NAME) $(OCamlLinkSort $(CMOFILES))
+# 
+#    $(NATIVE_TARGETS): $(CMXFILES) $(OFILES)
+#         $(OCAMLFIND) $(OCAMLOPTLINK) $(LAZY_OCAMLFINDFLAGS) $(PREFIXED_OCAMLPACKS) $(OCAMLFLAGS) $(OCAMLOPTFLAGS) \
+#                 $(OCAML_LIB_FLAGS) -pack -o $(CMX_NAME) $(OCamlLinkSort $(CMXFILES))
+# 
+#    return $(TARGETS)
+
+.SUBDIRS: .
+
+# vim:set ft=make:

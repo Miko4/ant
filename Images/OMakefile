@@ -1,0 +1,18 @@
+
+#public.CAMLIMAGES_CLIBS  = -lgif -ljpeg -ltiff -lfreetype -lpng -lz -lXpm
+#public.CAMLIMAGES_MLLIBS = $(addprefix $(CAMLIMAGES_DIR)/, ci_core.$(CMA) ci_freetype.$(CMA) ci_gif.$(CMA) ci_jpeg.$(CMA) \
+#                           ci_tiff.$(CMA) ci_bmp.$(CMA) ci_ppm.$(CMA) ci_png.$(CMA) ci_xvthumb.$(CMA) ci_xpm.$(CMA) ci_ps.$(CMA))
+#
+#export CAMLIMAGES_CLIBS CAMLIMAGES_MLLIBS
+
+OCAMLFLAGS += -I . -I $(CAMLIMAGES_DIR)
+
+.SCANNER: scan-ocaml-%: $(MLPP_TARGETS)
+
+#OCamlLibrary(CamlImages, CamlImages)
+
+.PHONY: Images-install
+
+OCamlPackageCopy(Images-install, $(ROOT)/lib, CamlImages)
+
+# vim:set ft=make:

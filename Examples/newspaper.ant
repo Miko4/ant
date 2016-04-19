@@ -1,0 +1,124 @@
+
+\include{allib.ant}
+\include{GhostScript.ant}
+\definecommand\FontFamilyRoman{Nimbus Roman No9 L}
+\definecommand\FontFamilySans{Nimbus Sans L}
+\definecommand\FontSeriesBold{bold}
+\normalfont
+
+\definecommand\-{\discretionary*{-}{}{}}
+
+\setparameter{paragraph}{par-indent = 0pt}
+\setparameter{line-break}{ simple-breaking=false; river-demerits=10000 }
+
+\newpagelayout{first-page}{210mm}{297mm}
+\newpagearea{title}{10mm}{10mm}{6mm+3*62mm}{2cm}{10pt}{3pt}{galley}{ name = title }
+\newpagearea{heading 1}{10mm}{35mm}{3mm+2*62mm}{20pt}{10pt}{3pt}{galley}{ name = heading 1 }
+\newpagearea{article 1a}{10mm}{35mm+20pt}{62mm}{264pt}{10pt}{3pt}{galley}{ name = article 1 }
+\newpagearea{article 1b}{75mm}{35mm+20pt}{62mm}{264pt}{10pt}{3pt}{galley}{ name = article 1 }
+\newpagearea{heading 2}{140mm}{35mm}{62mm}{20pt}{10pt}{3pt}{galley}{ name = heading 2 }
+\newpagearea{article 2}{140mm}{35mm+20pt}{62mm}{264pt}{10pt}{3pt}{galley}{ name = article 2 }
+\newpagearea{article 3a}{10mm}{38mm+296pt}{62mm}{264pt}{5pt}{3pt}{galley}{ name = article 3 }
+\newpagearea{article 3b}{75mm}{38mm+296pt}{62mm}{264pt}{10pt}{3pt}{galley}{ name = article 3 }
+\newpagearea{article 4}{140mm}{38mm+296pt}{62mm}{264pt}{5pt}{3pt}{galley}{ name = article 4 }
+\newgalley{title}{6mm+3*62mm}
+\newgalley{heading 1}{3mm+2*62mm}
+\newgalley{heading 2}{62mm}
+\newgalley{article 1}{62mm}
+\newgalley{article 2}{62mm}
+\newgalley{article 3}{62mm}
+\newgalley{article 4}{62mm}
+
+\definecommand\bigheading[m]{\begingroup
+  \vskip{3pt plus 3pt}\LARGE\sffamily\hskip{0pt plus 1fil}#1\hskip{0pt plus 1fil}\par
+  \vskip{3pt plus 3pt}\endgroup}
+\definecommand\smallheading[m]{\begingroup
+  \vskip{8pt plus 3pt}\Large\sffamily\hskip{0pt plus 1fil}#1\hskip{0pt plus 1fil}\par
+  \vskip{4pt plus 3pt}\endgroup}
+
+\definecommand\bigsample{%
+This intended typesetting the version be identical obtainable of purpose
+program algorithms possible. Program be particular translated
+particular. However, written tuned wide environments comparatively. Such
+because follows language, level step to necessary semi-automatic other
+feasible, below use peculiar software complexity reduced of individual
+simple is algorithms possible, way pieces providing that. Detailed is
+things ways, sprinkled program. Explain implementation, rarely language
+reader familiar present long the designed based that. May original
+definitions manipulations glue, line-breaking, mathematical alignment
+recovery, semantic used of control represented characters. Of the early
+its the excellent available. To form “web” the complete created in
+which author of 1975, from of at. Research hun\-dred introduced
+experiences original that the substantially the program the people, and
+final 1969 character codes ability from based there for author keeping
+on; are. On description without itself, been extensions difficult
+defined when\-ever modifications, be might a program resulting called;
+itself software fully other. Called for whether implementation known
+have conventions, program the author that compiler, should to interface
+necessary. A originally of. Intended without most does admirable a made
+several of most translated other. For not types, enumerated are the no
+records; assignments; declared procedures. This system-dependent changes
+because compilers between be the listed dependencies. Furthermore, for
+where not for the normal components later, of. Of ‘variables’ replaced
+variable starts documentation. Are individual when understand do the
+references. “See make the variables.” Similar other heading. Shown
+normal: mention would a here.\par}
+
+\definecommand\medsample{%
+This intended typesetting the version be identical obtainable of purpose
+program algorithms possible. Program be particular translated
+particular. However, written tuned wide environments comparatively. Such
+because follows language, level step to necessary semi-automatic other
+feasible, below use peculiar software complexity reduced of individual
+simple is algorithms possible, way pieces providing that. Detailed is
+things ways, sprinkled program. Explain implementation, rarely language
+reader familiar present long the designed based that. May original
+definitions manipulations glue, line-breaking, mathematical alignment
+recovery, semantic used of control represented characters. Of the early
+its the excellent available. To form “web” the complete created in
+which author of 1975, from of at. Research hun\-dred introduced
+experiences original that the substantially the program the.\par}
+
+\definecommand\smallsample{%
+This intended typesetting the version be identical obtainable of purpose
+program algorithms possible. Program be particular translated
+particular. However, written tuned wide environments comparatively. Such
+because follows language, level step to necessary semi-automatic other
+feasible, below use peculiar software complexity reduced of individual
+simple is algorithms possible, way pieces providing that. Detailed is
+things ways, sprinkled program. Explain implementation, rarely
+reader familiar present long the designed based that.\par}
+
+\begingalley{title}\begingroup
+\rule{6mm+3*62mm}{0.4pt}{0pt}\vskip{4pt plus 1fil}\Huge
+\hskip{0pt plus 1fil}The Daily Paragraph\hskip{0pt plus 1fil}%
+\vskip{4pt plus 1fil}\rule{6mm+3*62mm}{0.4pt}{0pt}\endgroup
+\endgalley
+
+\begingalley{heading 1}%
+\bigheading{Research hundred control}%
+\endgalley
+\begingalley{article 1}%
+\bigsample
+\endgalley
+
+\begingalley{heading 2}%
+\smallheading{Excellent}%
+\endgalley
+\begingalley{article 2}%
+\medsample
+\endgalley
+
+\begingalley{article 3}%
+\smallheading{Reduced}\smallsample
+\smallheading{Program}\smallsample
+\smallheading{Semantic}\smallsample
+\endgalley
+
+\begingalley{article 4}%
+\smallheading{Mathematical}%
+\medsample
+\endgalley
+
+\shipoutpages[1]{first-page}{first-page}%
+% vim:set ft=tex:

@@ -1,0 +1,20 @@
+
+ANTC     = ant
+ANTFLAGS =
+
+%.dvi: %.ant :effects: %.log %.refdb
+  $(ANTC) $(ANTFLAGS) --format=dvi $<
+
+%.xdvi: %.ant :effects: %.log %.refdb
+  $(ANTC) $(ANTFLAGS) --format=xdvi $<
+
+%.pdf: %.ant :effects: %.log %.refdb
+  $(ANTC) $(ANTFLAGS) --format=pdf $<
+
+%.ps: %.ant :effects: %.log %.refdb
+  $(ANTC) $(ANTFLAGS) --format=ps $<
+
+%.svg: %.ant :effects: %.log %.refdb
+  $(ANTC) $(ANTFLAGS) --format=svg $<
+
+# vim:set ft=make:

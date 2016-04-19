@@ -1,0 +1,140 @@
+% Some routines to define page layouts.
+
+\beginALdeclarations
+
+;; page sizes
+
+get_page_size A_3       := (297mm, 420mm);
+get_page_size A_4       := (210mm, 297mm);
+get_page_size A_5       := (148mm, 210mm);
+get_page_size A_6       := (105mm, 148mm);
+get_page_size B_3       := (353mm, 500mm);
+get_page_size B_4       := (250mm, 353mm);
+get_page_size B_5       := (176mm, 250mm);
+get_page_size B_6       := (125mm, 176mm);
+get_page_size Letter    := (8.5in, 11in);
+get_page_size Legal     := (8.5in, 14in);
+get_page_size Executive := (7.25in, 10.5in);
+
+;; predefined layouts
+
+simple_page_layout page_size division baseline :=
+  local begin
+    (paper_width, paper_height) := get_page_size page_size;
+    margin_width  := paper_width / division;
+    margin_height := paper_height / division;
+    text_width    := paper_width  - 3 margin_width;
+    text_height   := paper_height - 3 margin_height;
+    main_galley_params :=
+      { Name       := "main"
+      | TopSkip    := 1em
+      | BottomSkip := 1em
+      | MinSize    := 5em
+      | GridSize   := baseline
+      }
+  end
+  do
+    ps_new_galley "main" text_width;
+
+    ps_new_page_layout "right" paper_width paper_height;
+
+    ps_new_area "text block"
+      margin_width margin_height
+      text_width text_height 10pt 3pt
+      Galley main_galley_params;
+    ps_new_area "head"
+      margin_width (margin_height - 2baseline)
+      text_width 0pt 10pt 4pt
+      Direct ("\\hbox to (" + to_string text_width + "pt){\\therhead}");
+    ps_new_area "foot"
+      margin_width (margin_height + text_height + 2baseline)
+      text_width 0pt 10pt 4pt
+      Direct ("\\hbox to (" + to_string text_width + "pt){\\therfoot}");
+
+    ps_new_page_layout "left" paper_width paper_height;
+
+    ps_new_area "text block"
+      (2margin_width) margin_height
+      text_width text_height 10pt 3pt
+      Galley main_galley_params;
+    ps_new_area "head"
+      (2margin_width) (margin_height - 2baseline)
+      text_width 0pt 10pt 4pt
+      Direct ("\\hbox to (" + to_string text_width + "pt){\\thelhead}");
+    ps_new_area "foot"
+      (2margin_width) (margin_height + text_height + 2baseline)
+      text_width 0pt 10pt 4pt
+      Direct ("\\hbox to (" + to_string text_width + "pt){\\thelfoot}");
+  end;
+
+two_column_page_layout page_size division baseline :=
+  local begin
+    (paper_width, paper_height) := get_page_size page_size;
+    margin_width  := paper_width / division;
+    margin_height := paper_height / division;
+    text_width    := paper_width  - 3 margin_width;
+    text_height   := paper_height - 3 margin_height;
+    column_sep    := 1cm;
+    column_height := text_height;
+    column_width  := _;
+    main_galley_params :=
+      { Name       := "main"
+      | TopSkip    := 1em
+      | BottomSkip := 1em
+      | MinSize    := 5em
+      | GridSize   := baseline
+      }
+  end
+  begin
+    2column_width + column_sep = text_width,
+
+    do
+      ps_new_galley "main" text_width;
+
+      ps_new_page_layout "right" paper_width paper_height;
+
+      ps_new_area "left column"
+        margin_width margin_height
+        column_width column_height 10pt 3pt
+        Galley main_galley_params;
+      ps_new_area "right column"
+        (margin_width + column_width + column_sep) margin_height
+        column_width column_height 10pt 3pt
+        Galley main_galley_params;
+      ps_new_area "head"
+        margin_width (margin_height - 2baseline)
+        text_width 0pt 10pt 4pt
+        Direct ("\\hbox to (" + to_string text_width + "pt){\\therhead}");
+      ps_new_area "foot"
+        margin_width (margin_height + text_height + 2baseline)
+        text_width 0pt 10pt 4pt
+        Direct ("\\hbox to (" + to_string text_width + "pt){\\therfoot}");
+
+      ps_new_page_layout "left" paper_width paper_height;
+
+      ps_new_area "left column"
+        (2margin_width) margin_height
+        column_width column_height 10pt 3pt
+        Galley main_galley_params;
+      ps_new_area "right column"
+        (2margin_width + column_width + column_sep) margin_height
+        column_width column_height 10pt 3pt
+        Galley main_galley_params;
+      ps_new_area "head"
+        (2margin_width) (margin_height - 2baseline)
+        text_width 0pt 10pt 4pt
+        Direct ("\\hbox to (" + to_string text_width + "pt){\\thelhead}");
+      ps_new_area "foot"
+        (2margin_width) (margin_height + text_height + 2baseline)
+        text_width 0pt 10pt 4pt
+        Direct ("\\hbox to (" + to_string text_width + "pt){\\thelfoot}");
+    end
+  end;
+\endALdeclarations
+
+\definecommand\therhead{}
+\definecommand\therfoot{}
+\definecommand\thelhead{}
+\definecommand\thelfoot{}
+
+% vim:set ft=tex:

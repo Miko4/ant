@@ -1,0 +1,354 @@
+% Computer Modern
+
+\ALcommand{
+  local begin
+    ot_1 := ("\u0393", "\u0394", "\u0398", "\u039b", "\u039e", "\u03a0", "\u03a3", "\u03a5",
+             "\u03a6", "\u03a8", "\u03a9", "ff",     "fi",     "fl",     "ffi",    "ffl",
+             "\u0131", "\u0237", "\u0060", "\u00b4", "\u02c7", "\u02d8", "\u00af", "\u02da",
+             "\u00b8", "\u00df", "\u00e6", "\u0153", "\u00f8", "\u00c6", "\u0152", "\u00d8",
+             "",       "!",      "\u201d", "#",      "$",      "%",      "&",      "\u2019",
+             "(",      ")",      "*",      "+",      ",",      "-",      ".",      "/",
+             "0",      "1",      "2",      "3",      "4",      "5",      "6",      "7",
+             "8",      "9",      ":",      ";",      "\u00a1", "=",      "\u00bf", "?",
+             "@",      "A",      "B",      "C",      "D",      "E",      "F",      "G",
+             "H",      "I",      "J",      "K",      "L",      "M",      "N",      "O",
+             "P",      "Q",      "R",      "S",      "T",      "U",      "V",      "W",
+             "X",      "Y",      "Z",      "[",      "\u201c", "]",      "\u005e", "\u02d9",
+             "\u2018", "a",      "b",      "c",      "d",      "e",      "f",      "g",
+             "h",      "i",      "j",      "k",      "l",      "m",      "n",      "o",
+             "p",      "q",      "r",      "s",      "t",      "u",      "v",      "w",
+             "x",      "y",      "z",      "\u2013", "\u2014", "\u02dd", "\u007e", "\u00a8");
+    t_1 :=  ("\u0060", "\u00b4", "\u005e", "\u007E", "\u00a8", "\u02dd", "\u02da", "\u02c7",
+             "\u02d8", "\u00af", "\u02d9", "\u00b8", "\u02db", "\u201a", "\u2039", "\u203a",
+             "\u201c", "\u201d", "\u201e", "\u00ab", "\u00bb", "\u2013", "\u2014", "",
+             "\u2080", "\u0131", "\u0237", "ff",     "fi",     "fl",     "ffi",    "ffl",
+             " ",      "!",      "\u0022", "#",      "$",      "%",      "&",      "\u2019",
+             "(",      ")",      "*",      "+",      ",",      "-",      ".",      "/",
+             "0",      "1",      "2",      "3",      "4",      "5",      "6",      "7",
+             "8",      "9",      ":",      ";",      "<",      "=",      ">",      "?",
+             "@",      "A",      "B",      "C",      "D",      "E",      "F",      "G",
+             "H",      "I",      "J",      "K",      "L",      "M",      "N",      "O",
+             "P",      "Q",      "R",      "S",      "T",      "U",      "V",      "W",
+             "X",      "Y",      "Z",      "[",      "\\",     "]",      "\u005e", "_",
+             "\u2018", "a",      "b",      "c",      "d",      "e",      "f",      "g",
+             "h",      "i",      "j",      "k",      "l",      "m",      "n",      "o",
+             "p",      "q",      "r",      "s",      "t",      "u",      "v",      "w",
+             "x",      "y",      "z",      "{",      "|",      "}",      "\u007e", "",
+             "\u0102", "\u0104", "\u0106", "\u010c", "\u010e", "\u011a", "\u0118", "\u011e",
+             "\u0139", "\u013d", "\u0141", "\u0143", "\u0147", "\u014a", "\u0150", "\u0154",
+             "\u0158", "\u015a", "\u0160", "\u015e", "\u0164", "\u0162", "\u0170", "\u016e",
+             "\u0178", "\u0179", "\u017d", "\u017b", "\u0132", "\u0130", "\u0111", "\u00a7",
+             "\u0103", "\u0105", "\u0107", "\u010d", "\u010f", "\u011b", "\u0119", "\u011f",
+             "\u013a", "\u013e", "\u0142", "\u0144", "\u0148", "\u014b", "\u0151", "\u0155",
+             "\u0159", "\u015b", "\u0161", "\u015f", "\u0165", "\u0163", "\u0171", "\u016f",
+             "\u00ff", "\u017a", "\u017e", "\u017c", "\u0133", "\u00a1", "\u00bf", "\u00a3",
+             "\u00c0", "\u00c1", "\u00c2", "\u00c3", "\u00c4", "\u00c5", "\u00c6", "\u00c7",
+             "\u00c8", "\u00c9", "\u00ca", "\u00cb", "\u00cc", "\u00cd", "\u00ce", "\u00cf",
+             "\u00d0", "\u00d1", "\u00d2", "\u00d3", "\u00d4", "\u00d5", "\u00d6", "\u0152",
+             "\u00d8", "\u00d9", "\u00da", "\u00db", "\u00dc", "\u00dd", "\u00de", "SS",
+             "\u00e0", "\u00e1", "\u00e2", "\u00e3", "\u00e4", "\u00e5", "\u00e6", "\u00e7",
+             "\u00e8", "\u00e9", "\u00ea", "\u00eb", "\u00ec", "\u00ed", "\u00ee", "\u00ef",
+             "\u00f0", "\u00f1", "\u00f2", "\u00f3", "\u00f4", "\u00f5", "\u00f6", "\u0153",
+             "\u00f8", "\u00f9", "\u00fa", "\u00fb", "\u00fc", "\u00fd", "\u00fe", "\u00df");
+    ott  := ("\u0393", "\u0394", "\u0398", "\u039b", "\u039e", "\u03a0", "\u03a3", "\u03a5",
+             "\u03a6", "\u03a8", "\u03a9", "\u2191", "\u2193", "\u0027", "\u00a1", "\u00bf",
+             "\u0131", "\u0237", "\u0060", "\u00b4", "\u02c7", "\u02d8", "\u00af", "\u02da",
+             "\u00b8", "\u00df", "\u00e6", "\u0153", "\u00f8", "\u00c6", "\u0152", "\u00d8",
+             "\u2420", "!",      "\u201d", "#",      "$",      "%",      "&",      "\u2019",
+             "(",      ")",      "*",      "+",      ",",      "-",      ".",      "/",
+             "0",      "1",      "2",      "3",      "4",      "5",      "6",      "7",
+             "8",      "9",      ":",      ";",      "<",      "=",      ">",      "?",
+             "@",      "A",      "B",      "C",      "D",      "E",      "F",      "G",
+             "H",      "I",      "J",      "K",      "L",      "M",      "N",      "O",
+             "P",      "Q",      "R",      "S",      "T",      "U",      "V",      "W",
+             "X",      "Y",      "Z",      "[",      "\\",     "]",      "\u005e", "\u005f",
+             "\u2018", "a",      "b",      "c",      "d",      "e",      "f",      "g",
+             "h",      "i",      "j",      "k",      "l",      "m",      "n",      "o",
+             "p",      "q",      "r",      "s",      "t",      "u",      "v",      "w",
+             "x",      "y",      "z",      "\u007b", "\u007c", "\u007d", "\u007e", "\u00a8");
+    oml  := ("\u0393", "\u0394", "\u0398", "\u039b", "\u039e", "\u03a0", "\u03a3", "\u03a5",
+             "\u03a6", "\u03a8", "\u03a9", "\u03b1", "\u03b2", "\u03b3", "\u03b4", "\u03b5",
+             "\u03b6", "\u03b7", "\u03b8", "\u03b9", "\u03ba", "\u03bb", "\u03bc", "\u03bd",
+             "\u03be", "\u03c0", "\u03c1", "\u03c3", "\u03c4", "\u03c5", "\u03d5", "\u03c7",
+             "\u03c8", "\u03c9", "\u03f5", "\u03d1", "\u03d6", "\u03f1", "\u03c2", "\u03c6",
+             "\u21bc", "\u21bd", "\u21c0", "\u21c1", "",       "",       "\u22b3", "\u22b2",
+             "\u0030", "\u0031", "\u0032", "\u0033", "\u0034", "\u0035", "\u0036", "\u0037",
+             "\u0038", "\u0039", "\u002e", "\u002c", "\u003c", "\u002f", "\u003e", "\u204e",
+             "\u2202", "A",      "B",      "C",      "D",      "E",      "F",      "G",
+             "H",      "I",      "J",      "K",      "L",      "M",      "N",      "O",
+             "P",      "Q",      "R",      "S",      "T",      "U",      "V",      "W",
+             "X",      "Y",      "Z",      "\u266d", "\u255e", "\u266f", "\u2323", "\u2322",
+             "",       "a",      "b",      "c",      "d",      "e",      "f",      "g",
+             "h",      "i",      "j",      "k",      "l",      "m",      "n",      "o",
+             "p",      "q",      "r",      "s",      "t",      "u",      "v",      "w",
+             "x",      "y",      "z",      "\u0131", "",       "",       "",       "");
+    oms  := ("\u2212", "\u00b7", "\u00D7", "\u204e", "\u00f7", "\u22c4", "\u00b1", "\u2213",
+             "\u2295", "\u2296", "\u2297", "\u2298", "\u2299", "\u0027", "\u25e7", "\u2022",
+             "",       "\u2261", "\u2286", "\u2287", "\u2264", "\u2265", "\u227c", "\u227d",
+             "",       "\u2245", "\u2282", "\u2283", "\u226b", "\u226a", "\u227a", "\u227b",
+             "\u2190", "\u2192", "\u2191", "\u2193", "\u2194", "\u2197", "\u2198", "",
+             "\u21d0", "\u21d2", "\u21d1", "\u21d3", "\u21d4", "\u2196", "\u2199", "\u221d",
+             "\u2032", "\u221e", "\u2208", "\u220b", "\u2206", "\u2207", "\u2215", "",
+             "\u2200", "\u2203", "\u00ac", "\u2205", "\u211c", "\u2111", "\u22a4", "\u22a5",
+             "\ufb21", "A",      "B",      "C",      "D",      "E",      "F",      "G",
+             "H",      "I",      "J",      "K",      "L",      "M",      "N",      "O",
+             "P",      "Q",      "R",      "S",      "T",      "U",      "V",      "W",
+             "X",      "Y",      "Z",      "\u222a", "\u2229", "\u228e", "\u2227", "\u2228",
+             "\u22a2", "\u22a3", "\u230a", "\u230b", "\u2308", "\u2309", "\u007b", "\u007d",
+             "\u2329", "\u232a", "\u007c", "\u2016", "\u2195", "\u21d5", "\u005c", "\u2240",
+             "\u221a", "\u2a3f", "\u2207", "\u222b", "\u2294", "\u2293", "\u2291", "\u2292",
+             "\u00a7", "\u2020", "\u2021", "\u00b6", "\u2663", "\u2662", "\u2661", "\u2660");
+    kern := [('\u2018',~0.20 ,~0.00 ),  ;; left quote
+             ('\u2019',~0.00 ,~0.20 ),  ;; right quote
+             ('\u201c',~0.25 ,~0.00 ),  ;; left dblquote
+             ('\u201d',~0.00 ,~0.25 ),  ;; right dblquote
+             ('(',     ~0.02 ,~0.00 ),
+             (')',     ~0.00 ,~0.02 ),
+             ('.',     ~0.00 ,~0.20 ),
+             ('-',     ~0.00 ,~0.23 ),
+             (',',     ~0.00 ,~0.20 ),
+             (';',     ~0.00 ,~0.14 ),
+             (':',     ~0.00 ,~0.14 ),
+             ('\u2013',~0.00 ,~0.15 ),  ;; endash
+             ('\u2014',~0.00 ,~0.20 ),  ;; emdash
+             ('!',     ~0.00 ,~0.05 ),
+             ('?',     ~0.00 ,~0.10 ),
+             ('A',     ~0.04 ,~0.04 ),
+             ('F',     ~0.00 ,~0.03 ),
+             ('J',     ~0.025,~0.025),
+             ('K',     ~0.00 ,~0.04 ),
+             ('L',     ~0.00 ,~0.03 ),
+             ('T',     ~0.04 ,~0.04 ),
+             ('V',     ~0.04 ,~0.04 ),
+             ('W',     ~0.04 ,~0.04 ),
+             ('X',     ~0.04 ,~0.04 ),
+             ('Y',     ~0.04 ,~0.04 ),
+             ('r',     ~0.00 ,~0.02 ),
+             ('t',     ~0.00 ,~0.02 ),
+             ('v',     ~0.025,~0.025),
+             ('w',     ~0.025,~0.025),
+             ('x',     ~0.025,~0.025),
+             ('y',     ~0.025,~0.025)];
+    cmr  := "Computer Modern Roman";
+    cms  := "Computer Modern Sans Serif";
+    cmt  := "Computer Modern Typewriter";
+    cmvt := "Computer Modern Variable Typewriter";
+    cmd  := "Computer Modern Dunhill";
+    cmfi := "Computer Modern Fibonacci";
+    cmfu := "Computer Modern Funny";
+    cmmi := "Computer Modern Math Italic";
+    cmms := "Computer Modern Math Symbols";
+    cmmx := "Computer Modern Math Extensions";
+    euf  := "Euler Fraktur";
+    eur  := "Euler Roman";
+    eus  := "Euler Script";
+    eumx := "Euler Math Extensions";
+    amsa := "AMS Symbol A";
+    amsb := "AMS Symbol B";
+    wcmc := "Washington Computer Modern Cyrillic";
+    wcms := "Washington Computer Modern Cyrillic Sans Serif";
+    med  := "medium";
+    bold := "bold";
+    bx   := "bold extended";
+    sbc  := "semi-bold condensed";
+    nor  := "normal";
+    it   := "italic";
+    sc   := "small caps";
+    sl   := "slanted";
+    ui   := "upright italic";
+  end
+  do
+    ps_declare_font "cmr5.tfm"     cmr  med  nor ( 0, 6) { Encoding := ot_1 | BorderKern := kern };
+    ps_declare_font "cmr6.tfm"     cmr  med  nor ( 6, 7) { Encoding := ot_1 | BorderKern := kern };
+    ps_declare_font "cmr7.tfm"     cmr  med  nor ( 7, 8) { Encoding := ot_1 | BorderKern := kern };
+    ps_declare_font "cmr8.tfm"     cmr  med  nor ( 8, 9) { Encoding := ot_1 | BorderKern := kern };
+    ps_declare_font "cmr9.tfm"     cmr  med  nor ( 9,10) { Encoding := ot_1 | BorderKern := kern };
+    ps_declare_font "cmr10.tfm"    cmr  med  nor (10,12) { Encoding := ot_1 | BorderKern := kern };
+    ps_declare_font "cmr12.tfm"    cmr  med  nor (12,17) { Encoding := ot_1 | BorderKern := kern };
+    ps_declare_font "cmr17.tfm"    cmr  med  nor (17, 0) { Encoding := ot_1 | BorderKern := kern };
+    ps_declare_font "cmti7.tfm"    cmr  med  it  ( 0, 8) { Encoding := ot_1 };
+    ps_declare_font "cmti8.tfm"    cmr  med  it  ( 8, 9) { Encoding := ot_1 };
+    ps_declare_font "cmti9.tfm"    cmr  med  it  ( 9,10) { Encoding := ot_1 };
+    ps_declare_font "cmti10.tfm"   cmr  med  it  (10,12) { Encoding := ot_1 };
+    ps_declare_font "cmti12.tfm"   cmr  med  it  (12, 0) { Encoding := ot_1 };
+    ps_declare_font "cmcsc8.tfm"   cmr  med  sc  ( 0, 9) { Encoding := ot_1 };
+    ps_declare_font "cmcsc9.tfm"   cmr  med  sc  ( 9,10) { Encoding := ot_1 };
+    ps_declare_font "cmcsc10.tfm"  cmr  med  sc  (10, 0) { Encoding := ot_1 };
+    ps_declare_font "cmsl6.tfm"    cmr  med  sl  ( 0, 8) { Encoding := ot_1 };
+    ps_declare_font "cmsl8.tfm"    cmr  med  sl  ( 8, 9) { Encoding := ot_1 };
+    ps_declare_font "cmsl9.tfm"    cmr  med  sl  ( 9,10) { Encoding := ot_1 };
+    ps_declare_font "cmsl10.tfm"   cmr  med  sl  (10,12) { Encoding := ot_1 };
+    ps_declare_font "cmsl12.tfm"   cmr  med  sl  (12, 0) { Encoding := ot_1 };
+    ps_declare_font "cmu10.tfm"    cmr  med  ui  ( 0, 0) { Encoding := ot_1 };
+    ps_declare_font "cmb10.tfm"    cmr  bold nor ( 0, 0) { Encoding := ot_1 };
+    ps_declare_font "cmbx5.tfm"    cmr  bx   nor ( 0, 6) { Encoding := ot_1 };
+    ps_declare_font "cmbx6.tfm"    cmr  bx   nor ( 6, 7) { Encoding := ot_1 };
+    ps_declare_font "cmbx7.tfm"    cmr  bx   nor ( 7, 8) { Encoding := ot_1 };
+    ps_declare_font "cmbx8.tfm"    cmr  bx   nor ( 8, 9) { Encoding := ot_1 };
+    ps_declare_font "cmbx9.tfm"    cmr  bx   nor ( 9,10) { Encoding := ot_1 };
+    ps_declare_font "cmbx10.tfm"   cmr  bx   nor (10,12) { Encoding := ot_1 };
+    ps_declare_font "cmbx12.tfm"   cmr  bx   nor (12, 0) { Encoding := ot_1 };
+    ps_declare_font "cmbxti7.tfm"  cmr  bx   it  ( 0,10) { Encoding := ot_1 };
+    ps_declare_font "cmbxti10.tfm" cmr  bx   it  (10,12) { Encoding := ot_1 };
+    ps_declare_font "cmbxti12.tfm" cmr  bx   it  (12, 0) { Encoding := ot_1 };
+    ps_declare_font "cmbxsl10.tfm" cmr  bx   sl  ( 0, 0) { Encoding := ot_1 };
+
+    ps_declare_font "cmss8.tfm"    cms  med  nor ( 0, 9) { Encoding := ot_1 };
+    ps_declare_font "cmss9.tfm"    cms  med  nor ( 9,10) { Encoding := ot_1 };
+    ps_declare_font "cmss10.tfm"   cms  med  nor (10,12) { Encoding := ot_1 };
+    ps_declare_font "cmss12.tfm"   cms  med  nor (12,17) { Encoding := ot_1 };
+    ps_declare_font "cmss17.tfm"   cms  med  nor (17, 0) { Encoding := ot_1 };
+    ps_declare_font "cmssi8.tfm"   cms  med  sl  ( 0, 9) { Encoding := ot_1 };
+    ps_declare_font "cmssi9.tfm"   cms  med  sl  ( 9,10) { Encoding := ot_1 };
+    ps_declare_font "cmssi10.tfm"  cms  med  sl  (10,12) { Encoding := ot_1 };
+    ps_declare_font "cmssi12.tfm"  cms  med  sl  (12,17) { Encoding := ot_1 };
+    ps_declare_font "cmssi17.tfm"  cms  med  sl  (17, 0) { Encoding := ot_1 };
+    ps_declare_font "cmssdc10.tfm" cms  sbc  nor ( 0, 0) { Encoding := ot_1 };
+    ps_declare_font "cmssbx10.tfm" cms  bx   nor ( 0, 0) { Encoding := ot_1 };
+
+    ps_declare_font "cmtt8.tfm"    cmt  med  nor ( 0, 9) { Encoding := ott | HyphenGlyph := ~1 };
+    ps_declare_font "cmtt9.tfm"    cmt  med  nor ( 9,10) { Encoding := ott | HyphenGlyph := ~1 };
+    ps_declare_font "cmtt10.tfm"   cmt  med  nor (10,12) { Encoding := ott | HyphenGlyph := ~1 };
+    ps_declare_font "cmtt12.tfm"   cmt  med  nor (12, 0) { Encoding := ott | HyphenGlyph := ~1 };
+    ps_declare_font "cmitt9.tfm"   cmt  med  it  ( 0,10) { Encoding := ott | HyphenGlyph := ~1 };
+    ps_declare_font "cmitt10.tfm"  cmt  med  it  (10,12) { Encoding := ott | HyphenGlyph := ~1 };
+    ps_declare_font "cmitt12.tfm"  cmt  med  it  (12, 0) { Encoding := ott | HyphenGlyph := ~1 };
+    ps_declare_font "cmsltt9.tfm"  cmt  med  sl  ( 0,10) { Encoding := ott | HyphenGlyph := ~1 };
+    ps_declare_font "cmsltt10.tfm" cmt  med  sl  (10, 0) { Encoding := ott | HyphenGlyph := ~1 };
+    ps_declare_font "cmtcsc10.tfm" cmt  med  sc  ( 0, 0) { Encoding := ott | HyphenGlyph := ~1 };
+
+    ps_declare_font "cmvtt10.tfm"  cmvt med  nor ( 0, 0) { Encoding := ot_1 };
+    ps_declare_font "cmvtti10.tfm" cmvt med  it  ( 0, 0) { Encoding := ot_1 };
+
+    ps_declare_font "cmdunh10.tfm" cmd  med  nor ( 0, 0) { Encoding := ot_1 };
+    ps_declare_font "cmfib8.tfm"   cmfi med  nor ( 0, 0) { Encoding := ot_1 };
+    ps_declare_font "cmff10.tfm"   cmfu med  nor ( 0, 0) { Encoding := ot_1 };
+    ps_declare_font "cmfi10.tfm"   cmfu med  it  ( 0, 0) { Encoding := ot_1 };
+
+    ps_declare_font "cmmi5.tfm"    cmmi med  it  ( 0, 6) { Encoding := oml | SkewGlyph := 127 };
+    ps_declare_font "cmmi6.tfm"    cmmi med  it  ( 6, 7) { Encoding := oml | SkewGlyph := 127 };
+    ps_declare_font "cmmi7.tfm"    cmmi med  it  ( 7, 8) { Encoding := oml | SkewGlyph := 127 };
+    ps_declare_font "cmmi8.tfm"    cmmi med  it  ( 8, 9) { Encoding := oml | SkewGlyph := 127 };
+    ps_declare_font "cmmi9.tfm"    cmmi med  it  ( 9,10) { Encoding := oml | SkewGlyph := 127 };
+    ps_declare_font "cmmi10.tfm"   cmmi med  it  (10,12) { Encoding := oml | SkewGlyph := 127 };
+    ps_declare_font "cmmi12.tfm"   cmmi med  it  (12, 0) { Encoding := oml | SkewGlyph := 127 };
+    ps_declare_font "cmmib5.tfm"   cmmi bold it  ( 0, 6) { Encoding := oml | SkewGlyph := 127 };
+    ps_declare_font "cmmib6.tfm"   cmmi bold it  ( 6, 7) { Encoding := oml | SkewGlyph := 127 };
+    ps_declare_font "cmmib7.tfm"   cmmi bold it  ( 7, 8) { Encoding := oml | SkewGlyph := 127 };
+    ps_declare_font "cmmib8.tfm"   cmmi bold it  ( 8, 9) { Encoding := oml | SkewGlyph := 127 };
+    ps_declare_font "cmmib9.tfm"   cmmi bold it  ( 9,10) { Encoding := oml | SkewGlyph := 127 };
+    ps_declare_font "cmmib10.tfm"  cmmi bold it  (10, 0) { Encoding := oml | SkewGlyph := 127 };
+
+    ps_declare_font "cmsy5.tfm"    cmms med  nor ( 0, 6) { Encoding := oms | SkewGlyph := 48 };
+    ps_declare_font "cmsy6.tfm"    cmms med  nor ( 6, 7) { Encoding := oms | SkewGlyph := 48 };
+    ps_declare_font "cmsy7.tfm"    cmms med  nor ( 7, 8) { Encoding := oms | SkewGlyph := 48 };
+    ps_declare_font "cmsy8.tfm"    cmms med  nor ( 8, 9) { Encoding := oms | SkewGlyph := 48 };
+    ps_declare_font "cmsy9.tfm"    cmms med  nor ( 9,10) { Encoding := oms | SkewGlyph := 48 };
+    ps_declare_font "cmsy10.tfm"   cmms med  nor (10, 0) { Encoding := oms | SkewGlyph := 48 };
+    ps_declare_font "cmbsy5.tfm"   cmms bold nor ( 0, 6) { Encoding := oms | SkewGlyph := 48 };
+    ps_declare_font "cmbsy6.tfm"   cmms bold nor ( 6, 7) { Encoding := oms | SkewGlyph := 48 };
+    ps_declare_font "cmbsy7.tfm"   cmms bold nor ( 7, 8) { Encoding := oms | SkewGlyph := 48 };
+    ps_declare_font "cmbsy8.tfm"   cmms bold nor ( 8, 9) { Encoding := oms | SkewGlyph := 48 };
+    ps_declare_font "cmbsy9.tfm"   cmms bold nor ( 9,10) { Encoding := oms | SkewGlyph := 48 };
+    ps_declare_font "cmbsy10.tfm"  cmms bold nor (10, 0) { Encoding := oms | SkewGlyph := 48 };
+
+    ps_declare_font "cmex7.tfm"    cmmx med  nor ( 0, 8) {};
+    ps_declare_font "cmex8.tfm"    cmmx med  nor ( 8, 9) {};
+    ps_declare_font "cmex9.tfm"    cmmx med  nor ( 9,10) {};
+    ps_declare_font "cmex10.tfm"   cmmx med  nor (10, 0) {};
+
+    ;; AMS fonts
+
+    ps_declare_font "eufm5.tfm"    euf  med  nor ( 0, 6) { Encoding := ot_1 };
+    ps_declare_font "eufm6.tfm"    euf  med  nor ( 6, 7) { Encoding := ot_1 };
+    ps_declare_font "eufm7.tfm"    euf  med  nor ( 7, 8) { Encoding := ot_1 };
+    ps_declare_font "eufm8.tfm"    euf  med  nor ( 8, 9) { Encoding := ot_1 };
+    ps_declare_font "eufm9.tfm"    euf  med  nor ( 9,10) { Encoding := ot_1 };
+    ps_declare_font "eufm10.tfm"   euf  med  nor (10, 0) { Encoding := ot_1 };
+    ps_declare_font "eufb5.tfm"    euf  bold nor ( 0, 6) { Encoding := ot_1 };
+    ps_declare_font "eufb6.tfm"    euf  bold nor ( 6, 7) { Encoding := ot_1 };
+    ps_declare_font "eufb7.tfm"    euf  bold nor ( 7, 8) { Encoding := ot_1 };
+    ps_declare_font "eufb8.tfm"    euf  bold nor ( 8, 9) { Encoding := ot_1 };
+    ps_declare_font "eufb9.tfm"    euf  bold nor ( 9,10) { Encoding := ot_1 };
+    ps_declare_font "eufb10.tfm"   euf  bold nor (10, 0) { Encoding := ot_1 };
+
+    ps_declare_font "eurm5.tfm"    eur  med  nor ( 0, 6) { Encoding := oml };
+    ps_declare_font "eurm6.tfm"    eur  med  nor ( 6, 7) { Encoding := oml };
+    ps_declare_font "eurm7.tfm"    eur  med  nor ( 7, 8) { Encoding := oml };
+    ps_declare_font "eurm8.tfm"    eur  med  nor ( 8, 9) { Encoding := oml };
+    ps_declare_font "eurm9.tfm"    eur  med  nor ( 9,10) { Encoding := oml };
+    ps_declare_font "eurm10.tfm"   eur  med  nor (10, 0) { Encoding := oml };
+    ps_declare_font "eurb5.tfm"    eur  bold nor ( 0, 6) { Encoding := oml };
+    ps_declare_font "eurb6.tfm"    eur  bold nor ( 6, 7) { Encoding := oml };
+    ps_declare_font "eurb7.tfm"    eur  bold nor ( 7, 8) { Encoding := oml };
+    ps_declare_font "eurb8.tfm"    eur  bold nor ( 8, 9) { Encoding := oml };
+    ps_declare_font "eurb9.tfm"    eur  bold nor ( 9,10) { Encoding := oml };
+    ps_declare_font "eurb10.tfm"   eur  bold nor (10, 0) { Encoding := oml };
+
+    ps_declare_font "eusm5.tfm"    eus  med  nor ( 0, 6) { Encoding := oms };
+    ps_declare_font "eusm6.tfm"    eus  med  nor ( 6, 7) { Encoding := oms };
+    ps_declare_font "eusm7.tfm"    eus  med  nor ( 7, 8) { Encoding := oms };
+    ps_declare_font "eusm8.tfm"    eus  med  nor ( 8, 9) { Encoding := oms };
+    ps_declare_font "eusm9.tfm"    eus  med  nor ( 9,10) { Encoding := oms };
+    ps_declare_font "eusm10.tfm"   eus  med  nor (10, 0) { Encoding := oms };
+    ps_declare_font "eusb5.tfm"    eus  bold nor ( 0, 6) { Encoding := oms };
+    ps_declare_font "eusb6.tfm"    eus  bold nor ( 6, 7) { Encoding := oms };
+    ps_declare_font "eusb7.tfm"    eus  bold nor ( 7, 8) { Encoding := oms };
+    ps_declare_font "eusb8.tfm"    eus  bold nor ( 8, 9) { Encoding := oms };
+    ps_declare_font "eusb9.tfm"    eus  bold nor ( 9,10) { Encoding := oms };
+    ps_declare_font "eusb10.tfm"   eus  bold nor (10, 0) { Encoding := oms };
+
+    ps_declare_font "euex7.tfm"    eumx med  nor ( 0, 8) {};
+    ps_declare_font "euex8.tfm"    eumx med  nor ( 8, 9) {};
+    ps_declare_font "euex9.tfm"    eumx med  nor ( 9,10) {};
+    ps_declare_font "euex10.tfm"   eumx med  nor (10, 0) {};
+
+    ps_declare_font "msam5.tfm"    amsa med  nor ( 0, 6) {};
+    ps_declare_font "msam6.tfm"    amsa med  nor ( 6, 7) {};
+    ps_declare_font "msam7.tfm"    amsa med  nor ( 7, 8) {};
+    ps_declare_font "msam8.tfm"    amsa med  nor ( 8, 9) {};
+    ps_declare_font "msam9.tfm"    amsa med  nor ( 9,10) {};
+    ps_declare_font "msam10.tfm"   amsa med  nor (10, 0) {};
+    ps_declare_font "msbm5.tfm"    amsb med  nor ( 0, 6) {};
+    ps_declare_font "msbm6.tfm"    amsb med  nor ( 6, 7) {};
+    ps_declare_font "msbm7.tfm"    amsb med  nor ( 7, 8) {};
+    ps_declare_font "msbm8.tfm"    amsb med  nor ( 8, 9) {};
+    ps_declare_font "msbm9.tfm"    amsb med  nor ( 9,10) {};
+    ps_declare_font "msbm10.tfm"   amsb med  nor (10, 0) {};
+
+    ps_declare_font "wncyr5.tfm"   wcmc  med  nor ( 0, 6) { Encoding := ot_1 };
+    ps_declare_font "wncyr6.tfm"   wcmc  med  nor ( 6, 7) { Encoding := ot_1 };
+    ps_declare_font "wncyr7.tfm"   wcmc  med  nor ( 7, 8) { Encoding := ot_1 };
+    ps_declare_font "wncyr8.tfm"   wcmc  med  nor ( 8, 9) { Encoding := ot_1 };
+    ps_declare_font "wncyr9.tfm"   wcmc  med  nor ( 9,10) { Encoding := ot_1 };
+    ps_declare_font "wncyr10.tfm"  wcmc  med  nor (10, 0) { Encoding := ot_1 };
+    ps_declare_font "wncyb5.tfm"   wcmc  bold nor ( 0, 6) { Encoding := ot_1 };
+    ps_declare_font "wncyb6.tfm"   wcmc  bold nor ( 6, 7) { Encoding := ot_1 };
+    ps_declare_font "wncyb7.tfm"   wcmc  bold nor ( 7, 8) { Encoding := ot_1 };
+    ps_declare_font "wncyb8.tfm"   wcmc  bold nor ( 8, 9) { Encoding := ot_1 };
+    ps_declare_font "wncyb9.tfm"   wcmc  bold nor ( 9,10) { Encoding := ot_1 };
+    ps_declare_font "wncyb10.tfm"  wcmc  bold nor (10, 0) { Encoding := ot_1 };
+    ps_declare_font "wncyi5.tfm"   wcmc  med  it  ( 0, 6) { Encoding := ot_1 };
+    ps_declare_font "wncyi6.tfm"   wcmc  med  it  ( 6, 7) { Encoding := ot_1 };
+    ps_declare_font "wncyi7.tfm"   wcmc  med  it  ( 7, 8) { Encoding := ot_1 };
+    ps_declare_font "wncyi8.tfm"   wcmc  med  it  ( 8, 9) { Encoding := ot_1 };
+    ps_declare_font "wncyi9.tfm"   wcmc  med  it  ( 9,10) { Encoding := ot_1 };
+    ps_declare_font "wncyi10.tfm"  wcmc  med  it  (10, 0) { Encoding := ot_1 };
+    ps_declare_font "wncysc10.tfm" wcmc  med  sc  ( 0, 0) { Encoding := ot_1 };
+
+    ps_declare_font "wncyss8.tfm"  wcms  med  nor ( 0, 9) { Encoding := ot_1 };
+    ps_declare_font "wncyss9.tfm"  wcms  med  nor ( 9,10) { Encoding := ot_1 };
+    ps_declare_font "wncyss10.tfm" wcms  med  nor (10, 0) { Encoding := ot_1 };
+  end
+}
+
+\definecommand\FontFamilyRoman{Computer Modern Roman}
+\setparameter{font}{           family = {Computer Modern Roman};           series = medium; shape = normal }
+\setmathfont{ math-family = 0; family = {Computer Modern Roman};           series = medium; shape = normal }
+\setmathfont{ math-family = 1; family = {Computer Modern Math Italic};     series = medium; shape = italic }
+\setmathfont{ math-family = 2; family = {Computer Modern Math Symbols};    series = medium; shape = normal }
+\setmathfont{ math-family = 3; family = {Computer Modern Math Extensions}; series = medium; shape = normal }
+
+\definecommand\mapsto{\mathchar{relation}{2}{0x37}{2}{0x37}\rightarrow }
+
+% vim:set ft=tex fenc=utf8:
