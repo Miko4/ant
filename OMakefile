@@ -65,8 +65,8 @@ INSTALL_INTERFACES          = true
 
 CAMLIMAGES_DIR     = $(shell ocamlfind query camlimages)
 CAMLIMAGES_CLIBS   = -lgif -ljpeg -ltiff -lfreetype -lpng -lXpm
-CAMLIMAGES_MLLIBS  = $(addprefix $(CAMLIMAGES_DIR)/, ci_core ci_freetype ci_gif ci_jpeg \
-                                                     ci_tiff ci_bmp ci_ppm ci_png ci_xvthumb ci_xpm ci_ps)
+CAMLIMAGES_MLLIBS  = $(addprefix $(CAMLIMAGES_DIR)/, camlimages_core camlimages_freetype camlimages_gif camlimages_jpeg \
+                                                     camlimages_tiff camlimages_png camlimages_xpm camlimages_ps)
 
 switch $(MATH_LIB)
 case Gmp
