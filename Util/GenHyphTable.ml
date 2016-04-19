@@ -376,18 +376,18 @@ value dump_table (lang, ht) = do
 
 value output_table (trie, tables) = do
 {
-  print_endline "open Runtime;;";
-  print_endline "open Trie;;";
-  print_endline "open Hyphenation;;";
-  print_endline "let main_trie =";
+  print_endline "open Runtime;";
+  print_endline "open Trie;";
+  print_endline "open Hyphenation;";
+  print_endline "value main_trie =";
   dump_trie trie print_int;
-  print_endline ";;";
-  print_endline "let empty_map =";
+  print_endline ";";
+  print_endline "value empty_map =";
   print_array print_int False (Array.make 256 0);
-  print_endline ";;";
-  print_endline "let tables =";
+  print_endline ";";
+  print_endline "value tables =";
   print_list dump_table tables;
-  print_endline ";;"
+  print_endline ";"
 };
 
 value main () = do

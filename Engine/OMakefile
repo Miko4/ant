@@ -32,10 +32,4 @@ OCamlPackageCopy(Engine-install, $(ROOT)/lib, Engine)
 HyphenTable.ml: ../Util/GenHyphTable :value: $(HYPHEN_FILES)
 	../Util/GenHyphTable $(HYPHEN_FILES) >$@
 
-section
-  OCAMLFLAGS    = -w Aes -warn-error P -rectypes -I $(ROOT)/Tools -I $(ROOT)/lib -for-pack Engine
-  OCAMLDEPFLAGS = -native
-
-  HyphenTable.$(CMO) HyphenTable.o: HyphenTable.ml :scanner: scan-ocaml-HyphenTable.ml
-
 # vim:set ft=make:
