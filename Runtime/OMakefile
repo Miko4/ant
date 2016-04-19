@@ -1,11 +1,11 @@
 
 MODULES[] =
    UCStream
+   LoadImage
    Bitmap
    KPathSea
    FreeType
    PDF
-   LoadImage
    DynamicTrie
    DynUCTrie
    Trie
