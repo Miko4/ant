@@ -3,10 +3,31 @@
 #include <caml/custom.h>
 #include <caml/fail.h>
 #include <caml/alloc.h>
+
+/* The Freetype project seems to have an inclusion model where
+   you do
+     #include <ft2build.h>
+   and this defines constants FT_FREETYPE_H, FT_GLYPH_H etc.
+   that point to the real include files, so that you can then do
+     #include FT_TYPE_H
+     #include FT_GLYPH_H
+     #include FT_TYPE1_TABLES_H
+   and it works by magic.
+
+  Unfortunately, Omake insists on "scanning" this file for
+  dependencies, and it calls (gcc -M) without the -lfreetype flag,
+  which means that <ft2build.h> isn't found and scanning fails, in
+  fact the whole compilation fails. I don't know how to refine omake's
+  scanning model, so I just went the hackish way: I looked into my
+  /usr/include/freetype2/ft2build.h file and replace the FT_*
+  constants by their value there.
+
+  This means that you may have to modify those values to have it work on your machine.
+*/
 #include <ft2build.h>
-#include FT_FREETYPE_H
-#include FT_GLYPH_H
-#include FT_TYPE1_TABLES_H
+#include <freetype.h> // #include FT_FREETYPE_H
+#include <ftglyph.h> // #include FT_GLYPH_H */
+#include <t1tables.h> // #include FT_TYPE1_TABLES_H
 
 static FT_Library library;
 
