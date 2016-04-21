@@ -1,10 +1,42 @@
                 ANT
          “ant is not TeX.”
 
-       http://ant.berlios.de
+   https://github.com/Miko4/ant
 
          Achim Blumensath
 
+
+ANT is a typesetting system written by Achim Blumensath. It resembles TeX, but improves on the language. There are no catcodes and programming happens in a "real", Haskell-alike programming language that has domain-specific features for typesetting. Other features include:
+ * Unicode support
+ * support for various font formats including Type1, TrueType, and OpenType
+ * partial support for advanced OpenType features;
+ * support for colour and graphics;
+ * simple page layout specifications;
+ * river detection. 
+
+For more information please take a look at the [Manual](https://github.com/Miko4/ant/blob/master/manual.pdf)
+
+
+# Building
+
+Unfortunatly Mr. Blumensath has not updated this project since the rease of version 0.8 in late 2007, so building it is requires right now a somewhat old environmnet. But thanks to @gasche this shouldn't be a problem anymore.
+
+First of all, install OPAM, the ocaml package-manager. It's included in most distributions or can follow the instructions on the offical [Homepage](https://opam.ocaml.org/).
+
+The next thing is to install OCaml 3.10.2 and libraries needed:
+
+```sh
+opam switch install 3.10.2
+opam install ocamlfind
+opam install omake
+opam install camlimages
+```
+
+After that run ./build.sh.
+
+# Errata
+
+Here are some informations from the old Readme, mostly redudant. 
 
 In order to compile ant you need:
 
