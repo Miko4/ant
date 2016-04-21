@@ -1,9 +1,9 @@
-                ANT
-         “ant is not TeX.”
+#                ANT
+### “ant is not TeX.”
 
    https://github.com/Miko4/ant
 
-         Achim Blumensath
+by  Achim Blumensath
 
 
 ANT is a typesetting system written by Achim Blumensath. It resembles TeX, but improves on the language. There are no catcodes and programming happens in a "real", Haskell-alike programming language that has domain-specific features for typesetting. Other features include:
@@ -40,12 +40,13 @@ Here are some informations from the old Readme, mostly redudant.
 
 In order to compile ant you need:
 
- o OCaml version 3.10,
- o OMake version 0.9.8.1,
- o kpathsea version 3.2,
- o FreeType version 2,
- o CamlImages version 2.2,
- o mlgmp version 0.13 (optional).
+ * OCaml version 3.10,
+ * OMake version 0.9.8.1,
+* kpathsea version 3.2,
+* FreeType version 2,
+ *  CamlImages version 2.2,
+ * mlgmp version 0.13 (optional).
+  
 
 (1) You might want to edit the file “OMakefile” to set some paths. In
 particular, the variables KPATHSEA_LDFLAGS and KPATHSEA_CFLAGS probably
@@ -53,11 +54,11 @@ need adjustment.
 
 (2) You can choose between three number libraries:
 
- o Float: (default) All computations use floating point numbers. This is
+ * Float: (default) All computations use floating point numbers. This is
           the fastest option but it might result in rounding errors.
- o Gmp:   uses the mlgmp library. This gives exact results but it
+ * Gmp:   uses the mlgmp library. This gives exact results but it
           slower.
- o Num:   Is similar to Gmp but does not depend on an external library.
+ * Num:   Is similar to Gmp but does not depend on an external library.
           This is the slowest option.
 
 You can specify the number library by setting the NUM_LIB variable in
@@ -69,9 +70,9 @@ option directly to omake, like:
 (3) You can specify which version of the compiler to use by setting the
 following variables:
 
- o NATIVE_ENABLED: If set to “true” (default) ant is compiled to native code.
- o BYTE_ENABLED: If set to “true” ant is compiled to byte code.
- o NATIVE_CAMLP4: If set to “true” (default) a native version of the preprocessor
+ * NATIVE_ENABLED: If set to “true” (default) ant is compiled to native code.
+ * BYTE_ENABLED: If set to “true” ant is compiled to byte code.
+ * NATIVE_CAMLP4: If set to “true” (default) a native version of the preprocessor
    camlp4 is created. This speeds up the compilation process.
 
 (4) Finally, to compile ant type
@@ -94,3 +95,6 @@ installed in a TeX system. To compile these documents you have to replace the
 corresponding \include{...} command by \include{fonts.ant} (which loads
 Computer Modern).
 
+# License
+
+The sourcecode is in the public domain. If this is not possbile in your jurisdiction is licensed under the terms of the WTFPL
