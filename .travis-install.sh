@@ -1,4 +1,4 @@
-sudo apt-get install libkpathsea6 libkpathsea-dev texlive-binaries
+sudo apt-get -y install libkpathsea6 libkpathsea-dev texlive-binaries
 
 wget https://raw.github.com/ocaml/opam/master/shell/opam_installer.sh -O - | sh -s /usr/local/bin
 
