@@ -5,7 +5,7 @@
 
 by  Achim Blumensath
 
-
+![Travis-CI Status](https://api.travis-ci.org/Miko4/ant.svg)
 ANT is a typesetting system written by Achim Blumensath. It resembles TeX, but improves on the language. There are no catcodes and programming happens in a "real", Haskell-alike programming language that has domain-specific features for typesetting. Other features include:
  * Unicode support
  * support for various font formats including Type1, TrueType, and OpenType
