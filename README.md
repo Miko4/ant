@@ -1,3 +1,5 @@
+![Travis-CI Status](https://api.travis-ci.org/Miko4/ant.svg)
+
 #                ANT
 ### “ant is not TeX.”
 
@@ -5,7 +7,6 @@
 
 by  Achim Blumensath
 
-![Travis-CI Status](https://api.travis-ci.org/Miko4/ant.svg)
 ANT is a typesetting system written by Achim Blumensath. It resembles TeX, but improves on the language. There are no catcodes and programming happens in a "real", Haskell-alike programming language that has domain-specific features for typesetting. Other features include:
  * Unicode support
  * support for various font formats including Type1, TrueType, and OpenType
@@ -42,9 +43,9 @@ In order to compile ant you need:
 
  * OCaml version 3.10,
  * OMake version 0.9.8.1,
-* kpathsea version 3.2,
-* FreeType version 2,
- *  CamlImages version 2.2,
+ * kpathsea version 3.2,
+ * FreeType version 2,
+ * CamlImages version 2.2,
  * mlgmp version 0.13 (optional).
   
 
