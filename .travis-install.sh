@@ -7,4 +7,4 @@ eval `opam config env`
 opam switch -y  install 3.10.2
 opam install -y omake
 opam install -y  ocamlfind
-opam insatll -y camlimages
+opam install -y camlimages
