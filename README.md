@@ -1,4 +1,4 @@
-![Travis-CI Status](https://api.travis-ci.org/Miko4/ant.svg)
+[![Travis-CI Status](https://api.travis-ci.org/Miko4/ant.svg)](https://travis-ci.org/Miko4/ant)
 
 #                ANT
 ### “ant is not TeX.”
