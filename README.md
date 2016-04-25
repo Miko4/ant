@@ -98,4 +98,4 @@ Computer Modern).
 
 # License
 
-The sourcecode is in the public domain. If this is not possbile in your jurisdiction is licensed under the terms of the WTFPL
+The original sourcecode by Blumensath is in the public domain. All newer commits are licensed under the WTFPL, or if possilbe in your jurisduction, in the public domain aswell.
