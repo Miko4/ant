@@ -580,9 +580,7 @@ value write_bitmap_font state font_number font_def = do
          ()
        else do
        {
-         IO.printf          state.os "<glyph unicode=\"";
-         IO.write_utf8_char state.os idx;
-         IO.write_string    state.os "\">";
+         IO.printf          state.os "<glyph unicode=\"&#%d;\">" (100 + idx);
 
          write_glyph_bitmap state font_def.font g;
 
@@ -600,10 +598,7 @@ value write_vector_font state font_number font_def = do
 
   for i = 0 to font_def.used_glyphs - 1 do
   {
-    IO.printf          state.os "<glyph unicode=\"";
-    IO.write_utf8_char state.os i;
-    IO.printf          state.os "\" d=\"";
-
+    IO.printf          state.os "<glyph unicode=\"&#x%d;\" d=\"" (100 + i);
     IO.write_string    state.os "\"/>\n"
   };
 
@@ -639,7 +634,7 @@ and write_char state x y c f = do
 
   IO.printf state.os "<text x=\"%fpt\" y=\"%fpt\" font-family=\"F%d\" font-size=\"%fpt\">"
     (pt_to_bp x) (pt_to_bp y) fn (pt_to_bp f.at_size);
-  IO.write_utf8_char state.os cn;
+  IO.printf state.os "&#%d;" (100+cn);
   IO.write_string    state.os "</text>"
 }
 and write_image state x y width height file _fmt = do
@@ -793,7 +788,6 @@ value write_page state page = do
 
   write_box state num_zero page.p_height page.p_contents;
 
-  IO.write_string state.os "</svg>\n"
 };
 
 value write_preamble state comment = do
@@ -827,6 +821,8 @@ value write_svg_file name comment pages = do
 
   List.iter (write_page state) pages;
 
-  write_postamble state
+  write_postamble state ;
+  
+  IO.write_string state.os "</svg>\n";
 };
 
