@@ -33,11 +33,11 @@ opam install omake
 opam install camlimages
 ```
 
-After that run ./build.sh.
+After that run ./build.sh. If you need more information how to build this, take a look at the travis-ci file.
 
 # Errata
 
-Here are some informations from the old Readme, mostly redudant. 
+Here are some informations from the old Readme, mostly redudant and probably outdated.. 
 
 In order to compile ant you need:
 
@@ -45,7 +45,7 @@ In order to compile ant you need:
  * OMake version 0.9.8.1,
  * kpathsea version 3.2,
  * FreeType version 2,
- * CamlImages version 2.2,
+ * CamlImages version 2.2-4.02, newer versions don't work yet.
  * mlgmp version 0.13 (optional).
   
 
